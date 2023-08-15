@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://B.gd" type="Script" id=1]
+[ext_resource path="res://CustomButton.tscn" type="PackedScene" id=2]
+
+[node name="CostumButton" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+script = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2( 640.061, 841.356 )
+scale = Vector2( 1.02003, 1.07738 )
+polygon = PoolVector2Array( -568.4, -369.069, -535.125, -222.053, 258.265, -282.627, 235.736, -752.36, -624.204, -735.175 )
+
+[node name="Area2D2" parent="." instance=ExtResource( 2 )]
+[connection signal="input_event" from="Area2D" to="Area2D" method="_on_Area2D_input_event"]

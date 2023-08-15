@@ -1,0 +1,74 @@
+{
+    "Grounds": {
+        "G0": {
+            "Id": 0,
+            "TreeType": "OrangeTree",
+            "Tree0": {
+                "treeType": "OrangeTree",
+                "Id": 0
+            },
+            "Tree1": {
+                "treeType": "OrangeTree",
+                "Id": 1
+            },
+            "Tree2": {
+                "treeType": "OrangeTree",
+                "Id": 2
+            }
+        },
+        "G1": {
+            "Id": 1,
+            "TreeType": "OrangeTree",
+            "Tree0": {
+                "treeType": "OrangeTree",
+                "Id": 0
+            },
+            "Tree1": {
+                "treeType": "OrangeTree",
+                "Id": 1
+            },
+            "Tree2": {
+                "treeType": "OrangeTree",
+                "Id": 2
+            }
+        }
+    },
+    "Money": 20190,
+    "Box": {
+        "Orange00": {
+            "fruits": 4,
+            "fruitType": "Orange",
+            "fruitPrice": 10,
+            "ftId": "Orange00"
+        },
+        "Orange21": {
+            "fruits": 3,
+            "fruitType": "Orange",
+            "fruitPrice": 10,
+            "ftId": "Orange21"
+        },
+        "Orange10": {
+            "fruits": 3,
+            "fruitType": "Orange",
+            "fruitPrice": 10,
+            "ftId": "Orange10"
+        },
+        "Orange11": {
+            "fruits": 1,
+            "fruitType": "Orange",
+            "fruitPrice": 10,
+            "ftId": "Orange11"
+        }
+    },
+    "AddButtons": {
+        "a11": true,
+        "a12": false,
+        "a13": false,
+        "a21": true,
+        "a22": false,
+        "a23": false,
+        "a31": false,
+        "a32": false,
+        "a33": false
+    }
+}
