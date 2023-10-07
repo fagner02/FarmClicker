@@ -4,12 +4,12 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-onready var data = load("res://Data.tres")
-onready var storage = load("res://Storage.tres")
-onready var shop = get_node("../../../DownCanvas/Shop")
-export(int) var id
+@onready var data = load("res://Data.tres")
+@onready var storage = load("res://Storage.tres")
+@onready var shop = get_node("../../../DownCanvas/Shop")
+@export var id: int
 var n = 0
-export var treeType: String
+@export var treeType: String
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

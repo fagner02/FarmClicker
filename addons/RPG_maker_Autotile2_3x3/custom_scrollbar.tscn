@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="custom_scrollbar.gd" type="Script" id=1]
-[ext_resource path="Graphics/scrollbar.png" type="Texture" id=2]
+[ext_resource path="Graphics/scrollbar.png" type="Texture2D" id=2]
 
 [node name="custom_scrollbar" type="Control"]
-margin_right = 30.0
-margin_bottom = 156.0
-rect_min_size = Vector2( 30, 100 )
+offset_right = 30.0
+offset_bottom = 156.0
+custom_minimum_size = Vector2( 30, 100 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true,
@@ -26,10 +26,10 @@ __meta__ = {
 [node name="shadow" type="NinePatchRect" parent="background"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 7.0
-margin_bottom = 7.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 7.0
+offset_bottom = 7.0
 texture = ExtResource( 2 )
 region_rect = Rect2( 56, 0, 28, 34 )
 patch_margin_left = 10
@@ -54,10 +54,10 @@ __meta__ = {
 }
 
 [node name="top" type="TextureButton" parent="."]
-margin_left = 2.0
-margin_top = 2.0
-margin_right = 28.0
-margin_bottom = 18.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 28.0
+offset_bottom = 18.0
 mouse_default_cursor_shape = 2
 __meta__ = {
 "_edit_group_": true,
@@ -67,10 +67,10 @@ __meta__ = {
 [node name="shadow" type="NinePatchRect" parent="top"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1.0
-margin_top = -4.0
-margin_right = 1.0
-margin_bottom = 2.0
+offset_left = 1.0
+offset_top = -4.0
+offset_right = 1.0
+offset_bottom = 2.0
 texture = ExtResource( 2 )
 region_rect = Rect2( 56, 0, 28, 34 )
 patch_margin_left = 10
@@ -94,7 +94,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="decoration" type="Sprite" parent="top"]
+[node name="decoration" type="Sprite2D" parent="top"]
 position = Vector2( 5, 3 )
 texture = ExtResource( 2 )
 centered = false

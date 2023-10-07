@@ -1,6 +1,6 @@
 extends Label
 
-onready var data = load("res://Data.tres") 
+@onready var data = load("res://Data.tres") 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -1,3 +1,4 @@
+@tool
 # The MIT License (MIT)
 #
 # Copyright (c) 2018 Andreas Loew / CodeAndWeb GmbH www.codeandweb.com
@@ -20,7 +21,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-tool
 extends EditorPlugin
 
 var import_plugin_tilesheet = null

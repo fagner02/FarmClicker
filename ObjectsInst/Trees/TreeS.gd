@@ -1,23 +1,23 @@
 extends Node2D
 
-export var id : float
-export var gid: float
-export var treeType : String 
-export var fruitType : String
-export var fruitPrice : float
-export var timeCounter: float
-export var fruits: int
-export var ready: bool = false
-export var click: bool = false
-onready var data = load("res://Data.tres")
-onready var trees = load("res://Storage.tres")
-onready var te = get_node("../../Background/Background/Label")
-onready var time : Timer = get_node("Timer")
-onready var anim2 = get_node("AnimationTree2").get("parameters/playback")
-onready var anim3 = get_node("AnimationTree3").get("parameters/playback")
-onready var anim = $AnimationTree4.get("parameters/playback")
-onready var loadBar = get_node("LoadBar")
-export var timeLimit : float
+@export var id : float
+@export var gid: float
+@export var treeType : String 
+@export var fruitType : String
+@export var fruitPrice : float
+@export var timeCounter: float
+@export var fruits: int
+@export var ready: bool = false
+@export var click: bool = false
+@onready var data = load("res://Data.tres")
+@onready var trees = load("res://Storage.tres")
+@onready var te = get_node("../../Background/Background/Label")
+@onready var time : Timer = get_node("Timer")
+@onready var anim2 = get_node("AnimationTree2").get("parameters/playback")
+@onready var anim3 = get_node("AnimationTree3").get("parameters/playback")
+@onready var anim = $AnimationTree4.get("parameters/playback")
+@onready var loadBar = get_node("LoadBar")
+@export var timeLimit : float
 var box
 var i = 0
 var b = false
@@ -90,12 +90,12 @@ func _on_KinematicBody2D_input_event(viewport, event, shape_idx):
 		b= false 
 		sec=0
 	while b:
-		yield(get_tree().create_timer(0.1), "timeout")
+		await get_tree().create_timer(0.1).timeout
 		sec+=1
 		if sec==5: 
 			longClick()
 			b = false
-			trees.pressed = false
+			trees.button_pressed = false
 			print("long", sec) 
 			break
 	if trees.pressed and not pressed and not b:

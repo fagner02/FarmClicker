@@ -1,6 +1,6 @@
 
 class_name JB
 
-static func Print(var dict: Dictionary):
-	var json : String = JSONBeautifier.beautify_json(JSON.print(dict), 4)
+static func Print(dict: Dictionary):
+	var json : String = JSONBeautifier.beautify_json(JSON.stringify(dict), 4)
 	return json

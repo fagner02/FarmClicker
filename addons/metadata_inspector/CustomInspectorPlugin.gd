@@ -1,4 +1,4 @@
-tool
+@tool
 extends EditorInspectorPlugin
 
 
@@ -11,7 +11,7 @@ func can_handle(object):
 				if n1.is_class("EditorPlugin"):
 					if "is_metadata_inspector" in n1:
 						 metadata_inspector = n1
-		if object.get_filename().length() > 0 and object.get_filename() != object.get_tree().edited_scene_root.filename:
+		if object.get_scene_file_path().length() > 0 and object.get_scene_file_path() != object.get_tree().edited_scene_root.filename:
 			metadata_inspector.set_nonodelabel("Please edit the metadata from inside the scene of this instance.")
 		else:
 			metadata_inspector.update_node(object, ["load"], {}, [[], "new"])

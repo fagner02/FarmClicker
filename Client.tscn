@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Graphs/sketch-1587966509266.png" type="Texture" id=1]
+[ext_resource path="res://Graphs/sketch-1587966509266.png" type="Texture2D" id=1]
 
-[node name="Sprite" type="Sprite"]
+[node name="Sprite2D" type="Sprite2D"]
 position = Vector2( 1072.95, 978.066 )
 scale = Vector2( 0.1, 0.1 )
 z_index = 2

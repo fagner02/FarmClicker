@@ -1,7 +1,7 @@
 extends Area2D
 
 signal click
-onready var grass = load("res://ObjectsInst/Grass1.tscn")
+@onready var grass = load("res://ObjectsInst/Grass1.tscn")
 var move: bool = false
 var pos: Vector2
 # Called when the node enters the scene tree for the first time.
@@ -33,7 +33,7 @@ func _on_Button_input_event(viewport, event, shape_idx):
 		move = true
 	if event is InputEventMouseButton and not event.pressed:
 		move = false
-		var temp =grass.instance()
+		var temp =grass.instantiate()
 		temp.visible = true
 		temp.position = get_global_mouse_position()
 		get_parent().get_parent().call_deferred('add_child', temp)

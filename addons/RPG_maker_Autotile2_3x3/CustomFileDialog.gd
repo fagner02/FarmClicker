@@ -1,10 +1,10 @@
 extends Control
 
-export(String, DIR)		var initial_folder				= "res://"
-export(Array, String)	var valid_files					= ["png"]
-export(bool)			var allow_multiple_selection 	= false
-export(bool)			var directory_mode				= false
-export(bool)			var allow_external_files		= false
+@export(String, DIR)		var initial_folder				= "res://"
+@export(Array, String)	var valid_files					= ["png"]
+@export(bool)			var allow_multiple_selection 	= false
+@export(bool)			var directory_mode				= false
+@export(bool)			var allow_external_files		= false
 
 var last_position = null
 var directory_history = []
@@ -21,17 +21,17 @@ var process_file_stack = []
 var max_child_added_by_ticks = 4
 var drag = false
 
-onready var window_title 					= $PanelTop/WindowTitle
-onready var scroll_container 				= $PanelBottom/ScrollContainer
-onready var Grid 							= $PanelBottom/ScrollContainer/VBoxContainer/Grid
-onready var path_line_edit					= $PanelBottom/path_LineEdit
-onready var driver_selector					= $PanelBottom/drive_select_option_button
-onready var file_line_edit					= $PanelBottom/file_LineEdit
-onready var ok_button						= $PanelBottom/okButton
-onready var back_button						= $PanelBottom/backButton
-onready var hide_panel						= $hide_behind_controls
-onready var create_folder_dialog			= $create_folder_dialog
-onready var create_folder_dialog_lineedit	= $create_folder_dialog/LineEdit
+@onready var window_title 					= $PanelTop/WindowTitle
+@onready var scroll_container 				= $PanelBottom/ScrollContainer
+@onready var Grid 							= $PanelBottom/ScrollContainer/VBoxContainer/Grid
+@onready var path_line_edit					= $PanelBottom/path_LineEdit
+@onready var driver_selector					= $PanelBottom/drive_select_option_button
+@onready var file_line_edit					= $PanelBottom/file_LineEdit
+@onready var ok_button						= $PanelBottom/okButton
+@onready var back_button						= $PanelBottom/backButton
+@onready var hide_panel						= $hide_behind_controls
+@onready var create_folder_dialog			= $create_folder_dialog
+@onready var create_folder_dialog_lineedit	= $create_folder_dialog/LineEdit
 
 signal select_files(files_string_array)
 
@@ -39,23 +39,23 @@ var current_id = 0
 var start_selection
 
 func _ready() -> void:
-	if !is_connected("visibility_changed", self, "_on_CustomFileDialog_visibility_changed"):
-		connect("visibility_changed", self, "_on_CustomFileDialog_visibility_changed")
+	if !is_connected("visibility_changed", Callable(self, "_on_CustomFileDialog_visibility_changed")):
+		connect("visibility_changed", Callable(self, "_on_CustomFileDialog_visibility_changed"))
 	fill_drive_letter()
 	select_drive_letter_from(initial_folder)
 	set_allow_external_files_visibility(allow_external_files)
-	Grid.rect_min_size = scroll_container.rect_size
+	Grid.custom_minimum_size = scroll_container.size
 	set_initial_folder(initial_folder)
 	
 func fill_drive_letter():
-	var dir = Directory.new()
+	var dir = DirAccess.new()
 	var drives = dir.get_drive_count()
 	for i in drives:
 		driver_selector.add_item(dir.get_drive(i))
 		
 func set_allow_external_files_visibility(value):
 	driver_selector.visible = value
-	path_line_edit.rect_size.x = 322 if !value else 263
+	path_line_edit.size.x = 322 if !value else 263
 	allow_external_files = value
 	
 func _process(delta: float) -> void:
@@ -63,7 +63,7 @@ func _process(delta: float) -> void:
 		var _to = min(max_child_added_by_ticks, process_file_stack.size())
 		for i in _to:
 			var file = process_file_stack.pop_front()
-			var obj = default_file.instance()
+			var obj = default_file.instantiate()
 			var _texture
 			if file.is_directory:
 				_texture = default_icons.folder
@@ -81,11 +81,11 @@ func _process(delta: float) -> void:
 			obj.id = current_id
 			obj.directory_mode = directory_mode
 			if directory_mode and file.is_directory:
-				obj.hint_tooltip = "Double click to open"
+				obj.tooltip_text = "Double click to open"
 			Grid.add_child(obj)
-			obj.connect("change_directory", self, "change_directory")
-			obj.connect("dblClick", self, "select_file_by_dblClick")
-			obj.connect("selected", self, "select_file")
+			obj.connect("change_directory", Callable(self, "change_directory"))
+			obj.connect("dblClick", Callable(self, "select_file_by_dblClick"))
+			obj.connect("selected", Callable(self, "select_file"))
 			current_id += 1
 			
 
@@ -94,7 +94,7 @@ func change_directory(_path, _id):
 		return
 	current_id = 0
 	directory_history.append(initial_folder)
-	back_button.hint_tooltip = "Go To \"%s\"" % initial_folder
+	back_button.tooltip_text = "Go To \"%s\"" % initial_folder
 	initial_folder = _path + "/" if _path[_path.length() - 1] != "/" else _path
 	select_drive_letter_from(initial_folder)
 	populate_files()
@@ -104,7 +104,7 @@ func select_drive_letter_from(_path):
 	if _path.substr(0, 6) == "res://":
 		_path = ProjectSettings.globalize_path(initial_folder)
 	var drive = _path.split("/")[0]
-	var dir = Directory.new()
+	var dir = DirAccess.new()
 	var drives = dir.get_drive_count()
 	var index = 0
 	for i in drives:
@@ -169,7 +169,7 @@ func select_file(_file, _id):
 
 func populate_files():
 	current_id = 0
-	var dir := Directory.new()
+	var dir := DirAccess.new()
 	if !dir.dir_exists(initial_folder):
 		if allow_external_files:
 			initial_folder = ProjectSettings.globalize_path("res://")
@@ -191,7 +191,7 @@ func move_window(event):
 	if event is InputEventMouseMotion and drag:
 		if last_position == null:
 			last_position = event.position
-		rect_global_position += event.position - last_position
+		global_position += event.position - last_position
 	elif event is InputEventMouseButton and event.button_index == 1:
 		if event.is_pressed():
 			drag = true
@@ -201,9 +201,9 @@ func move_window(event):
 	ok_button.grab_focus()
 	
 func list_files_in_directory(path):
-	var dir = Directory.new()
+	var dir = DirAccess.new()
 	dir.open(path)
-	dir.list_dir_begin(true, true)
+	dir.list_dir_begin() # TODOConverter3To4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 
 	var directories = []
 	while true:
@@ -254,9 +254,9 @@ func _on_backButton_button_up() -> void:
 		change_directory(_path, 0)
 		directory_history.pop_back()
 		if directory_history.size() != 0:
-			back_button.hint_tooltip = "Go To \"%s\"" % directory_history[-1]
+			back_button.tooltip_text = "Go To \"%s\"" % directory_history[-1]
 		else:
-			back_button.hint_tooltip = " "
+			back_button.tooltip_text = " "
 
 func _on_okButton_button_down() -> void:
 	# select current file/s
@@ -281,7 +281,7 @@ func _on_CloseButton_button_up() -> void:
 	
 func show():
 	populate_files()
-	.show()
+	super.show()
 	ok_button.grab_focus()
 
 
@@ -291,7 +291,7 @@ func _on_createDirectory_button_up() -> void:
 	create_folder_dialog_lineedit.text = ""
 	create_folder_dialog_lineedit.grab_focus()
 	create_folder_dialog_lineedit.select_all()
-	create_folder_dialog_lineedit.caret_position = create_folder_dialog_lineedit.text.length()
+	create_folder_dialog_lineedit.caret_column = create_folder_dialog_lineedit.text.length()
 
 
 func _on_cancel_button_button_up() -> void:
@@ -303,10 +303,10 @@ func _on_create_folder_ok_button_button_up() -> void:
 	if text.length() != 0:
 		# Create a new directory if no exists and go into it
 		var path = initial_folder + create_folder_dialog_lineedit.text
-		var dir := Directory.new()
+		var dir := DirAccess.new()
 		if !dir.dir_exists(path):
 			dir.make_dir_recursive(path)
-		yield(get_tree(), "idle_frame")
+		await get_tree().idle_frame
 		change_directory(path, 0)
 	show_create_folder_dialog(false)
 
@@ -340,25 +340,25 @@ func set_initial_folder(path : String) -> void:
 			directory_history.append(ProjectSettings.globalize_path("res://"))
 		else:
 			directory_history.append("res://")
-		back_button.hint_tooltip = "Go To \"%s\"" % directory_history[-1]
+		back_button.tooltip_text = "Go To \"%s\"" % directory_history[-1]
 	else:
 		history.remove(history.size() - 1)
 		directory_history.clear()
 		while history.size() > 0:
 			if allow_external_files:
-				directory_history.append(history.join("/"))
+				directory_history."/".join(append(history))
 			else:
-				directory_history.append("res://" + history.join("/"))
+				directory_history.append("res://" + "/".join(history))
 			history.remove(history.size() - 1)
 		if directory_history.size() != 0:
 			if !allow_external_files:
 				directory_history.append("res://")
 			directory_history.invert()
-			back_button.hint_tooltip = "Go To \"%s\"" % directory_history[-1]
+			back_button.tooltip_text = "Go To \"%s\"" % directory_history[-1]
 		else:
-			back_button.hint_tooltip = " "
+			back_button.tooltip_text = " "
 	if directory_history.size() == 1 and directory_history[0] == initial_folder:
-		back_button.hint_tooltip = " "
+		back_button.tooltip_text = " "
 		directory_history.clear()
 
 
@@ -411,7 +411,7 @@ func _on_drive_select_option_button_item_selected(index: int) -> void:
 
 func _on_cancel_button_focus_exited() -> void:
 	if !self.visible: return
-	yield(get_tree(), "idle_frame")
+	await get_tree().idle_frame
 	create_folder_dialog_lineedit.grab_focus()
 
 

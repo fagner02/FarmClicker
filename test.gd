@@ -21,7 +21,7 @@ func load_test_packed_json():
 
 func test_load_instance():
 	var packed_json = load_test_packed_json()
-	var result = packed_json.instance()
+	var result = packed_json.instantiate()
 	assert(null != result)
 	assert(result['glossary'])
 

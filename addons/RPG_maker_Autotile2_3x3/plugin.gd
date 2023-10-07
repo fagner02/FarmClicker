@@ -1,4 +1,4 @@
-tool
+@tool
 extends EditorPlugin
 
 # Initial variables:
@@ -21,7 +21,7 @@ func clickedButton(ud):
 	ProjectSettings.save()
 	var executable = OS.get_executable_path()
 	var array = ["res://Addons/RPG_maker_Autotile2_3x3/CreateAutoTile.tscn"]
-	var args = PoolStringArray(array)
+	var args = PackedStringArray(array)
 	OS.execute(executable, args)
 	ProjectSettings.set_setting("application/config/icon", _icon)
 	ProjectSettings.set_setting("application/config/name", _name)
@@ -36,5 +36,5 @@ func _exit_tree():
 	pass
 
 # Plugin name:
-func get_plugin_name()-> String: 
+func _get_plugin_name()-> String: 
 	return "Create Autotile from RPG Makers tilesets";

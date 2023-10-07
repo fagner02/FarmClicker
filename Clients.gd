@@ -1,8 +1,8 @@
 extends Node2D
 
 signal collect
-onready var timer = get_node("Timer")
-export var time: int
+@onready var timer = get_node("Timer")
+@export var time: int
 var counter
 var x
 

@@ -1,42 +1,42 @@
 [gd_scene load_steps=120 format=2]
 
-[ext_resource path="Graphics/center_button_normal.png" type="Texture" id=1]
+[ext_resource path="Graphics/center_button_normal.png" type="Texture2D" id=1]
 [ext_resource path="CreateAutoTile.gd" type="Script" id=2]
 [ext_resource path="custom_scrollbar.tscn" type="PackedScene" id=3]
-[ext_resource path="Graphics/cursors.png" type="Texture" id=4]
+[ext_resource path="Graphics/cursors.png" type="Texture2D" id=4]
 [ext_resource path="theme.tres" type="Theme" id=5]
-[ext_resource path="Graphics/canvas_background.png" type="Texture" id=6]
-[ext_resource path="Graphics/background1.png" type="Texture" id=7]
-[ext_resource path="Graphics/shadow_for_dialogs.png" type="Texture" id=8]
+[ext_resource path="Graphics/canvas_background.png" type="Texture2D" id=6]
+[ext_resource path="Graphics/background1.png" type="Texture2D" id=7]
+[ext_resource path="Graphics/shadow_for_dialogs.png" type="Texture2D" id=8]
 [ext_resource path="CustomFileDialog.tscn" type="PackedScene" id=9]
-[ext_resource path="Graphics/center_button_over.png" type="Texture" id=10]
-[ext_resource path="Graphics/ok_button_over.png" type="Texture" id=11]
-[ext_resource path="Graphics/arrow_decoration_1.png" type="Texture" id=12]
-[ext_resource path="Graphics/arrow_decoration_2.png" type="Texture" id=13]
-[ext_resource path="Graphics/cancel_button_normal.png" type="Texture" id=14]
-[ext_resource path="Graphics/dialog_selector.png" type="Texture" id=15]
-[ext_resource path="Graphics/ok_button_normal.png" type="Texture" id=16]
-[ext_resource path="Graphics/cancel_button_over.png" type="Texture" id=17]
-[ext_resource path="Graphics/arrow_down_button_over.png" type="Texture" id=18]
-[ext_resource path="Graphics/arrow_down_button_disabled.png" type="Texture" id=19]
-[ext_resource path="Graphics/arrow_down_button_normal.png" type="Texture" id=20]
-[ext_resource path="Graphics/paste_image_button_disabled.png" type="Texture" id=21]
-[ext_resource path="Graphics/paste_image_button_over.png" type="Texture" id=22]
-[ext_resource path="Graphics/paste_image_button_normal.png" type="Texture" id=23]
-[ext_resource path="Graphics/arrow_up_button_disabled.png" type="Texture" id=24]
-[ext_resource path="Graphics/arrow_up_button_over.png" type="Texture" id=25]
-[ext_resource path="Graphics/arrow_up_button_normal.png" type="Texture" id=26]
-[ext_resource path="Fonts/KOMIKAX_.ttf" type="DynamicFontData" id=27]
-[ext_resource path="Graphics/animation_button_disabled.png" type="Texture" id=28]
-[ext_resource path="Graphics/animation_button_over.png" type="Texture" id=29]
-[ext_resource path="Graphics/animation_button_normal.png" type="Texture" id=30]
-[ext_resource path="Graphics/error_icon.png" type="Texture" id=31]
-[ext_resource path="Graphics/loading.png" type="Texture" id=32]
-[ext_resource path="Graphics/edit_button_disabled.png" type="Texture" id=33]
-[ext_resource path="Graphics/edit_button_over.png" type="Texture" id=34]
-[ext_resource path="Graphics/edit_button_normal.png" type="Texture" id=35]
+[ext_resource path="Graphics/center_button_over.png" type="Texture2D" id=10]
+[ext_resource path="Graphics/ok_button_over.png" type="Texture2D" id=11]
+[ext_resource path="Graphics/arrow_decoration_1.png" type="Texture2D" id=12]
+[ext_resource path="Graphics/arrow_decoration_2.png" type="Texture2D" id=13]
+[ext_resource path="Graphics/cancel_button_normal.png" type="Texture2D" id=14]
+[ext_resource path="Graphics/dialog_selector.png" type="Texture2D" id=15]
+[ext_resource path="Graphics/ok_button_normal.png" type="Texture2D" id=16]
+[ext_resource path="Graphics/cancel_button_over.png" type="Texture2D" id=17]
+[ext_resource path="Graphics/arrow_down_button_over.png" type="Texture2D" id=18]
+[ext_resource path="Graphics/arrow_down_button_disabled.png" type="Texture2D" id=19]
+[ext_resource path="Graphics/arrow_down_button_normal.png" type="Texture2D" id=20]
+[ext_resource path="Graphics/paste_image_button_disabled.png" type="Texture2D" id=21]
+[ext_resource path="Graphics/paste_image_button_over.png" type="Texture2D" id=22]
+[ext_resource path="Graphics/paste_image_button_normal.png" type="Texture2D" id=23]
+[ext_resource path="Graphics/arrow_up_button_disabled.png" type="Texture2D" id=24]
+[ext_resource path="Graphics/arrow_up_button_over.png" type="Texture2D" id=25]
+[ext_resource path="Graphics/arrow_up_button_normal.png" type="Texture2D" id=26]
+[ext_resource path="Fonts/KOMIKAX_.ttf" type="FontFile" id=27]
+[ext_resource path="Graphics/animation_button_disabled.png" type="Texture2D" id=28]
+[ext_resource path="Graphics/animation_button_over.png" type="Texture2D" id=29]
+[ext_resource path="Graphics/animation_button_normal.png" type="Texture2D" id=30]
+[ext_resource path="Graphics/error_icon.png" type="Texture2D" id=31]
+[ext_resource path="Graphics/loading.png" type="Texture2D" id=32]
+[ext_resource path="Graphics/edit_button_disabled.png" type="Texture2D" id=33]
+[ext_resource path="Graphics/edit_button_over.png" type="Texture2D" id=34]
+[ext_resource path="Graphics/edit_button_normal.png" type="Texture2D" id=35]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="FontFile" id=1]
 size = 13
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
@@ -44,9 +44,9 @@ font_data = ExtResource( 27 )
 
 [sub_resource type="InputEventKey" id=2]
 pressed = true
-scancode = 79
+keycode = 79
 
-[sub_resource type="ShortCut" id=3]
+[sub_resource type="Shortcut" id=3]
 shortcut = SubResource( 2 )
 
 [sub_resource type="StyleBoxFlat" id=4]
@@ -65,17 +65,17 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
 [sub_resource type="InputEventKey" id=6]
-scancode = 16777224
+keycode = 16777224
 
-[sub_resource type="ShortCut" id=7]
+[sub_resource type="Shortcut" id=7]
 shortcut = SubResource( 6 )
 
 [sub_resource type="InputEventKey" id=8]
 control = true
 command = true
-scancode = 78
+keycode = 78
 
-[sub_resource type="ShortCut" id=9]
+[sub_resource type="Shortcut" id=9]
 shortcut = SubResource( 8 )
 
 [sub_resource type="StyleBoxFlat" id=10]
@@ -93,31 +93,31 @@ corner_radius_bottom_left = 2
 [sub_resource type="InputEventKey" id=11]
 control = true
 command = true
-scancode = 83
+keycode = 83
 
-[sub_resource type="ShortCut" id=12]
+[sub_resource type="Shortcut" id=12]
 shortcut = SubResource( 11 )
 
 [sub_resource type="InputEventKey" id=13]
-scancode = 16777217
+keycode = 16777217
 
-[sub_resource type="ShortCut" id=14]
+[sub_resource type="Shortcut" id=14]
 shortcut = SubResource( 13 )
 
 [sub_resource type="InputEventKey" id=15]
-scancode = 16777221
+keycode = 16777221
 
-[sub_resource type="ShortCut" id=16]
+[sub_resource type="Shortcut" id=16]
 shortcut = SubResource( 15 )
 
-[sub_resource type="DynamicFont" id=17]
+[sub_resource type="FontFile" id=17]
 size = 20
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
-extra_spacing_bottom = -8
+spacing_bottom = -8
 font_data = ExtResource( 27 )
 
-[sub_resource type="DynamicFont" id=84]
+[sub_resource type="FontFile" id=84]
 size = 18
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
@@ -136,9 +136,9 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
 [sub_resource type="InputEventKey" id=19]
-scancode = 16777217
+keycode = 16777217
 
-[sub_resource type="ShortCut" id=20]
+[sub_resource type="Shortcut" id=20]
 shortcut = SubResource( 19 )
 
 [sub_resource type="Animation" id=21]
@@ -151,8 +151,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.4, 0.6 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.105882 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -163,8 +163,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.4, 0.6 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.105882 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -175,8 +175,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.4, 0.6 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.0627451 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -495,7 +495,7 @@ animations = [ {
 [node name="CreateAutoTile" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = 168.0
+offset_bottom = 168.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource( 5 )
@@ -514,10 +514,10 @@ __meta__ = {
 }
 
 [node name="ImageList" type="Panel" parent="."]
-margin_left = 16.0
-margin_top = 29.0
-margin_right = 376.0
-margin_bottom = 333.0
+offset_left = 16.0
+offset_top = 29.0
+offset_right = 376.0
+offset_bottom = 333.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -527,8 +527,8 @@ __meta__ = {
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 40.0
-margin_bottom = 40.0
+offset_right = 40.0
+offset_bottom = 40.0
 texture = ExtResource( 8 )
 stretch_mode = 1
 __meta__ = {
@@ -537,8 +537,8 @@ __meta__ = {
 
 [node name="title" type="Label" parent="ImageList"]
 anchor_right = 1.0
-margin_bottom = 41.0
-custom_colors/font_color = Color( 0.396078, 0.858824, 1, 1 )
+offset_bottom = 41.0
+theme_override_colors/font_color = Color( 0.396078, 0.858824, 1, 1 )
 text = "Loaded Images:"
 align = 1
 valign = 1
@@ -549,11 +549,11 @@ __meta__ = {
 [node name="list" type="ItemList" parent="ImageList"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = 40.0
-margin_right = -20.0
-margin_bottom = -52.0
-custom_fonts/font = SubResource( 1 )
+offset_left = 20.0
+offset_top = 40.0
+offset_right = -20.0
+offset_bottom = -52.0
+theme_override_fonts/font = SubResource( 1 )
 max_text_lines = 5
 __meta__ = {
 "_edit_use_anchors_": false
@@ -563,11 +563,11 @@ __meta__ = {
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = -45.0
-margin_right = -20.0
-margin_bottom = -20.0
-hint_tooltip = "Upload images from your hard drives"
+offset_left = 20.0
+offset_top = -45.0
+offset_right = -20.0
+offset_bottom = -20.0
+tooltip_text = "Upload images from your hard drives"
 mouse_default_cursor_shape = 2
 shortcut = SubResource( 3 )
 text = "Load More"
@@ -576,10 +576,10 @@ __meta__ = {
 }
 
 [node name="AutoTileConfig" type="Panel" parent="."]
-margin_left = 16.0
-margin_top = 344.0
-margin_right = 418.0
-margin_bottom = 648.0
+offset_left = 16.0
+offset_top = 344.0
+offset_right = 418.0
+offset_bottom = 648.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -589,8 +589,8 @@ __meta__ = {
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 40.0
-margin_bottom = 40.0
+offset_right = 40.0
+offset_bottom = 40.0
 texture = ExtResource( 8 )
 stretch_mode = 1
 __meta__ = {
@@ -599,8 +599,8 @@ __meta__ = {
 
 [node name="title" type="Label" parent="AutoTileConfig"]
 anchor_right = 1.0
-margin_bottom = 41.0
-custom_colors/font_color = Color( 0.396078, 0.858824, 1, 1 )
+offset_bottom = 41.0
+theme_override_colors/font_color = Color( 0.396078, 0.858824, 1, 1 )
 text = "Tile presets:"
 align = 1
 valign = 1
@@ -610,10 +610,10 @@ __meta__ = {
 
 [node name="OptionButton" type="OptionButton" parent="AutoTileConfig"]
 anchor_right = 1.0
-margin_left = 8.0
-margin_top = 40.0
-margin_right = -8.0
-margin_bottom = 48.0
+offset_left = 8.0
+offset_top = 40.0
+offset_right = -8.0
+offset_bottom = 48.0
 mouse_default_cursor_shape = 2
 text = "AUTOTILE XP"
 items = [ "AUTOTILE XP", null, false, 0, null, "AUTOTILE VXACE - FLOOR", null, false, 1, null, "AUTOTILE VXACE - WALL", null, false, 2, null, "AUTOTILE VXACE - WATERFALL", null, false, 3, null, "AUTOTILE MV - FLOOR", null, false, 4, null, "AUTOTILE MV - WALL", null, false, 5, null, "AUTOTILE MV - WATERFALL", null, false, 6, null, "CUSTOM AUTOTILE", null, false, 7, null, "SINGLE TILE", null, false, 8, null ]
@@ -623,12 +623,12 @@ __meta__ = {
 }
 
 [node name="title2" type="Label" parent="AutoTileConfig"]
-margin_left = 20.0
-margin_top = 88.0
-margin_right = 155.0
-margin_bottom = 129.0
-rect_scale = Vector2( 0.8, 0.5 )
-custom_colors/font_color = Color( 0.396078, 0.858824, 1, 1 )
+offset_left = 20.0
+offset_top = 88.0
+offset_right = 155.0
+offset_bottom = 129.0
+scale = Vector2( 0.8, 0.5 )
+theme_override_colors/font_color = Color( 0.396078, 0.858824, 1, 1 )
 text = "PREVIEW"
 align = 1
 valign = 1
@@ -639,19 +639,19 @@ __meta__ = {
 [node name="preview_texture" type="TextureRect" parent="AutoTileConfig"]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = 20.0
-margin_top = -40.0
-margin_right = 128.0
-margin_bottom = 96.0
+offset_left = 20.0
+offset_top = -40.0
+offset_right = 128.0
+offset_bottom = 96.0
 expand = true
 stretch_mode = 7
 
 [node name="columns" type="Label" parent="AutoTileConfig"]
-margin_left = 144.0
-margin_top = 72.0
-margin_right = 267.0
-margin_bottom = 113.0
-rect_scale = Vector2( 0.8, 1 )
+offset_left = 144.0
+offset_top = 72.0
+offset_right = 267.0
+offset_bottom = 113.0
+scale = Vector2( 0.8, 1 )
 text = "columns:"
 valign = 1
 __meta__ = {
@@ -659,17 +659,17 @@ __meta__ = {
 }
 
 [node name="SpinBox" type="SpinBox" parent="AutoTileConfig/columns"]
-margin_top = 40.0
-margin_right = 74.0
-margin_bottom = 64.0
-rect_scale = Vector2( 1.4, 1.2 )
+offset_top = 40.0
+offset_right = 74.0
+offset_bottom = 64.0
+scale = Vector2( 1.4, 1.2 )
 editable = false
 
 [node name="rows" type="Label" parent="AutoTileConfig"]
-margin_left = 269.0
-margin_top = 72.0
-margin_right = 349.0
-margin_bottom = 113.0
+offset_left = 269.0
+offset_top = 72.0
+offset_right = 349.0
+offset_bottom = 113.0
 text = "rows:"
 valign = 1
 __meta__ = {
@@ -677,20 +677,20 @@ __meta__ = {
 }
 
 [node name="SpinBox" type="SpinBox" parent="AutoTileConfig/rows"]
-margin_left = -1.52588e-05
-margin_top = 40.0
-margin_right = 74.0
-margin_bottom = 64.0
-rect_scale = Vector2( 1.2, 1.2 )
+offset_left = -1.52588e-05
+offset_top = 40.0
+offset_right = 74.0
+offset_bottom = 64.0
+scale = Vector2( 1.2, 1.2 )
 editable = false
 
 [node name="size_tiles" type="Label" parent="AutoTileConfig"]
-margin_left = 144.0
-margin_top = 155.0
-margin_right = 314.0
-margin_bottom = 196.0
-rect_scale = Vector2( 0.952662, 0.525765 )
-custom_colors/font_color = Color( 0.396078, 0.858824, 1, 1 )
+offset_left = 144.0
+offset_top = 155.0
+offset_right = 314.0
+offset_bottom = 196.0
+scale = Vector2( 0.952662, 0.525765 )
+theme_override_colors/font_color = Color( 0.396078, 0.858824, 1, 1 )
 text = "Size of tiles:"
 valign = 1
 __meta__ = {
@@ -698,10 +698,10 @@ __meta__ = {
 }
 
 [node name="tile_width" type="Label" parent="AutoTileConfig"]
-margin_left = 144.0
-margin_top = 168.0
-margin_right = 233.0
-margin_bottom = 209.0
+offset_left = 144.0
+offset_top = 168.0
+offset_right = 233.0
+offset_bottom = 209.0
 text = "width:"
 valign = 1
 __meta__ = {
@@ -709,22 +709,22 @@ __meta__ = {
 }
 
 [node name="SpinBox" type="SpinBox" parent="AutoTileConfig/tile_width"]
-margin_left = -1.52588e-05
-margin_top = 40.0
-margin_right = 74.0
-margin_bottom = 64.0
-rect_scale = Vector2( 1.2, 1.2 )
-hint_tooltip = "Width of the tile"
+offset_left = -1.52588e-05
+offset_top = 40.0
+offset_right = 74.0
+offset_bottom = 64.0
+scale = Vector2( 1.2, 1.2 )
+tooltip_text = "Width of the tile"
 min_value = 1.0
 max_value = 3840.0
 value = 1.0
 editable = false
 
 [node name="tile_height" type="Label" parent="AutoTileConfig"]
-margin_left = 269.0
-margin_top = 168.0
-margin_right = 363.0
-margin_bottom = 209.0
+offset_left = 269.0
+offset_top = 168.0
+offset_right = 363.0
+offset_bottom = 209.0
 text = "height:"
 valign = 1
 __meta__ = {
@@ -732,12 +732,12 @@ __meta__ = {
 }
 
 [node name="SpinBox" type="SpinBox" parent="AutoTileConfig/tile_height"]
-margin_left = -1.52588e-05
-margin_top = 40.0
-margin_right = 74.0
-margin_bottom = 64.0
-rect_scale = Vector2( 1.2, 1.2 )
-hint_tooltip = "Height of the tile"
+offset_left = -1.52588e-05
+offset_top = 40.0
+offset_right = 74.0
+offset_bottom = 64.0
+scale = Vector2( 1.2, 1.2 )
+tooltip_text = "Height of the tile"
 focus_next = NodePath("../../columns/SpinBox")
 focus_previous = NodePath("../../columns/SpinBox")
 min_value = 1.0
@@ -746,10 +746,10 @@ value = 1.0
 editable = false
 
 [node name="tile_layout" type="Label" parent="AutoTileConfig"]
-margin_left = 25.0
-margin_top = 256.0
-margin_right = 119.0
-margin_bottom = 297.0
+offset_left = 25.0
+offset_top = 256.0
+offset_right = 119.0
+offset_bottom = 297.0
 text = "Layout:"
 valign = 1
 __meta__ = {
@@ -757,11 +757,11 @@ __meta__ = {
 }
 
 [node name="OptionButton" type="OptionButton" parent="AutoTileConfig/tile_layout"]
-margin_left = 119.0
-margin_top = 4.0
-margin_right = 235.0
-margin_bottom = 38.0
-hint_tooltip = "Pattern layout  for the Autotiles:
+offset_left = 119.0
+offset_top = 4.0
+offset_right = 235.0
+offset_bottom = 38.0
+tooltip_text = "Pattern layout  for the Autotiles:
 
 - Old Style : Autotiles from RPG Maker XP
 - New Style: Autotiles from RPG Maker VX, ACE and MV"
@@ -772,11 +772,11 @@ items = [ "Old Style", null, false, 0, null, "New Style", null, false, 1, null ]
 selected = 0
 
 [node name="OptionButton2" type="OptionButton" parent="AutoTileConfig/tile_layout"]
-margin_left = 245.0
-margin_top = 4.0
-margin_right = 361.0
-margin_bottom = 38.0
-hint_tooltip = "Type of the Autotile:
+offset_left = 245.0
+offset_top = 4.0
+offset_right = 361.0
+offset_bottom = 38.0
+tooltip_text = "Type of the Autotile:
 
 -Floor: Autotiles used to draw grounds
 - Wall: Autotiles used to draw walls
@@ -788,10 +788,10 @@ items = [ "Floor", null, false, 0, null, "Wall", null, false, 1, null, "Waterfal
 selected = 0
 
 [node name="SelectedImage" type="Panel" parent="."]
-margin_left = 404.0
-margin_top = 29.0
-margin_right = 836.0
-margin_bottom = 333.0
+offset_left = 404.0
+offset_top = 29.0
+offset_right = 836.0
+offset_bottom = 333.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -801,8 +801,8 @@ __meta__ = {
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 54.0
-margin_bottom = 43.0
+offset_right = 54.0
+offset_bottom = 43.0
 texture = ExtResource( 8 )
 stretch_mode = 1
 __meta__ = {
@@ -811,8 +811,8 @@ __meta__ = {
 
 [node name="title" type="Label" parent="SelectedImage"]
 anchor_right = 1.0
-margin_bottom = 41.0
-custom_colors/font_color = Color( 0.396078, 0.858824, 1, 1 )
+offset_bottom = 41.0
+theme_override_colors/font_color = Color( 0.396078, 0.858824, 1, 1 )
 text = "image Selected:"
 align = 1
 valign = 1
@@ -823,10 +823,10 @@ __meta__ = {
 [node name="TilesetContainer" type="Control" parent="SelectedImage"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 40.0
-margin_right = -35.0
-margin_bottom = -35.0
+offset_left = 10.0
+offset_top = 40.0
+offset_right = -35.0
+offset_bottom = -35.0
 mouse_filter = 2
 __meta__ = {
 "_edit_group_": true,
@@ -837,7 +837,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_default_cursor_shape = 2
-custom_styles/panel = SubResource( 4 )
+theme_override_styles/panel = SubResource( 4 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -855,15 +855,15 @@ __meta__ = {
 [node name="Container" type="Control" parent="SelectedImage/TilesetContainer/Tileset"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_clip_content = true
+clip_contents = true
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Image" type="TextureRect" parent="SelectedImage/TilesetContainer/Tileset/Container"]
-margin_right = 424.0
-margin_bottom = 264.0
+offset_right = 424.0
+offset_bottom = 264.0
 mouse_filter = 2
 stretch_mode = 3
 __meta__ = {
@@ -872,8 +872,8 @@ __meta__ = {
 
 [node name="CursorSelected" type="NinePatchRect" parent="SelectedImage/TilesetContainer/Tileset/Container/Image"]
 visible = false
-margin_right = 20.0
-margin_bottom = 20.0
+offset_right = 20.0
+offset_bottom = 20.0
 texture = ExtResource( 4 )
 region_rect = Rect2( 0, 0, 96, 144 )
 patch_margin_left = 10
@@ -883,8 +883,8 @@ patch_margin_bottom = 10
 
 [node name="CursorMouseOver" type="NinePatchRect" parent="SelectedImage/TilesetContainer/Tileset/Container/Image"]
 visible = false
-margin_right = 20.0
-margin_bottom = 20.0
+offset_right = 20.0
+offset_bottom = 20.0
 texture = ExtResource( 4 )
 region_rect = Rect2( 192, 0, 96, 144 )
 patch_margin_left = 10
@@ -894,8 +894,8 @@ patch_margin_bottom = 10
 
 [node name="CursorDrag" type="NinePatchRect" parent="SelectedImage/TilesetContainer/Tileset/Container/Image"]
 visible = false
-margin_right = 20.0
-margin_bottom = 20.0
+offset_right = 20.0
+offset_bottom = 20.0
 texture = ExtResource( 4 )
 region_rect = Rect2( 96, 0, 96, 144 )
 patch_margin_left = 10
@@ -907,16 +907,16 @@ patch_margin_bottom = 10
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 0.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 100, 30 )
+offset_right = 0.0
+offset_bottom = 30.0
+custom_minimum_size = Vector2( 100, 30 )
 scrollbar_design = "Horizontal"
 
 [node name="VerticalBar" parent="SelectedImage/TilesetContainer" instance=ExtResource( 3 )]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = 0.0
+offset_bottom = 0.0
 mouse_filter = 2
 
 [node name="FitImageButton" type="TextureButton" parent="SelectedImage/TilesetContainer"]
@@ -924,7 +924,7 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-hint_tooltip = "- [color=#FF0000]Left Click[/color]:
+tooltip_text = "- [color=#FF0000]Left Click[/color]:
      Fit the image to the width and height of the canvas
 - [color=#FF0000]CTRL + Left Click[/color]:
      Fit the image to the height of the canvas
@@ -941,10 +941,10 @@ __meta__ = {
 }
 
 [node name="AutoTileList" type="Panel" parent="."]
-margin_left = 442.0
-margin_top = 344.0
-margin_right = 802.0
-margin_bottom = 648.0
+offset_left = 442.0
+offset_top = 344.0
+offset_right = 802.0
+offset_bottom = 648.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -954,8 +954,8 @@ __meta__ = {
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 40.0
-margin_bottom = 40.0
+offset_right = 40.0
+offset_bottom = 40.0
 texture = ExtResource( 8 )
 stretch_mode = 1
 __meta__ = {
@@ -964,8 +964,8 @@ __meta__ = {
 
 [node name="title" type="Label" parent="AutoTileList"]
 anchor_right = 1.0
-margin_bottom = 41.0
-custom_colors/font_color = Color( 0.396078, 0.858824, 1, 1 )
+offset_bottom = 41.0
+theme_override_colors/font_color = Color( 0.396078, 0.858824, 1, 1 )
 text = "Created Tiles:"
 align = 1
 valign = 1
@@ -976,12 +976,12 @@ __meta__ = {
 [node name="list" type="ItemList" parent="AutoTileList"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = 40.0
-margin_right = -49.0
-margin_bottom = -52.0
-custom_styles/cursor = SubResource( 5 )
-custom_fonts/font = SubResource( 1 )
+offset_left = 20.0
+offset_top = 40.0
+offset_right = -49.0
+offset_bottom = -52.0
+theme_override_styles/cursor = SubResource( 5 )
+theme_override_fonts/font = SubResource( 1 )
 select_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -991,11 +991,11 @@ __meta__ = {
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = -45.0
-margin_right = -20.0
-margin_bottom = -20.0
-hint_tooltip = "Remove the tile selected"
+offset_left = 20.0
+offset_top = -45.0
+offset_right = -20.0
+offset_bottom = -20.0
+tooltip_text = "Remove the tile selected"
 focus_mode = 0
 mouse_default_cursor_shape = 2
 disabled = true
@@ -1006,11 +1006,11 @@ __meta__ = {
 }
 
 [node name="edit_autotile_button" type="TextureButton" parent="AutoTileList"]
-margin_left = 315.0
-margin_top = 52.0
-margin_right = 347.0
-margin_bottom = 84.0
-hint_tooltip = "Change the name of the selected tile and its animation speed.
+offset_left = 315.0
+offset_top = 52.0
+offset_right = 347.0
+offset_bottom = 84.0
+tooltip_text = "Change the name of the selected tile and its animation speed.
 You can [color=#FF0000]double-click[/color] on any item on the list to perform this same action"
 mouse_default_cursor_shape = 2
 disabled = true
@@ -1022,11 +1022,11 @@ __meta__ = {
 }
 
 [node name="move_autotile_up_button" type="TextureButton" parent="AutoTileList"]
-margin_left = 315.0
-margin_top = 91.0
-margin_right = 347.0
-margin_bottom = 123.0
-hint_tooltip = "Move the autotiles selected to up"
+offset_left = 315.0
+offset_top = 91.0
+offset_right = 347.0
+offset_bottom = 123.0
+tooltip_text = "Move the autotiles selected to up"
 mouse_default_cursor_shape = 2
 disabled = true
 texture_normal = ExtResource( 26 )
@@ -1034,11 +1034,11 @@ texture_hover = ExtResource( 25 )
 texture_disabled = ExtResource( 24 )
 
 [node name="move_autotile_down_button" type="TextureButton" parent="AutoTileList"]
-margin_left = 315.0
-margin_top = 130.0
-margin_right = 347.0
-margin_bottom = 162.0
-hint_tooltip = "Move the autotiles selected to down"
+offset_left = 315.0
+offset_top = 130.0
+offset_right = 347.0
+offset_bottom = 162.0
+tooltip_text = "Move the autotiles selected to down"
 mouse_default_cursor_shape = 2
 disabled = true
 texture_normal = ExtResource( 20 )
@@ -1046,11 +1046,11 @@ texture_hover = ExtResource( 18 )
 texture_disabled = ExtResource( 19 )
 
 [node name="create_merged_autotile_button" type="TextureButton" parent="AutoTileList"]
-margin_left = 315.0
-margin_top = 169.0
-margin_right = 347.0
-margin_bottom = 201.0
-hint_tooltip = "Combine the autotiles selected
+offset_left = 315.0
+offset_top = 169.0
+offset_right = 347.0
+offset_bottom = 201.0
+tooltip_text = "Combine the autotiles selected
 into a new autotile
 (sorted top to bottom)
 
@@ -1064,11 +1064,11 @@ texture_hover = ExtResource( 22 )
 texture_disabled = ExtResource( 21 )
 
 [node name="create_animated_autotile_button" type="TextureButton" parent="AutoTileList"]
-margin_left = 315.0
-margin_top = 209.0
-margin_right = 347.0
-margin_bottom = 229.0
-hint_tooltip = "Replace the selected autotiles with
+offset_left = 315.0
+offset_top = 209.0
+offset_right = 347.0
+offset_bottom = 229.0
+tooltip_text = "Replace the selected autotiles with
 an uniq animated autotile
 (sorted top to bottom)
 
@@ -1085,10 +1085,10 @@ __meta__ = {
 }
 
 [node name="Panel" type="Panel" parent="."]
-margin_left = 847.0
-margin_top = 60.0
-margin_right = 1007.0
-margin_bottom = 252.0
+offset_left = 847.0
+offset_top = 60.0
+offset_right = 1007.0
+offset_bottom = 252.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -1096,10 +1096,10 @@ __meta__ = {
 
 [node name="title" type="Label" parent="Panel"]
 anchor_right = 1.0
-margin_top = -44.0
-margin_right = 85.0
-rect_scale = Vector2( 0.647784, 1.11199 )
-custom_colors/font_color = Color( 0.396078, 0.858824, 1, 1 )
+offset_top = -44.0
+offset_right = 85.0
+scale = Vector2( 0.647784, 1.11199 )
+theme_override_colors/font_color = Color( 0.396078, 0.858824, 1, 1 )
 text = "Current Selection"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1108,10 +1108,10 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 3.0
-margin_top = 3.0
-margin_right = -3.0
-margin_bottom = -3.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1120,10 +1120,10 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="Panel/ColorRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 2.0
-margin_top = 2.0
-margin_right = -2.0
-margin_bottom = -2.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = -2.0
 texture = ExtResource( 6 )
 expand = true
 stretch_mode = 2
@@ -1134,10 +1134,10 @@ __meta__ = {
 [node name="preview_selection_selected" type="TextureRect" parent="Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 4.0
-margin_right = -4.0
-margin_bottom = -4.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
 expand = true
 stretch_mode = 6
 __meta__ = {
@@ -1148,8 +1148,8 @@ __meta__ = {
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 4.0
-hint_tooltip = "Create a new tile from the current selection.
+offset_top = 4.0
+tooltip_text = "Create a new tile from the current selection.
 
 You can [color=#FF0000]Double Click[/color] on the canvas
 to perform this same action"
@@ -1162,10 +1162,10 @@ text = "Create Tile"
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 44.0
-margin_right = 2.0
-margin_bottom = 78.0
-hint_tooltip = "converts the current image to a new tilemap"
+offset_top = 44.0
+offset_right = 2.0
+offset_bottom = 78.0
+tooltip_text = "converts the current image to a new tilemap"
 mouse_default_cursor_shape = 2
 disabled = true
 text = "Select Fast Export Preset"
@@ -1178,10 +1178,10 @@ __meta__ = {
 }
 
 [node name="Panel2" type="Panel" parent="."]
-margin_left = 847.0
-margin_top = 391.0
-margin_right = 1007.0
-margin_bottom = 605.0
+offset_left = 847.0
+offset_top = 391.0
+offset_right = 1007.0
+offset_bottom = 605.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -1189,10 +1189,10 @@ __meta__ = {
 
 [node name="title" type="Label" parent="Panel2"]
 anchor_right = 1.0
-margin_top = -44.0
-margin_right = 18.0
-rect_scale = Vector2( 0.9, 1.2 )
-custom_colors/font_color = Color( 0.396078, 0.858824, 1, 1 )
+offset_top = -44.0
+offset_right = 18.0
+scale = Vector2( 0.9, 1.2 )
+theme_override_colors/font_color = Color( 0.396078, 0.858824, 1, 1 )
 text = "Preview Tile"
 align = 1
 __meta__ = {
@@ -1202,10 +1202,10 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="Panel2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 3.0
-margin_top = 3.0
-margin_right = -3.0
-margin_bottom = -3.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1214,10 +1214,10 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="Panel2/ColorRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 2.0
-margin_top = 2.0
-margin_right = -2.0
-margin_bottom = -2.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = -2.0
 texture = ExtResource( 6 )
 expand = true
 stretch_mode = 2
@@ -1228,10 +1228,10 @@ __meta__ = {
 [node name="preview_autotile_selected" type="TextureRect" parent="Panel2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 4.0
-margin_right = -4.0
-margin_bottom = -4.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
 expand = true
 stretch_mode = 6
 __meta__ = {
@@ -1239,34 +1239,34 @@ __meta__ = {
 }
 
 [node name="Panel3" type="Panel" parent="."]
-margin_left = 18.0
-margin_top = 664.0
-margin_right = 1002.0
-margin_bottom = 756.0
+offset_left = 18.0
+offset_top = 664.0
+offset_right = 1002.0
+offset_bottom = 756.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="Panel3"]
-margin_left = 13.0
-margin_top = 3.99994
-margin_right = 256.0
-margin_bottom = 44.9999
+offset_left = 13.0
+offset_top = 3.99994
+offset_right = 256.0
+offset_bottom = 44.9999
 text = "Save Autotiles in:"
 
 [node name="Label2" type="Label" parent="Panel3"]
-margin_left = 13.0
-margin_top = 46.9999
-margin_right = 256.0
-margin_bottom = 87.9999
+offset_left = 13.0
+offset_top = 46.9999
+offset_right = 256.0
+offset_bottom = 87.9999
 text = "Save Tileset in:"
 
 [node name="autotiles_folder" type="LineEdit" parent="Panel3"]
-margin_left = 265.0
-margin_top = 9.0
-margin_right = 785.0
-margin_bottom = 43.0
-hint_tooltip = "All the tiles are saved inside a subfolder in the
+offset_left = 265.0
+offset_top = 9.0
+offset_right = 785.0
+offset_bottom = 43.0
+tooltip_text = "All the tiles are saved inside a subfolder in the
 selected folder called the same as the Tileset
 
 After pressing the save button you can specify the
@@ -1279,11 +1279,11 @@ __meta__ = {
 }
 
 [node name="tileset_folder" type="LineEdit" parent="Panel3"]
-margin_left = 265.0
-margin_top = 50.9999
-margin_right = 785.0
-margin_bottom = 84.9999
-hint_tooltip = "Folder where you go to save the Tilesets Resources.
+offset_left = 265.0
+offset_top = 50.9999
+offset_right = 785.0
+offset_bottom = 84.9999
+tooltip_text = "Folder where you go to save the Tilesets Resources.
 
 After pressing the save button you can specify the
 names of the tilesets and tilemaps to be saved"
@@ -1295,11 +1295,11 @@ __meta__ = {
 }
 
 [node name="select_autotiles_folder_Button" type="Button" parent="Panel3"]
-margin_left = 792.0
-margin_top = 7.99994
-margin_right = 868.0
-margin_bottom = 43.9999
-hint_tooltip = "All the tiles are saved inside a subfolder in the
+offset_left = 792.0
+offset_top = 7.99994
+offset_right = 868.0
+offset_bottom = 43.9999
+tooltip_text = "All the tiles are saved inside a subfolder in the
 selected folder called the same as the Tileset
 
 After pressing the save button you can specify the
@@ -1310,11 +1310,11 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Panel3/select_autotiles_folder_Button"]
-margin_left = 6.59998
-margin_top = 1.00006
-margin_right = 92.6
-margin_bottom = 42.0001
-rect_scale = Vector2( 0.752879, 0.771937 )
+offset_left = 6.59998
+offset_top = 1.00006
+offset_right = 92.6
+offset_bottom = 42.0001
+scale = Vector2( 0.752879, 0.771937 )
 text = "select"
 align = 1
 valign = 1
@@ -1323,11 +1323,11 @@ __meta__ = {
 }
 
 [node name="select_tilesets_folder_Button" type="Button" parent="Panel3"]
-margin_left = 792.0
-margin_top = 50.9999
-margin_right = 868.0
-margin_bottom = 86.9999
-hint_tooltip = "Folder where you go to save the Tilesets Resources.
+offset_left = 792.0
+offset_top = 50.9999
+offset_right = 868.0
+offset_bottom = 86.9999
+tooltip_text = "Folder where you go to save the Tilesets Resources.
 
 After pressing the save button you can specify the
 names of the tilesets and tilemaps to be saved"
@@ -1337,11 +1337,11 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Panel3/select_tilesets_folder_Button"]
-margin_left = 6.59998
-margin_top = 1.00006
-margin_right = 92.6
-margin_bottom = 42.0001
-rect_scale = Vector2( 0.752879, 0.771937 )
+offset_left = 6.59998
+offset_top = 1.00006
+offset_right = 92.6
+offset_bottom = 42.0001
+scale = Vector2( 0.752879, 0.771937 )
 text = "select"
 align = 1
 valign = 1
@@ -1351,17 +1351,17 @@ __meta__ = {
 
 [node name="save_all_Button" type="Button" parent="Panel3"]
 modulate = Color( 1, 1, 1, 0.4 )
-margin_left = 889.0
-margin_top = 9.0
-margin_right = 971.0
-margin_bottom = 85.0
-hint_tooltip = "Save all tiles and autotiles.
+offset_left = 889.0
+offset_top = 9.0
+offset_right = 971.0
+offset_bottom = 85.0
+tooltip_text = "Save all tiles and autotiles.
 Create a new tileset and tilemap for each different tile size
 (Ex: All tiles and autotiles with size 32x32 are saved in the
 same tileset and a tilemap with this tileset is created)
 The tilemaps have a script attached to manage the animations"
 mouse_default_cursor_shape = 2
-custom_styles/disabled = SubResource( 10 )
+theme_override_styles/disabled = SubResource( 10 )
 disabled = true
 shortcut = SubResource( 12 )
 __meta__ = {
@@ -1372,8 +1372,8 @@ __meta__ = {
 [node name="Label" type="Label" parent="Panel3/save_all_Button"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = 15.0
-rect_scale = Vector2( 1.00872, 0.808455 )
+offset_bottom = 15.0
+scale = Vector2( 1.00872, 0.808455 )
 text = "SAVE
 ALL"
 align = 1
@@ -1383,28 +1383,28 @@ __meta__ = {
 }
 
 [node name="Decorations" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+offset_right = 40.0
+offset_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="Decorations"]
+[node name="Sprite2D" type="Sprite2D" parent="Decorations"]
 position = Vector2( 393, 348 )
 scale = Vector2( 0.521, 0.667 )
 texture = ExtResource( 12 )
 
-[node name="Sprite2" type="Sprite" parent="Decorations"]
+[node name="Sprite2" type="Sprite2D" parent="Decorations"]
 position = Vector2( 825, 496 )
 scale = Vector2( 0.48, 0.64 )
 texture = ExtResource( 13 )
 
-[node name="Sprite4" type="Sprite" parent="Decorations"]
+[node name="Sprite4" type="Sprite2D" parent="Decorations"]
 position = Vector2( 390, 177 )
 scale = Vector2( 0.48, 0.639998 )
 texture = ExtResource( 13 )
 
-[node name="Sprite3" type="Sprite" parent="Decorations"]
+[node name="Sprite3" type="Sprite2D" parent="Decorations"]
 position = Vector2( 431, 496 )
 scale = Vector2( 0.48, 0.64 )
 texture = ExtResource( 13 )
@@ -1425,48 +1425,48 @@ color = Color( 0, 0, 0, 0.815686 )
 
 [node name="create_autotile_dialog" type="Panel" parent="."]
 visible = false
-margin_left = 635.0
-margin_top = 336.0
-margin_right = 987.0
-margin_bottom = 423.0
+offset_left = 635.0
+offset_top = 336.0
+offset_right = 987.0
+offset_bottom = 423.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="dialog_selector" type="Sprite" parent="create_autotile_dialog"]
+[node name="dialog_selector" type="Sprite2D" parent="create_autotile_dialog"]
 position = Vector2( 287, -8 )
 texture = ExtResource( 15 )
 
 [node name="Label" type="Label" parent="create_autotile_dialog"]
-margin_left = 15.0
-margin_top = 2.0
-margin_right = 263.0
-margin_bottom = 43.0
+offset_left = 15.0
+offset_top = 2.0
+offset_right = 263.0
+offset_bottom = 43.0
 text = "Name for this tile"
 
 [node name="LineEdit" type="LineEdit" parent="create_autotile_dialog"]
-margin_left = 11.0
-margin_top = 45.0
-margin_right = 297.0
-margin_bottom = 79.0
+offset_left = 11.0
+offset_top = 45.0
+offset_right = 297.0
+offset_bottom = 79.0
 caret_blink = true
 
 [node name="close_button" type="TextureButton" parent="create_autotile_dialog"]
-margin_left = 313.0
-margin_top = 6.5
-margin_right = 345.0
-margin_bottom = 38.5
+offset_left = 313.0
+offset_top = 6.5
+offset_right = 345.0
+offset_bottom = 38.5
 mouse_default_cursor_shape = 2
 shortcut = SubResource( 14 )
 texture_normal = ExtResource( 14 )
 texture_hover = ExtResource( 17 )
 
 [node name="ok_button" type="TextureButton" parent="create_autotile_dialog"]
-margin_left = 314.0
-margin_top = 45.0
-margin_right = 346.0
-margin_bottom = 77.0
+offset_left = 314.0
+offset_top = 45.0
+offset_right = 346.0
+offset_bottom = 77.0
 mouse_default_cursor_shape = 2
 shortcut = SubResource( 16 )
 texture_normal = ExtResource( 16 )
@@ -1474,56 +1474,56 @@ texture_hover = ExtResource( 11 )
 
 [node name="edit_autotile_dialog" type="Panel" parent="."]
 visible = false
-margin_left = 492.0
-margin_top = 432.0
-margin_right = 804.0
-margin_bottom = 595.0
+offset_left = 492.0
+offset_top = 432.0
+offset_right = 804.0
+offset_bottom = 595.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="dialog_selector" type="Sprite" parent="edit_autotile_dialog"]
+[node name="dialog_selector" type="Sprite2D" parent="edit_autotile_dialog"]
 position = Vector2( 287, -8 )
 texture = ExtResource( 15 )
 
 [node name="Label" type="Label" parent="edit_autotile_dialog"]
-margin_left = 15.0
-margin_top = 2.0
-margin_right = 263.0
-margin_bottom = 43.0
-rect_scale = Vector2( 0.9, 1 )
+offset_left = 15.0
+offset_top = 2.0
+offset_right = 263.0
+offset_bottom = 43.0
+scale = Vector2( 0.9, 1 )
 text = "Name for tile selected"
 
 [node name="LineEdit" type="LineEdit" parent="edit_autotile_dialog"]
-margin_left = 11.0
-margin_top = 45.0
-margin_right = 297.0
-margin_bottom = 79.0
+offset_left = 11.0
+offset_top = 45.0
+offset_right = 297.0
+offset_bottom = 79.0
 caret_blink = true
 
 [node name="Label2" type="Label" parent="edit_autotile_dialog"]
-margin_left = 15.0
-margin_top = 73.0
-margin_right = 263.0
-margin_bottom = 114.0
+offset_left = 15.0
+offset_top = 73.0
+offset_right = 263.0
+offset_bottom = 114.0
 text = "Animation Speed"
 
 [node name="SpinBox" type="SpinBox" parent="edit_autotile_dialog"]
-margin_left = 11.0
-margin_top = 116.0
-margin_right = 146.0
-margin_bottom = 150.0
+offset_left = 11.0
+offset_top = 116.0
+offset_right = 146.0
+offset_bottom = 150.0
 min_value = 0.01
 max_value = 9999.0
 step = 0.1
 value = 0.01
 
 [node name="close_button" type="TextureButton" parent="edit_autotile_dialog"]
-margin_left = 263.0
-margin_top = 117.0
-margin_right = 295.0
-margin_bottom = 149.0
+offset_left = 263.0
+offset_top = 117.0
+offset_right = 295.0
+offset_bottom = 149.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
 shortcut = SubResource( 14 )
@@ -1531,10 +1531,10 @@ texture_normal = ExtResource( 14 )
 texture_hover = ExtResource( 17 )
 
 [node name="ok_button" type="TextureButton" parent="edit_autotile_dialog"]
-margin_left = 222.0
-margin_top = 117.0
-margin_right = 254.0
-margin_bottom = 149.0
+offset_left = 222.0
+offset_top = 117.0
+offset_right = 254.0
+offset_bottom = 149.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
 shortcut = SubResource( 16 )
@@ -1546,24 +1546,24 @@ __meta__ = {
 
 [node name="error1_dialog" type="Panel" parent="."]
 visible = false
-margin_left = 491.0
-margin_top = 509.0
-margin_right = 843.0
-margin_bottom = 608.0
+offset_left = 491.0
+offset_top = 509.0
+offset_right = 843.0
+offset_bottom = 608.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="dialog_selector" type="Sprite" parent="error1_dialog"]
+[node name="dialog_selector" type="Sprite2D" parent="error1_dialog"]
 position = Vector2( 287, -8 )
 texture = ExtResource( 15 )
 
 [node name="Label" type="Label" parent="error1_dialog"]
-margin_left = 89.0
-margin_top = 4.0
-margin_right = 341.0
-margin_bottom = 90.0
-custom_fonts/font = SubResource( 17 )
+offset_left = 89.0
+offset_top = 4.0
+offset_right = 341.0
+offset_bottom = 90.0
+theme_override_fonts/font = SubResource( 17 )
 text = "Error: One or more
 selected tiles are of
 different size or type"
@@ -1572,7 +1572,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="error_icon" type="Sprite" parent="error1_dialog"]
+[node name="error_icon" type="Sprite2D" parent="error1_dialog"]
 position = Vector2( 47, 55 )
 texture = ExtResource( 31 )
 
@@ -1582,24 +1582,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -263.0
-margin_top = -67.5
-margin_right = 263.0
-margin_bottom = 67.5
+offset_left = -263.0
+offset_top = -67.5
+offset_right = 263.0
+offset_bottom = 67.5
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="error_icon" type="Sprite" parent="error2_dialog"]
+[node name="error_icon" type="Sprite2D" parent="error2_dialog"]
 position = Vector2( 47, 72 )
 texture = ExtResource( 31 )
 
 [node name="Label" type="RichTextLabel" parent="error2_dialog"]
-margin_left = 89.0
-margin_top = 10.0
-margin_right = 514.0
-margin_bottom = 126.0
-custom_fonts/normal_font = SubResource( 84 )
+offset_left = 89.0
+offset_top = 10.0
+offset_right = 514.0
+offset_bottom = 126.0
+theme_override_fonts/normal_font = SubResource( 84 )
 bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1611,28 +1611,28 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -262.0
-margin_top = -277.0
-margin_right = 268.0
-margin_bottom = 128.0
-custom_styles/panel = SubResource( 18 )
+offset_left = -262.0
+offset_top = -277.0
+offset_right = 268.0
+offset_bottom = 128.0
+theme_override_styles/panel = SubResource( 18 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="SaveDialog"]
+[node name="Sprite2D" type="Sprite2D" parent="SaveDialog"]
 show_behind_parent = true
 position = Vector2( 325.25, 228.25 )
 scale = Vector2( 2.8475, 3.14333 )
 texture = ExtResource( 8 )
 
 [node name="Label" type="Label" parent="SaveDialog"]
-margin_top = 1.0
-margin_right = 529.0
-margin_bottom = 60.0
-rect_scale = Vector2( 0.9, 1 )
-custom_colors/font_color = Color( 0.196078, 0.54902, 1, 1 )
+offset_top = 1.0
+offset_right = 529.0
+offset_bottom = 60.0
+scale = Vector2( 0.9, 1 )
+theme_override_colors/font_color = Color( 0.196078, 0.54902, 1, 1 )
 text = "Save Images, Tilesets and Tilemaps"
 align = 1
 valign = 1
@@ -1641,10 +1641,10 @@ __meta__ = {
 }
 
 [node name="BackgroundContainer" type="ColorRect" parent="SaveDialog"]
-margin_left = 25.0
-margin_top = 61.0
-margin_right = 506.0
-margin_bottom = 309.0
+offset_left = 25.0
+offset_top = 61.0
+offset_right = 506.0
+offset_bottom = 309.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1652,10 +1652,10 @@ __meta__ = {
 [node name="Container" type="ScrollContainer" parent="SaveDialog/BackgroundContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 10.0
-margin_right = -10.0
-margin_bottom = -10.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1663,10 +1663,10 @@ __meta__ = {
 [node name="VBox" type="VBoxContainer" parent="SaveDialog/BackgroundContainer/Container"]
 
 [node name="CloseButton" type="TextureButton" parent="SaveDialog"]
-margin_left = 478.0
-margin_top = 15.0
-margin_right = 510.0
-margin_bottom = 47.0
+offset_left = 478.0
+offset_top = 15.0
+offset_right = 510.0
+offset_bottom = 47.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
 shortcut = SubResource( 20 )
@@ -1677,17 +1677,17 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="SaveDialog"]
-margin_left = 32.0
-margin_top = 311.0
-margin_right = 265.0
-margin_bottom = 352.0
+offset_left = 32.0
+offset_top = 311.0
+offset_right = 265.0
+offset_bottom = 352.0
 text = "Save Tilemaps in:"
 
 [node name="LineEdit" type="LineEdit" parent="SaveDialog"]
-margin_left = 29.0
-margin_top = 355.0
-margin_right = 421.0
-margin_bottom = 389.0
+offset_left = 29.0
+offset_top = 355.0
+offset_right = 421.0
+offset_bottom = 389.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
 text = "res://Scenes/"
@@ -1697,11 +1697,11 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="SaveDialog"]
-margin_left = 437.0
-margin_top = 323.0
-margin_right = 504.0
-margin_bottom = 386.0
-hint_tooltip = "Save all to disk in the paths selected.
+offset_left = 437.0
+offset_top = 323.0
+offset_right = 504.0
+offset_bottom = 386.0
+tooltip_text = "Save all to disk in the paths selected.
 
 If the destination folder contains files with the same names
 as the files to be saved, these files will be renamed before
@@ -1715,9 +1715,9 @@ __meta__ = {
 [node name="Label" type="Label" parent="SaveDialog/Button"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 29.0
-margin_bottom = 26.0
-rect_scale = Vector2( 0.7, 0.7 )
+offset_right = 29.0
+offset_bottom = 26.0
+scale = Vector2( 0.7, 0.7 )
 text = "Start
 SAVE"
 align = 1
@@ -1725,21 +1725,21 @@ valign = 1
 
 [node name="CustomFileDialog" parent="." instance=ExtResource( 9 )]
 visible = false
-margin_left = 208.0
-margin_top = 56.0
-margin_right = 213.76
-margin_bottom = 50.8799
+offset_left = 208.0
+offset_top = 56.0
+offset_right = 213.76
+offset_bottom = 50.8799
 allow_external_files = true
 
 [node name="path_LineEdit" parent="CustomFileDialog/PanelBottom" index="4"]
-margin_right = 6.12799
+offset_right = 6.12799
 
 [node name="drive_select_option_button" parent="CustomFileDialog/PanelBottom" index="5"]
 visible = false
-margin_left = -55.0
-margin_right = -1.0
-margin_bottom = -220.5
-rect_scale = Vector2( 1, 0.9 )
+offset_left = -55.0
+offset_right = -1.0
+offset_bottom = -220.5
+scale = Vector2( 1, 0.9 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "CursorsBlink"
@@ -1762,7 +1762,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="saving_all_animation"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="saving_all_animation"]
 material = SubResource( 22 )
 position = Vector2( 494, 383 )
 frames = SubResource( 83 )
@@ -1771,16 +1771,16 @@ frame = 38
 speed_scale = 10.0
 playing = true
 
-[node name="Label" type="Label" parent="saving_all_animation/AnimatedSprite"]
+[node name="Label" type="Label" parent="saving_all_animation/AnimatedSprite2D"]
 anchor_left = 0.372
 anchor_top = 0.418
 anchor_right = 0.709
 anchor_bottom = 0.573
-margin_left = -279.0
-margin_top = -265.0
-margin_right = -335.5
-margin_bottom = -301.5
-rect_scale = Vector2( 1.83768, 2.58954 )
+offset_left = -279.0
+offset_top = -265.0
+offset_right = -335.5
+offset_bottom = -301.5
+scale = Vector2( 1.83768, 2.58954 )
 text = "SAVING..."
 __meta__ = {
 "_edit_use_anchors_": false

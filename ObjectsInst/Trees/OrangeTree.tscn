@@ -1,571 +1,514 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=24 format=3 uid="uid://b0ig8scg6evwe"]
 
-[ext_resource path="res://Graphs/2.png" type="Texture" id=1]
-[ext_resource path="res://ObjectsInst/Trees/Tree.gd" type="Script" id=2]
-[ext_resource path="res://Graphs/Cancel.png" type="Texture" id=3]
-[ext_resource path="res://ObjectsInst/LoadBar.tscn" type="PackedScene" id=4]
+[ext_resource type="Texture2D" uid="uid://bdjmrelem7blh" path="res://Graphs/2.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://brdhsycel4un1" path="res://Graphs/Cancel.png" id="3"]
+[ext_resource type="PackedScene" uid="uid://dcfbpi3pcd3fs" path="res://ObjectsInst/LoadBar.tscn" id="4"]
 
-[sub_resource type="CanvasItemMaterial" id=1]
+[sub_resource type="CanvasItemMaterial" id="1"]
 
-[sub_resource type="AnimationNodeAnimation" id=2]
-animation = "Expand"
+[sub_resource type="AnimationNodeAnimation" id="2"]
+animation = &"Expand"
 
-[sub_resource type="AnimationNodeAnimation" id=3]
-animation = "Minimize"
+[sub_resource type="AnimationNodeAnimation" id="3"]
+animation = &"Minimize"
 
-[sub_resource type="AnimationNodeStateMachine" id=4]
-states/Expand/node = SubResource( 2 )
-states/Expand/position = Vector2( 244, 56 )
-states/Minimize/node = SubResource( 3 )
-states/Minimize/position = Vector2( 193, 166 )
+[sub_resource type="AnimationNodeStateMachine" id="4"]
+states/End/position = Vector2(378, 128)
+states/Expand/node = SubResource("2")
+states/Expand/position = Vector2(244, 56)
+states/Minimize/node = SubResource("3")
+states/Minimize/position = Vector2(193, 166)
+states/Start/position = Vector2(193, 111)
+graph_offset = Vector2(-0.367753, 0)
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=5]
-
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id="6"]
 length = 0.9
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("Info:polygon")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("Info/Open:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.25 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ PoolVector2Array( 792.632, 419.984, 793.969, 541.206, 854.987, 539.163, 917.117, 539.681, 931.402, 540.475, 953.07, 541.196, 953.625, 522.221, 952.831, 508.729, 949.656, 417.459 ), PoolVector2Array( 796.59, 405.341, 788.436, 553.079, 851.532, 546.266, 917.117, 539.681, 931.402, 540.475, 953.625, 542.062, 953.625, 522.221, 952.831, 508.729, 949.656, 417.459 ), PoolVector2Array( 796.59, 405.341, 791.866, 549.707, 848.456, 549.694, 909.513, 549.736, 928.85, 551.39, 952.683, 550.975, 953.625, 522.221, 952.831, 508.729, 950.952, 404.332 ), PoolVector2Array( 795.44, 400.971, 790.203, 561.578, 850.516, 557.415, 909.857, 552.799, 928.85, 551.39, 952.683, 550.975, 953.625, 522.221, 952.831, 508.729, 950.952, 404.332 ), PoolVector2Array( 802, 407.685, 802, 548.257, 850.639, 548.85, 908.47, 548.923, 929.538, 548.726, 953.531, 549.448, 953.625, 522.221, 952.831, 508.729, 950.22, 404.224 ) ]
+"times": PackedFloat32Array(0.35),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Info:scale")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
+tracks/1/path = NodePath("Info/ScrollContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.25 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0.336942, 0.432021 ), Vector2( 1.01644, 1.11625 ), Vector2( 1.57144, 1.73126 ), Vector2( 2.04151, 2.26074 ), Vector2( 2.04151, 2.26074 ) ]
+"times": PackedFloat32Array(0.15),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Info:position")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
 tracks/2/imported = false
-tracks/2/enabled = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Info/Close:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.25 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 254.167, 53.1271 ), Vector2( 177.51, 170.586 ), Vector2( 142.374, 287.938 ), Vector2( 144.537, 329.344 ), Vector2( 146.915, 345.993 ) ]
+"times": PackedFloat32Array(0.35),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Info:rotation_degrees")
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("Info:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.25 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ -0.740219 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Info/Open:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0.35 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ false ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("Info/ScrollContainer:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0.15 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("Info/Close:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0.35 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("Info:visible")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"values": [true]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id="7"]
 step = 0.05
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Info/ScrollContainer:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.15 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0.15),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ false ]
+"values": [false]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Info/Open:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.25 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ true ]
+"values": [true]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("Info:polygon")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [ PoolVector2Array( 796.59, 405.341, 791.866, 549.707, 848.456, 549.694, 909.513, 549.736, 928.85, 551.39, 952.683, 550.975, 953.625, 522.221, 952.831, 508.729, 950.952, 404.332 ), PoolVector2Array( 795.44, 400.971, 790.203, 561.578, 850.516, 557.415, 909.857, 552.799, 928.85, 551.39, 952.683, 550.975, 953.625, 522.221, 952.831, 508.729, 950.952, 404.332 ), PoolVector2Array( 796.59, 405.341, 788.436, 553.079, 851.532, 546.266, 917.117, 539.681, 931.402, 540.475, 953.625, 542.062, 953.625, 522.221, 952.831, 508.729, 949.656, 417.459 ), PoolVector2Array( 792.632, 419.984, 793.969, 541.206, 854.987, 539.163, 917.117, 539.681, 931.402, 540.475, 953.07, 541.196, 953.625, 522.221, 952.831, 508.729, 949.656, 417.459 ) ]
+"values": [PackedVector2Array(796.59, 405.341, 791.866, 549.707, 848.456, 549.694, 909.513, 549.736, 928.85, 551.39, 952.683, 550.975, 953.625, 522.221, 952.831, 508.729, 950.952, 404.332), PackedVector2Array(795.44, 400.971, 790.203, 561.578, 850.516, 557.415, 909.857, 552.799, 928.85, 551.39, 952.683, 550.975, 953.625, 522.221, 952.831, 508.729, 950.952, 404.332), PackedVector2Array(796.59, 405.341, 788.436, 553.079, 851.532, 546.266, 917.117, 539.681, 931.402, 540.475, 953.625, 542.062, 953.625, 522.221, 952.831, 508.729, 949.656, 417.459), PackedVector2Array(792.632, 419.984, 793.969, 541.206, 854.987, 539.163, 917.117, 539.681, 931.402, 540.475, 953.07, 541.196, 953.625, 522.221, 952.831, 508.729, 949.656, 417.459)]
 }
 tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
 tracks/3/path = NodePath("Info:scale")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [ Vector2( 1.57144, 1.73126 ), Vector2( 2.04151, 2.26074 ), Vector2( 1.01644, 1.11625 ), Vector2( 0.336942, 0.432021 ) ]
+"values": [Vector2(1.57144, 1.73126), Vector2(2.04151, 2.26074), Vector2(1.01644, 1.11625), Vector2(0.336942, 0.432021)]
 }
 tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = false
 tracks/4/path = NodePath("Info:position")
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = false
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [ Vector2( 142.374, 287.938 ), Vector2( 144.537, 329.344 ), Vector2( 177.51, 170.586 ), Vector2( 254.167, 53.1271 ) ]
+"values": [Vector2(142.374, 287.938), Vector2(144.537, 329.344), Vector2(177.51, 170.586), Vector2(254.167, 53.1271)]
 }
 tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
 tracks/5/path = NodePath("Info:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
 "update": 0,
-"values": [  ]
+"values": []
 }
 tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
 tracks/6/path = NodePath("Info/Close:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0.2 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ false ]
+"values": [false]
 }
 tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
 tracks/7/path = NodePath("Info:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0.35 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0.35),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ false ]
+"values": [false]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ijc4y"]
+_data = {
+"Expand": SubResource("6"),
+"Minimize": SubResource("7")
+}
+
+[sub_resource type="Animation" id="8"]
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Node2D/Fruits:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.5, 0.7, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+"values": [Vector2(1e-05, 1e-05), Vector2(1.2, 1.2), Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Node2D/Fruits:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ true ]
+"values": [true]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id="9"]
 length = 0.8
 step = 0.05
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Node2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.65 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.65),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.15, 1.05 ), Vector2( 1, 1 ), Vector2( 1.1, 1 ), Vector2( 1, 1 ) ]
+"values": [Vector2(1, 1), Vector2(1.15, 1.05), Vector2(1, 1), Vector2(1.1, 1), Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id="10"]
 length = 2.5
-loop = true
+loop_mode = 1
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Node2D/Leaves1:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.6, 1.9 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0.6, 1.9),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ -4.0, 4.0 ]
+"values": [-4.0, 4.0]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Node2D/Leaves2:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.8, 2.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0.8, 2.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ -4.0, 4.0 ]
+"values": [-4.0, 4.0]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("Node2D/Leaves3:rotation_degrees")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 1, 2.3 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(1, 2.3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ -4.0, 4.0 ]
+"values": [-4.0, 4.0]
 }
 tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
 tracks/3/path = NodePath("Node2D/Fruits:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.6, 1.9, 4.3, 5.1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0.6, 1.9, 4.3, 5.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [ -4.9, 3.6, -4.9, 0.0 ]
+"values": [-4.9, 3.6, -4.9, 0.0]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id="11"]
 length = 0.2
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Node2D/Fruits:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
+"values": [Vector2(1, 1), Vector2(0, 0)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Node2D/Fruits:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.2 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ false ]
+"values": [false]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=12]
-animation = "Idle"
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7ptkv"]
+_data = {
+"AddFruit": SubResource("8"),
+"Click": SubResource("9"),
+"Idle": SubResource("10"),
+"TakeFruit": SubResource("11")
+}
 
-[sub_resource type="AnimationNodeStateMachine" id=13]
-states/Idle/node = SubResource( 12 )
-states/Idle/position = Vector2( 149, 31.768 )
-start_node = "Idle"
-graph_offset = Vector2( 0, -65.232 )
+[sub_resource type="AnimationNodeAnimation" id="12"]
+animation = &"Idle"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=14]
+[sub_resource type="AnimationNodeStateMachine" id="13"]
+states/Idle/node = SubResource("12")
+states/Idle/position = Vector2(149, 31.768)
+graph_offset = Vector2(0, -65.232)
 
-[sub_resource type="AnimationNodeAnimation" id=15]
-animation = "AddFruit"
+[sub_resource type="AnimationNodeAnimation" id="15"]
+animation = &"AddFruit"
 
-[sub_resource type="AnimationNodeAnimation" id=16]
-animation = "TakeFruit"
+[sub_resource type="AnimationNodeAnimation" id="16"]
+animation = &"TakeFruit"
 
-[sub_resource type="AnimationNodeStateMachine" id=17]
-states/AddFruit/node = SubResource( 15 )
-states/AddFruit/position = Vector2( 188, 106 )
-states/TakeFruit/node = SubResource( 16 )
-states/TakeFruit/position = Vector2( 382, 80 )
+[sub_resource type="AnimationNodeStateMachine" id="17"]
+states/AddFruit/node = SubResource("15")
+states/AddFruit/position = Vector2(188, 106)
+states/Start/position = Vector2(244, 166)
+states/TakeFruit/node = SubResource("16")
+states/TakeFruit/position = Vector2(382, 80)
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=18]
+[sub_resource type="AnimationNodeAnimation" id="19"]
+animation = &"Click"
 
-[sub_resource type="AnimationNodeAnimation" id=19]
-animation = "Click"
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v2hgm"]
+advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachine" id=20]
-states/Click/node = SubResource( 19 )
-states/Click/position = Vector2( 120, 73 )
-graph_offset = Vector2( 0, 49.6 )
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id=21]
+[sub_resource type="AnimationNodeStateMachine" id="20"]
+states/Click/node = SubResource("19")
+states/Click/position = Vector2(163, 132)
+states/End/position = Vector2(373, 100)
+states/Start/position = Vector2(61, 177)
+transitions = ["Start", "Click", SubResource("AnimationNodeStateMachineTransition_v2hgm")]
+graph_offset = Vector2(0, 49.6)
 
 [node name="OrangeTree" type="Node2D"]
-position = Vector2( 187.895, 107.029 )
 z_index = 2
-script = ExtResource( 2 )
-treeType = "OrangeTree"
-fruitType = "Orange"
-fruitPrice = 10.0
-timeLimit = 3.0
+position = Vector2(187.895, 107.029)
 
 [node name="Info" type="Polygon2D" parent="."]
 visible = false
-position = Vector2( 161.409, -303.635 )
-rotation = -0.0129193
-scale = Vector2( 0.336942, 0.432021 )
 z_index = 3
-offset = Vector2( -876.264, -541.895 )
-texture = ExtResource( 1 )
-polygon = PoolVector2Array( 792.632, 419.984, 793.969, 541.206, 854.987, 539.163, 917.117, 539.681, 931.402, 540.475, 953.07, 541.196, 953.625, 522.221, 952.831, 508.729, 949.656, 417.459 )
-uv = PoolVector2Array( 800.45, 421.427, 798.069, 538.094, 852.831, 540.475, 917.117, 539.681, 931.402, 540.475, 953.625, 542.062, 951.244, 522.221, 952.831, 508.729, 949.656, 417.459 )
+scale = Vector2(1e-05, 1e-05)
+offset = Vector2(-876.264, -541.895)
+texture = ExtResource("1")
+uv = PackedVector2Array(800.45, 421.427, 798.069, 538.094, 852.831, 540.475, 917.117, 539.681, 931.402, 540.475, 953.625, 542.062, 951.244, 522.221, 952.831, 508.729, 949.656, 417.459)
 
 [node name="Open" type="Button" parent="Info"]
 show_behind_parent = true
 light_mask = 0
-material = SubResource( 1 )
-margin_left = -65.0
-margin_top = -114.0
-margin_right = 63.0
-margin_bottom = -4.0
+material = SubResource("1")
+offset_left = -65.0
+offset_top = -114.0
+offset_right = 63.0
+offset_bottom = -4.0
 flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Close" type="Button" parent="Info"]
 visible = false
-margin_left = 37.5896
-margin_top = -144.805
-margin_right = 92.5896
-margin_bottom = -105.805
-icon = ExtResource( 3 )
+offset_left = 37.5896
+offset_top = -144.805
+offset_right = 92.5896
+offset_bottom = -105.805
+icon = ExtResource("3")
 flat = true
 expand_icon = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Info"]
-margin_left = -66.0
-margin_top = -116.0
-margin_right = 67.0
-margin_bottom = -3.0
-rect_clip_content = false
+visible = false
+clip_contents = false
+offset_left = -66.0
+offset_top = -116.0
+offset_right = 67.0
+offset_bottom = -3.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Info/ScrollContainer"]
+layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 2
 
 [node name="AnimationTree4" type="AnimationTree" parent="."]
-tree_root = SubResource( 4 )
+tree_root = SubResource("4")
 anim_player = NodePath("../AnimationPlayer2")
 active = true
-parameters/playback = SubResource( 5 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
-anims/Expand = SubResource( 6 )
-anims/Minimize = SubResource( 7 )
+libraries = {
+"": SubResource("AnimationLibrary_ijc4y")
+}
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2( 135.243, 108.973 )
 z_index = 1
+position = Vector2(135.243, 108.973)
 
-[node name="DarkL" type="Sprite" parent="Node2D"]
+[node name="DarkL" type="Sprite2D" parent="Node2D"]
 visible = false
-position = Vector2( -59.6862, 7.50333 )
+z_index = 2
+position = Vector2(-59.6862, 7.50333)
 rotation = -3.0556
-scale = Vector2( 0.623934, 0.654155 )
-z_index = 2
+scale = Vector2(0.623934, 0.654155)
 region_enabled = true
-region_rect = Rect2( 815.829, 537.347, 135.336, 114.831 )
+region_rect = Rect2(815.829, 537.347, 135.336, 114.831)
 
-[node name="DarkL2" type="Sprite" parent="Node2D"]
+[node name="DarkL2" type="Sprite2D" parent="Node2D"]
 visible = false
-position = Vector2( 76.4515, 11.2193 )
+z_index = 2
+position = Vector2(76.4515, 11.2193)
 rotation = 0.712547
-scale = Vector2( 0.623934, 0.654155 )
-z_index = 2
+scale = Vector2(0.623934, 0.654155)
 region_enabled = true
-region_rect = Rect2( 834.284, 537.347, 151.74, 143.538 )
+region_rect = Rect2(834.284, 537.347, 151.74, 143.538)
 
-[node name="DarkL3" type="Sprite" parent="Node2D/DarkL2"]
+[node name="DarkL3" type="Sprite2D" parent="Node2D/DarkL2"]
 visible = false
-position = Vector2( 48.6998, -92.173 )
-rotation = -0.268271
 z_index = 2
+position = Vector2(48.6998, -92.173)
+rotation = -0.268271
 region_enabled = true
-region_rect = Rect2( 770.617, 375.422, 314.34, 257.567 )
+region_rect = Rect2(770.617, 375.422, 314.34, 257.567)
 
-[node name="Wood" type="Sprite" parent="Node2D"]
-position = Vector2( -1.008, 108.609 )
-texture = ExtResource( 1 )
+[node name="Wood" type="Sprite2D" parent="Node2D"]
+position = Vector2(-1.008, 108.609)
+texture = ExtResource("1")
 region_enabled = true
-region_rect = Rect2( 171.272, 684.288, 195.731, 160.597 )
+region_rect = Rect2(171.272, 684.288, 195.731, 160.597)
 
-[node name="Leaves1" type="Sprite" parent="Node2D"]
-position = Vector2( -7.73602, -22.552 )
-rotation = -0.0450864
-texture = ExtResource( 1 )
+[node name="Leaves1" type="Sprite2D" parent="Node2D"]
+position = Vector2(-7.73602, -22.552)
+texture = ExtResource("1")
 region_enabled = true
-region_rect = Rect2( 112.983, 438.181, 295.593, 239.67 )
+region_rect = Rect2(112.983, 438.181, 295.593, 239.67)
 
-[node name="Leaves2" type="Sprite" parent="Node2D"]
-position = Vector2( -4.77202, -36.589 )
-rotation = -0.0665674
-texture = ExtResource( 1 )
+[node name="Leaves2" type="Sprite2D" parent="Node2D"]
+position = Vector2(-4.77202, -36.589)
+texture = ExtResource("1")
 region_enabled = true
-region_rect = Rect2( 128.961, 254.434, 263.637, 191.736 )
+region_rect = Rect2(128.961, 254.434, 263.637, 191.736)
 
-[node name="Leaves3" type="Sprite" parent="Node2D"]
-position = Vector2( -18.426, -79.915 )
-rotation = -0.0500584
-texture = ExtResource( 1 )
+[node name="Leaves3" type="Sprite2D" parent="Node2D"]
+position = Vector2(-18.426, -79.915)
+texture = ExtResource("1")
 region_enabled = true
-region_rect = Rect2( 128.961, 122.379, 231.681, 131.819 )
+region_rect = Rect2(128.961, 122.379, 231.681, 131.819)
 
-[node name="Fruits" type="Sprite" parent="Node2D"]
-position = Vector2( -1.45602, -27.589 )
-rotation = -0.059249
-scale = Vector2( 1e-05, 1e-05 )
-texture = ExtResource( 1 )
+[node name="Fruits" type="Sprite2D" parent="Node2D"]
+visible = false
+position = Vector2(-1.45602, -27.589)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("1")
 region_enabled = true
-region_rect = Rect2( 444.527, 120.829, 207.714, 151.791 )
+region_rect = Rect2(444.527, 120.829, 207.714, 151.791)
 
-[node name="Sprite5" type="Sprite" parent="."]
-position = Vector2( 128.255, 288.575 )
-texture = ExtResource( 1 )
+[node name="Sprite5" type="Sprite2D" parent="."]
+position = Vector2(128.255, 288.575)
+texture = ExtResource("1")
 region_enabled = true
-region_rect = Rect2( 168.906, 908.955, 199.725, 119.835 )
+region_rect = Rect2(168.906, 908.955, 199.725, 119.835)
 
-[node name="Sprite6" type="Sprite" parent="."]
-position = Vector2( 130.928, 297.483 )
+[node name="Sprite6" type="Sprite2D" parent="."]
 z_index = 1
-texture = ExtResource( 1 )
+position = Vector2(130.928, 297.483)
+texture = ExtResource("1")
 region_enabled = true
-region_rect = Rect2( 196.868, 1032.78, 167.769, 67.9065 )
+region_rect = Rect2(196.868, 1032.78, 167.769, 67.9065)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/AddFruit = SubResource( 8 )
-anims/Click = SubResource( 9 )
-anims/Idle = SubResource( 10 )
-anims/TakeFruit = SubResource( 11 )
+libraries = {
+"": SubResource("AnimationLibrary_7ptkv")
+}
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 13 )
+tree_root = SubResource("13")
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 14 )
 
 [node name="AnimationTree2" type="AnimationTree" parent="."]
-tree_root = SubResource( 17 )
+tree_root = SubResource("17")
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 18 )
 
 [node name="AnimationTree3" type="AnimationTree" parent="."]
-tree_root = SubResource( 20 )
+tree_root = SubResource("20")
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 21 )
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
-position = Vector2( -420.535, -366.924 )
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(-420.535, -366.924)
 input_pickable = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KinematicBody2D"]
-polygon = PoolVector2Array( 435.628, 509.456, 462.498, 532.084, 514.824, 546.226, 537.451, 553.297, 536.037, 655.12, 528.966, 663.606, 545.937, 665.02, 571.393, 665.02, 569.978, 636.735, 568.564, 546.226, 595.434, 558.954, 627.961, 534.912, 667.559, 517.942, 667.559, 471.273, 647.76, 427.432, 609.576, 407.633, 603.919, 370.863, 567.15, 370.863, 550.179, 355.307, 519.067, 365.207, 478.055, 394.905, 456.841, 427.432, 456.841, 447.231, 439.871, 469.858 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
+polygon = PackedVector2Array(435.628, 509.456, 462.498, 532.084, 514.824, 546.226, 537.451, 553.297, 536.037, 655.12, 528.966, 663.606, 545.937, 665.02, 571.393, 665.02, 569.978, 636.735, 568.564, 546.226, 595.434, 558.954, 627.961, 534.912, 667.559, 517.942, 667.559, 471.273, 647.76, 427.432, 609.576, 407.633, 603.919, 370.863, 567.15, 370.863, 550.179, 355.307, 519.067, 365.207, 478.055, 394.905, 456.841, 427.432, 456.841, 447.231, 439.871, 469.858)
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="Tween" type="Tween" parent="."]
-
-[node name="LoadBar" parent="." instance=ExtResource( 4 )]
-position = Vector2( 147.462, 180.76 )
-scale = Vector2( 0.4, 0.4 )
+[node name="LoadBar" parent="." instance=ExtResource("4")]
 z_index = 0
+position = Vector2(147.462, 180.76)
+scale = Vector2(0.4, 0.4)
+
 [connection signal="pressed" from="Info/Close" to="." method="_on_Close_pressed"]
-[connection signal="input_event" from="KinematicBody2D" to="." method="_on_KinematicBody2D_input_event"]
-[connection signal="mouse_exited" from="KinematicBody2D" to="." method="_on_KinematicBody2D_mouse_exited"]
+[connection signal="input_event" from="CharacterBody2D" to="." method="_on_KinematicBody2D_input_event"]
+[connection signal="mouse_exited" from="CharacterBody2D" to="." method="_on_KinematicBody2D_mouse_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

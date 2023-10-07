@@ -1,4 +1,4 @@
-tool
+@tool
 extends Node
 
 enum {
@@ -54,7 +54,7 @@ func _aseprite_list_layers(file_name: String, only_visible = false) -> Array:
 		print(output)
 		return []
 
-	if output.empty():
+	if output.is_empty():
 		return output
 
 	return output[0].split('\n')
@@ -167,7 +167,7 @@ func _aseprite_export_layer(file_name: String, layer_name: String, output_folder
 
 func _add_ignore_layer_arguments(file_name: String, arguments: Array, exception_pattern: String):
 	var layers = _get_exception_layers(file_name, exception_pattern)
-	if not layers.empty():
+	if not layers.is_empty():
 		for l in layers:
 			arguments.push_front(l)
 			arguments.push_front('--ignore-layer')
@@ -196,7 +196,7 @@ func create_resource(source_file: String, output_folder: String, options = {}):
 
 	var export_mode = options.get('export_mode', FILE_EXPORT_MODE)
 
-	var dir = Directory.new()
+	var dir = DirAccess.new()
 	if not dir.file_exists(source_file):
 		return ERR_SOURCE_FILE_NOT_FOUND
 
@@ -206,11 +206,11 @@ func create_resource(source_file: String, output_folder: String, options = {}):
 	match export_mode:
 		FILE_EXPORT_MODE:
 			if _should_check_file_system:
-				return yield(create_sprite_frames_from_aseprite_file(source_file, output_folder, options), "completed")
+				return await create_sprite_frames_from_aseprite_file(source_file, output_folder, options).completed
 			return create_sprite_frames_from_aseprite_file(source_file, output_folder, options)
 		LAYERS_EXPORT_MODE:
 			if _should_check_file_system:
-				return yield(create_sprite_frames_from_aseprite_layers(source_file, output_folder, options), "completed")
+				return await create_sprite_frames_from_aseprite_layers(source_file, output_folder, options).completed
 			return create_sprite_frames_from_aseprite_layers(source_file, output_folder, options)
 		_:
 			return ERR_UNKNOWN_EXPORT_MODE
@@ -218,27 +218,27 @@ func create_resource(source_file: String, output_folder: String, options = {}):
 
 func create_sprite_frames_from_aseprite_file(source_file: String, output_folder: String, options: Dictionary):
 	var output = _aseprite_export_spritesheet(source_file, output_folder, options)
-	if output.empty():
+	if output.is_empty():
 		return ERR_ASEPRITE_EXPORT_FAILED
 
 	if (_should_check_file_system):
-		yield(_scan_filesystem(), "completed")
+		await _scan_filesystem().completed
 
 	return _import(output)
 
 
 func create_sprite_frames_from_aseprite_layers(source_file: String, output_folder: String, options: Dictionary):
 	var output = _aseprite_export_layers_spritesheet(source_file, output_folder, options)
-	if output.empty():
+	if output.is_empty():
 		return ERR_NO_VALID_LAYERS_FOUND
 
 	var result = OK
 
 	if (_should_check_file_system):
-		yield(_scan_filesystem(), "completed")
+		await _scan_filesystem().completed
 
 	for o in output:
-		if o.empty():
+		if o.is_empty():
 			result = ERR_ASEPRITE_EXPORT_FAILED
 		else:
 			result = _import(o)
@@ -257,7 +257,9 @@ func _import(data) -> int:
 	var err = file.open(source_file, File.READ)
 	if err != OK:
 			return err
-	var content =  parse_json(file.get_as_text())
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(file.get_as_text())
+	var content =  test_json_conv.get_data()
 
 	if not _is_valid_aseprite_spritesheet(content):
 		return ERR_INVALID_ASEPRITE_SPRITESHEET
@@ -275,7 +277,7 @@ func _import(data) -> int:
 func _create_sprite_frames_with_animations(content, texture):
 	var frames = _get_frames_from_content(content)
 	var sprite_frames = SpriteFrames.new()
-	sprite_frames.remove_animation("default")
+	sprite_frames.remove_animation_library("default")
 
 	if content.meta.has("frameTags") and content.meta.frameTags.size() > 0:
 		for tag in content.meta.frameTags:
@@ -292,7 +294,7 @@ func _get_frames_from_content(content):
 
 
 func _add_animation_frames(sprite_frames, animation_name, frames, texture, direction = 'forward'):
-	sprite_frames.add_animation(animation_name)
+	sprite_frames.add_animation_library(animation_name)
 
 	var min_duration = _get_min_duration(frames)
 	var fps = _calculate_fps(min_duration)
@@ -361,4 +363,4 @@ func _is_aseprite_command_valid():
 
 func _scan_filesystem():
 	file_system.scan()
-	yield(file_system, "filesystem_changed")
+	await file_system.filesystem_changed

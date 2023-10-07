@@ -3,8 +3,8 @@ extends Node2D
 
 # Declare member variables here. Examples:
 var a
-onready var res = load("res://Storage.tres")
-onready var data : Resource = load("res://Data.tres")
+@onready var res = load("res://Storage.tres")
+@onready var data : Resource = load("res://Data.tres")
 
 
 # var b = "text"

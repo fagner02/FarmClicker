@@ -1,101 +1,79 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=7 format=3 uid="uid://dcfbpi3pcd3fs"]
 
-[ext_resource path="res://Graphs/LoadAppleBar/Camada 5.png" type="Texture" id=1]
-[ext_resource path="res://Graphs/LoadAppleBar/Camada 3.png" type="Texture" id=2]
-[ext_resource path="res://ObjectsInst/LoadBar.gd" type="Script" id=3]
-[ext_resource path="res://Graphs/sketch-1597800549218.png" type="Texture" id=4]
+[ext_resource type="Texture2D" uid="uid://cy0mxqjvlolce" path="res://Graphs/LoadAppleBar/Camada 5.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://c1o4stopc40rw" path="res://Graphs/LoadAppleBar/Camada 3.png" id="2"]
+[ext_resource type="Script" path="res://ObjectsInst/LoadBar.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://p5uvphxcxdu0" path="res://Graphs/sketch-1597800549218.png" id="4"]
 
-[sub_resource type="AtlasTexture" id=1]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 1401, 754.387, 223, 222.75 )
+[sub_resource type="AtlasTexture" id="1"]
+atlas = ExtResource("4")
+region = Rect2(1401, 754.387, 223, 222.75)
 
-[sub_resource type="AtlasTexture" id=2]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 1401, 750.625, 220, 249.75 )
+[sub_resource type="AtlasTexture" id="2"]
+atlas = ExtResource("4")
+region = Rect2(1401, 750.625, 220, 249.75)
 
 [node name="LoadBar" type="Node2D"]
-scale = Vector2( 0.55, 0.55 )
 z_index = 3
-script = ExtResource( 3 )
+scale = Vector2(0.55, 0.55)
+script = ExtResource("3")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false
-modulate = Color( 0.52549, 0.329412, 0.117647, 1 )
-margin_left = -17.0
-margin_top = -18.0
-margin_right = 138.0
-margin_bottom = 127.0
-texture = ExtResource( 1 )
-expand = true
+modulate = Color(0.52549, 0.329412, 0.117647, 1)
+offset_left = -17.0
+offset_top = -18.0
+offset_right = 138.0
+offset_bottom = 127.0
+texture = ExtResource("1")
+expand_mode = 1
 stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 visible = false
-modulate = Color( 0.67451, 0.403922, 0.117647, 1 )
-margin_left = 3.0
-margin_top = 4.0
-margin_right = 120.0
-margin_bottom = 104.0
-texture = ExtResource( 2 )
-expand = true
+modulate = Color(0.67451, 0.403922, 0.117647, 1)
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 120.0
+offset_bottom = 104.0
+texture = ExtResource("2")
+expand_mode = 1
 stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="."]
-margin_left = 27.7273
-margin_top = -5.09091
-margin_right = 259.727
-margin_bottom = 819.909
-rect_scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 4 )
-region_rect = Rect2( 1383, 1121.12, 220, 219.375 )
+offset_left = 27.7273
+offset_top = -5.09091
+offset_right = 259.727
+offset_bottom = 819.909
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4")
+region_rect = Rect2(1383, 1121.12, 220, 219.375)
 patch_margin_left = 106
 patch_margin_top = 100
 patch_margin_right = 104
 patch_margin_bottom = 106
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="TextureProgress" type="TextureProgress" parent="."]
-margin_left = 38.0
-margin_top = 3.0
-margin_right = 207.0
-margin_bottom = 769.0
-rect_scale = Vector2( 0.3, 0.3 )
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 38.0
+offset_top = 3.0
+offset_right = 207.0
+offset_bottom = 769.0
+scale = Vector2(0.3, 0.3)
 value = 50.0
-texture_progress = SubResource( 1 )
 fill_mode = 3
-tint_progress = Color( 1, 0.207843, 0.615686, 1 )
 nine_patch_stretch = true
 stretch_margin_left = 121
 stretch_margin_top = 123
 stretch_margin_bottom = 118
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture_progress = SubResource("1")
+tint_progress = Color(1, 0.207843, 0.615686, 1)
 
 [node name="Node2D" type="Node2D" parent="."]
 visible = false
-position = Vector2( 38.569, 232.025 )
+position = Vector2(38.569, 232.025)
 
-[node name="ViewportContainer" type="ViewportContainer" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Sprite" type="Sprite" parent="."]
-visible = false
-position = Vector2( 62.3569, 25.3635 )
-scale = Vector2( 0.211322, 0.08 )
-texture = SubResource( 2 )
+position = Vector2(62.3569, 25.3635)
+scale = Vector2(0.211322, 0.08)
+texture = SubResource("2")

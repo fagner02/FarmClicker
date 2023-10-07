@@ -1,4 +1,4 @@
-tool
+@tool
 extends EditorPlugin
 
 var MAX_ENTRIES = 120
@@ -56,7 +56,7 @@ func _enter_tree():
 	nonodelabel.size_flags_vertical = Label.SIZE_EXPAND_FILL
 	nonodelabel.size_flags_horizontal = Label.SIZE_EXPAND_FILL
 	nonodelabel.valign = Label.VALIGN_CENTER
-	nonodelabel.align = Label.ALIGN_CENTER
+	nonodelabel.align = Label.ALIGNMENT_CENTER
 	nonodelabel.autowrap = true
 	nonodelabel.set_custom_minimum_size(Vector2(100,0))
 	metapanel.add_child(nonodelabel)
@@ -392,7 +392,7 @@ func ui_make_error_popup(txt):
 	var dia = AcceptDialog.new()
 	dia.dialog_text = txt
 	#reely.connect("confirmed", self, "delete_and_update_meta", [null, tpath])
-	dia.connect("popup_hide", dia, "queue_free")
+	dia.connect("popup_hide", Callable(dia, "queue_free"))
 	activenode.get_tree().get_root().add_child(dia)
 	dia.popup_centered()
 
@@ -452,7 +452,7 @@ func ui_switch_from_key_context_menu(choice, obj):
 
 
 func ui_context_menu(ev, obj, from):
-	if (ev is InputEventMouseButton and ev.button_index == BUTTON_RIGHT) or (ev is InputEventKey and ev.scancode == KEY_MENU):
+	if (ev is InputEventMouseButton and ev.button_index == MOUSE_BUTTON_RIGHT) or (ev is InputEventKey and ev.keycode == KEY_MENU):
 		if ev.pressed:
 
 			var dbox = PopupMenu.new()
@@ -462,7 +462,7 @@ func ui_context_menu(ev, obj, from):
 			dbox.set_size(Vector2(100,10))
 
 			if ev is InputEventMouseButton:
-				dbox.set_position(obj.get_global_transform().xform(obj.get_local_mouse_position()))
+				dbox.set_position(obj.get_global_transform() * (obj.get_local_mouse_position()))
 			else:
 				dbox.set_position(obj.get_global_transform().origin+Vector2(10,10))
 
@@ -470,13 +470,13 @@ func ui_context_menu(ev, obj, from):
 				# Popupmenu is created on the fly so that actual shortcuts from here will never work bc they are totally bugged
 				for i in range(0,global_shortcuts.size()):
 					dbox.add_shortcut(get_shortcut(global_choices[i], global_shortcuts[i], global_mods[i]), i)
-				dbox.connect("id_pressed", self, "ui_switch_from_key_context_menu", [obj])
+				dbox.connect("id_pressed", Callable(self, "ui_switch_from_key_context_menu").bind(obj))
 			elif from == "val":
 				if not typeof(obj.get_meta("oval")) in l.supported_type_names.keys():
 					dbox.add_item(l.all_type_names[typeof(obj.get_meta("oval"))], typeof(obj.get_meta("oval")))
 				for i in l.supported_type_names.keys():
 					dbox.add_item(l.supported_type_names[i], i)
-				dbox.connect("id_pressed", self, "change_saved_type", [obj])
+				dbox.connect("id_pressed", Callable(self, "change_saved_type").bind(obj))
 
 			dbox.popup()
 			dbox.grab_focus()
@@ -486,8 +486,8 @@ func ui_context_menu(ev, obj, from):
 					n.queue_free()
 	
 	# here we implement the real shortcuts
-	if ev is InputEventKey and ev.pressed and ev.scancode in global_shortcuts:
-		var i = global_shortcuts.find(ev.scancode)
+	if ev is InputEventKey and ev.pressed and ev.keycode in global_shortcuts:
+		var i = global_shortcuts.find(ev.keycode)
 		var failure = 0
 		if "c" in global_mods[i] and ev.control != true:
 				failure += 1
@@ -500,10 +500,10 @@ func ui_context_menu(ev, obj, from):
 			
 
 func get_shortcut(label, key, mod):
-	var shortcut = ShortCut.new()
+	var shortcut = Shortcut.new()
 	shortcut.resource_name = label
 	var inputeventkey = InputEventKey.new()
-	inputeventkey.set_scancode(key)
+	inputeventkey.set_keycode(key)
 	if "c" in mod:
 		inputeventkey.control = true
 	if "s" in mod:
@@ -566,12 +566,12 @@ func ui_create_row(tbox, tkey, tval, isnew, editables, tpath, tfocus):
 	textbox1.size_flags_horizontal = textbox1.SIZE_EXPAND_FILL
 	textbox1.editable = editables[0]
 	textbox1.set_text(str(tkey))
-	textbox1.set_cursor_position(1337)
+	textbox1.set_caret_column(1337)
 	textbox1.set_meta("oval", tkey)
 	textbox1.set_meta("isnew", isnew)
 	textbox1.set_meta("path", tpath)
-	textbox1.connect("resized", self, "ui_resize_child_labels", [textbox1])
-	textbox1.connect("gui_input", self, "ui_context_menu", [textbox1, "key"])
+	textbox1.connect("resized", Callable(self, "ui_resize_child_labels").bind(textbox1))
+	textbox1.connect("gui_input", Callable(self, "ui_context_menu").bind(textbox1, "key"))
 	textbox1.context_menu_enabled = false
 	
 	
@@ -599,7 +599,7 @@ func ui_create_row(tbox, tkey, tval, isnew, editables, tpath, tfocus):
 	textbox2.name = "textbox_val"
 	textbox2.size_flags_horizontal = textbox2.SIZE_EXPAND_FILL
 	textbox2.set_text(l.custom_val2str(tval))
-	textbox2.set_cursor_position(1337)
+	textbox2.set_caret_column(1337)
 	textbox2.editable = editables[1]
 
 	textbox2.set_meta("oval", tval)
@@ -610,11 +610,11 @@ func ui_create_row(tbox, tkey, tval, isnew, editables, tpath, tfocus):
 		textbox2.editable = false
 	
 	if typeof(tval) in [TYPE_DICTIONARY, TYPE_ARRAY]:
-		textbox1.align = LineEdit.ALIGN_CENTER
+		textbox1.align = LineEdit.ALIGNMENT_CENTER
 		textbox2.visible = false
 
-	textbox2.connect("resized", self, "ui_resize_child_labels", [textbox2])
-	textbox2.connect("gui_input", self, "ui_context_menu", [textbox2, "val"])
+	textbox2.connect("resized", Callable(self, "ui_resize_child_labels").bind(textbox2))
+	textbox2.connect("gui_input", Callable(self, "ui_context_menu").bind(textbox2, "val"))
 	textbox2.context_menu_enabled = false
 	dbox.add_child(textbox2)
 
@@ -630,10 +630,10 @@ func ui_create_row(tbox, tkey, tval, isnew, editables, tpath, tfocus):
 		typehint.visible = false
 	textbox2.add_child(typehint)
 
-	textbox1.connect("text_changed", self, "ui_color_indicate_textbox", [textbox1])
-	textbox1.connect("text_entered", self, "update_all_from_ui")
-	textbox2.connect("text_changed", self, "ui_color_indicate_textbox", [textbox2])
-	textbox2.connect("text_entered", self, "update_all_from_ui")
+	textbox1.connect("text_changed", Callable(self, "ui_color_indicate_textbox").bind(textbox1))
+	textbox1.connect("text_submitted", Callable(self, "update_all_from_ui"))
+	textbox2.connect("text_changed", Callable(self, "ui_color_indicate_textbox").bind(textbox2))
+	textbox2.connect("text_submitted", Callable(self, "update_all_from_ui"))
 	
 	if not typeof(tkey) in [TYPE_STRING, TYPE_INT]:
 		textbox1.editable = false
@@ -697,7 +697,7 @@ func destroy_old():
 			n.call_deferred('free')
 
 
-func get_plugin_name():
+func _get_plugin_name():
 	return "Metadata Inspector"
 
 

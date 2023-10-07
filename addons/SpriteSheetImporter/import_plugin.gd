@@ -1,31 +1,31 @@
-tool
+@tool
 extends EditorImportPlugin
 
 enum Preset { PRESET_DEFAULT }
 
-func get_importer_name():
+func _get_importer_name():
 	return "snkkid.SpriteSheetImporter"
 
-func get_visible_name():
-	return "Sprite sheet importer"
+func _get_visible_name():
+	return "Sprite2D sheet importer"
 
-func get_recognized_extensions():
+func _get_recognized_extensions():
 	return ["json"]
 
-func get_save_extension():
+func _get_save_extension():
 	return "res"
 
-func get_resource_type():
+func _get_resource_type():
 	return "Resource"
 	
-func get_preset_count():
+func _get_preset_count():
 	return Preset.size()
 
-func get_preset_name(preset):
+func _get_preset_name(preset):
 	match preset:
 		PRESET_DEFAULT: return "Default"
 
-func get_import_options(preset):
+func _get_import_options(preset):
 	match preset:
 		PRESET_DEFAULT:
 			return [{
@@ -35,10 +35,10 @@ func get_import_options(preset):
 		_:
 			return []
 
-func get_option_visibility(option, options):
+func _get_option_visibility(option, options):
 	return true
 
-func get_import_order():
+func _get_import_order():
 	return 200
 
 func import(source_file, save_path, options, r_platform_variants, r_gen_files):
@@ -64,7 +64,7 @@ func import(source_file, save_path, options, r_platform_variants, r_gen_files):
 			texture.region = Rect2(sheet.frame.x,sheet.frame.y,sheet.frame.w,sheet.frame.h)
 			save_resource(name, texture)
 		
-	return ResourceSaver.save("%s.%s" % [save_path, get_save_extension()], Resource.new())
+	return ResourceSaver.save("%s.%s" % [save_path, _get_save_extension()], Resource.new())
 	
 func save_resource(name, texture):
 	create_folder(name.get_base_dir())
@@ -82,7 +82,9 @@ func read_sprite_sheet(fileName):
 		printerr("Failed to load "+fileName)
 		return 1
 	var text = file.get_as_text()
-	var dict = JSON.parse(text).result
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(text).result
+	var dict = test_json_conv.get_data()
 	file.close()	
 	
 	if !dict:
@@ -115,7 +117,7 @@ func read_sprite_sheet(fileName):
 	return dict
 
 func create_folder(folder):
-	var dir = Directory.new()
+	var dir = DirAccess.new()
 	if !dir.dir_exists(folder):
 		if dir.make_dir_recursive(folder) != OK:
 			printerr("Failed to create folder: " + folder)

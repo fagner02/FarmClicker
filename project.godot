@@ -6,101 +6,42 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=4
-
-_global_script_classes=[ {
-"base": "Node",
-"class": "AsepriteImportData",
-"language": "GDScript",
-"path": "res://addons/aseprite_importer/classes/AsepriteImportData.gd"
-}, {
-"base": "Node",
-"class": "AsepriteImporter",
-"language": "GDScript",
-"path": "res://addons/aseprite_importer/classes/AsepriteImporter.gd"
-}, {
-"base": "Area2D",
-"class": "CustomButton",
-"language": "GDScript",
-"path": "res://B.gd"
-}, {
-"base": "Resource",
-"class": "Data",
-"language": "GDScript",
-"path": "res://Data.gd"
-}, {
-"base": "Node",
-"class": "EditorTheme",
-"language": "GDScript",
-"path": "res://addons/aseprite_importer/classes/EditorTheme.gd"
-}, {
-"base": "Reference",
-"class": "JB",
-"language": "GDScript",
-"path": "res://addons/json_beautifier/Print.gd"
-}, {
-"base": "Reference",
-"class": "JSONBeautifier",
-"language": "GDScript",
-"path": "res://addons/json_beautifier/json_beautifier.gd"
-}, {
-"base": "PanelContainer",
-"class": "JsonDock",
-"language": "GDScript",
-"path": "res://addons/json_editor/json_dock.gd"
-}, {
-"base": "Reference",
-"class": "SL",
-"language": "GDScript",
-"path": "res://SLManage.gd"
-}, {
-"base": "Object",
-"class": "TypeFormattingLogic",
-"language": "GDScript",
-"path": "res://addons/metadata_inspector/TypeFormattingLogic.gd"
-} ]
-_global_script_class_icons={
-"AsepriteImportData": "",
-"AsepriteImporter": "",
-"CustomButton": "",
-"Data": "",
-"EditorTheme": "",
-"JB": "",
-"JSONBeautifier": "",
-"JsonDock": "",
-"SL": "",
-"TypeFormattingLogic": ""
-}
+config_version=5
 
 [application]
 
 config/name="New"
 run/main_scene="res://Node2D.tscn"
+config/features=PackedStringArray("4.1", "C#")
 boot_splash/image="res://icon.png"
 boot_splash/fullsize=false
 config/icon="res://icon.png"
 
+[autoload]
+
+RuntimeData="*res://RuntimeData.cs"
+
 [debug]
 
 gdscript/warnings/unused_variable=false
-gdscript/warnings/unused_argument=false
 gdscript/warnings/return_value_discarded=false
+gdscript/warnings/unused_argument=false
 
 [display]
 
-window/size/width=1080
-window/size/height=1920
+window/size/viewport_width=535
+window/size/viewport_height=875
+window/size/initial_screen=595
 window/size/resizable=false
-window/size/test_width=378
-window/size/test_height=672
-window/dpi/allow_hidpi=true
 window/handheld/orientation="portrait"
-window/stretch/mode="2d"
-window/stretch/aspect="expand"
+
+[dotnet]
+
+project/assembly_name="New"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "Todo_Manager", "json_editor", "todo" )
+enabled=PackedStringArray("Todo_Manager", "json_editor", "todo")
 
 [global]
 

@@ -1,4 +1,4 @@
-tool
+@tool
 extends Node
 class_name EditorTheme
 
@@ -18,7 +18,7 @@ func get_font(font_name : String, font_list := "EditorFonts") -> Font:
 	return _theme.get_font(font_name, font_list)
 
 
-func get_icon(icon_name : String, icon_list := "EditorIcons") -> Texture:
+func get_icon(icon_name : String, icon_list := "EditorIcons") -> Texture2D:
 	return _theme.get_icon(icon_name, icon_list)
 
 

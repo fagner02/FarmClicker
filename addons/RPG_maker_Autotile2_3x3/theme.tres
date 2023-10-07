@@ -1,12 +1,12 @@
 [gd_resource type="Theme" load_steps=10 format=2]
 
-[ext_resource path="Fonts/KOMIKAX_.ttf" type="DynamicFontData" id=1]
-[ext_resource path="Fonts/OpenSans-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="Fonts/KOMIKAX_.ttf" type="FontFile" id=1]
+[ext_resource path="Fonts/OpenSans-Regular.ttf" type="FontFile" id=2]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="FontFile" id=1]
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="FontFile" id=2]
 size = 14
 extra_spacing_top = 3
 extra_spacing_bottom = 3
@@ -14,12 +14,12 @@ extra_spacing_char = 3
 extra_spacing_space = 3
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="FontFile" id=3]
 size = 24
 outline_size = 1
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="FontFile" id=4]
 size = 14
 font_data = ExtResource( 1 )
 
@@ -35,7 +35,7 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="FontFile" id=6]
 size = 15
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )

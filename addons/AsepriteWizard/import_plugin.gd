@@ -1,4 +1,4 @@
-tool
+@tool
 extends EditorImportPlugin
 
 const CONFIG_FILE_PATH = 'user://aseprite_wizard.cfg'
@@ -22,28 +22,28 @@ func get_error_message(code: int):
 		_:
 			return 'import failed with code %d' % code
 
-func get_importer_name():
+func _get_importer_name():
 	return "aseprite.wizard.plugin"
 
-func get_visible_name():
+func _get_visible_name():
 	return "Aseprite Importer"
 
-func get_recognized_extensions():
+func _get_recognized_extensions():
 	return ["aseprite", "ase"]
 
-func get_save_extension():
+func _get_save_extension():
 	return "res"
 
-func get_resource_type():
+func _get_resource_type():
 	return "SpriteFrames"
 
-func get_preset_count():
+func _get_preset_count():
 	return 1
 
-func get_preset_name(i):
+func _get_preset_name(i):
 	return "Default"
 
-func get_import_options(i):
+func _get_import_options(i):
 	return [
 		{"name": "split_layers", "default_value": false},
 		{"name": "exclude_layers_pattern", "default_value": ''},
@@ -60,11 +60,11 @@ func get_import_options(i):
 		{"name": "texture_atlas/frame_filename_pattern", "default_value": "{basename}.{layer}.{animation}.{frame}.Atlas.{extension}"},
 
 		{"name": "animated_texture/import_animated_texture", "default_value": false},
-		{"name": "animated_texture/filename_pattern", "default_value": "{basename}.{layer}.{animation}.Texture.{extension}"},
-		{"name": "animated_texture/frame_filename_pattern", "default_value": "{basename}.{layer}.{animation}.{frame}.Texture.{extension}"},
+		{"name": "animated_texture/filename_pattern", "default_value": "{basename}.{layer}.{animation}.Texture2D.{extension}"},
+		{"name": "animated_texture/frame_filename_pattern", "default_value": "{basename}.{layer}.{animation}.{frame}.Texture2D.{extension}"},
 		]
 
-func get_option_visibility(option, options):
+func _get_option_visibility(option, options):
 	return true
 
 static func replace_vars(pattern : String, vars : Dictionary):
@@ -78,21 +78,21 @@ func import(source_file, save_path, options, platform_variants, gen_files):
 	var absolute_source_file = ProjectSettings.globalize_path(source_file)
 	var absolute_save_path = ProjectSettings.globalize_path(save_path)
 
-	var source_path = source_file.substr(0, source_file.find_last('/'))
+	var source_path = source_file.substr(0, source_file.rfind('/'))
 	var source_basename = source_file.substr(source_path.length()+1, -1)
-	source_basename = source_basename.substr(0, source_basename.find_last('.'))
+	source_basename = source_basename.substr(0, source_basename.rfind('.'))
 
 	var config = ConfigFile.new()
 	config.load(CONFIG_FILE_PATH)
 
 	aseprite.init(config, 'aseprite')
 
-	var dir = Directory.new()
+	var dir = DirAccess.new()
 	dir.make_dir(save_path)
 
 	# Clear the directories contents
 	dir.open(save_path)
-	dir.list_dir_begin()
+	dir.list_dir_begin() # TODOConverter3To4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 	var file_name = dir.get_next()
 	while file_name != "":
 		if file_name != '.' and file_name != '..':
@@ -115,7 +115,7 @@ func import(source_file, save_path, options, platform_variants, gen_files):
 		return FAILED
 
 	dir.open(save_path)
-	dir.list_dir_begin()
+	dir.list_dir_begin() # TODOConverter3To4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 
 	file_name = dir.get_next()
 

@@ -1,12 +1,12 @@
 extends Panel
 
 
-onready var title_label				= $title_label
-onready var columns_spinBox			= $columns_SpinBox
-onready var tilemap_name_lineEdit	= $tilemap_name_LineEdit
-onready var tileset_name_lineEdit	= $tileset_name_LineEdit
-onready var info_button				= $info_button
-onready var single_imagen_button	= $single_image_button
+@onready var title_label				= $title_label
+@onready var columns_spinBox			= $columns_SpinBox
+@onready var tilemap_name_lineEdit	= $tilemap_name_LineEdit
+@onready var tileset_name_lineEdit	= $tileset_name_LineEdit
+@onready var info_button				= $info_button
+@onready var single_imagen_button	= $single_image_button
 
 var id = 0
 
@@ -52,7 +52,7 @@ func _on_delete_button_button_up() -> void:
 	emit_signal("deleted", id)
 	
 func select():
-	tilemap_name_lineEdit.caret_position = tilemap_name_lineEdit.text.length()
+	tilemap_name_lineEdit.caret_column = tilemap_name_lineEdit.text.length()
 	tilemap_name_lineEdit.select_all()
 	tilemap_name_lineEdit.grab_focus()
 
@@ -63,30 +63,30 @@ all the tiles will be drawn in a same image in
 [color=#FF0000]%s[/color] columns by [color=#FF0000]%s[/color] pixels wide each""" % [
 		value, data.tile_width
 	]
-	columns_spinBox.hint_tooltip = text
+	columns_spinBox.tooltip_text = text
 	update_help()
 
 
 func _on_tilemap_name_lineEdit_text_changed(new_text: String) -> void:
-	var caret_position = tilemap_name_lineEdit.caret_position
+	var caret_column = tilemap_name_lineEdit.caret_column
 	var illegal = ["<",">",":","\"","/","\\","|","?","*"]
 	for _char in illegal:
 		if new_text.find(_char) != -1:
 			new_text = new_text.replace(_char, "")
-			caret_position -= 1
+			caret_column -= 1
 	tilemap_name_lineEdit.text = new_text
-	tilemap_name_lineEdit.caret_position = caret_position
+	tilemap_name_lineEdit.caret_column = caret_column
 	update_help()
 	
 func _on_tileset_name_lineEdit_text_changed(new_text: String) -> void:
-	var caret_position = tileset_name_lineEdit.caret_position
+	var caret_column = tileset_name_lineEdit.caret_column
 	var illegal = ["<",">",":","\"","/","\\","|","?","*"]
 	for _char in illegal:
 		if new_text.find(_char) != -1:
 			new_text = new_text.replace(_char, "")
-			caret_position -= 1
+			caret_column -= 1
 	tileset_name_lineEdit.text = new_text
-	tileset_name_lineEdit.caret_position = caret_position
+	tileset_name_lineEdit.caret_column = caret_column
 	update_help()
 	
 func update_help():
@@ -100,7 +100,7 @@ func update_help():
 	text += "- Save tiles in:\n[color=#FF0000]  %s%s/*.png[/color]\n" % [
 		data.autotile_path, tilemap_name_lineEdit.text
 	]
-	info_button.hint_tooltip = text
+	info_button.tooltip_text = text
 
 
 func _on_single_image_button_toggled(button_pressed: bool) -> void:

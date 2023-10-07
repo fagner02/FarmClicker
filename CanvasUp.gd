@@ -1,7 +1,7 @@
 extends Node2D
 
 
-onready var res = load("res://Storage.tres")
+@onready var res = load("res://Storage.tres")
 
 
 # Called when the node enters the scene tree for the first time.

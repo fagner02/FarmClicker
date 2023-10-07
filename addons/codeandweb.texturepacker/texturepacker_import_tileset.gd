@@ -1,3 +1,4 @@
+@tool
 # The MIT License (MIT)
 #
 # Copyright (c) 2018 Andreas Loew / CodeAndWeb GmbH www.codeandweb.com
@@ -20,7 +21,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-tool
 extends EditorImportPlugin
 
 var imageLoader = preload("image_loader.gd").new()
@@ -33,44 +33,44 @@ func _notification(what):
 	if what == NOTIFICATION_PREDELETE:
 		imageLoader.free()
 
-func get_importer_name():
+func _get_importer_name():
 	return "codeandweb.texturepacker_import_tileset"
 
 
-func get_visible_name():
+func _get_visible_name():
 	return "TileSet from TexturePacker"
 
 
-func get_recognized_extensions():
+func _get_recognized_extensions():
 	return ["tpset"]
 
 
-func get_save_extension():
+func _get_save_extension():
 	return "res"
 
 
-func get_resource_type():
+func _get_resource_type():
 	return "Resource"
 
 
-func get_preset_count():
+func _get_preset_count():
 	return Preset.size()
 
 
-func get_preset_name(preset):
+func _get_preset_name(preset):
 	match preset:
 		Preset.PRESET_DEFAULT: return "Default"
 
 
-func get_import_options(preset):
+func _get_import_options(preset):
 	return []
 
 
-func get_option_visibility(option, options):
+func _get_option_visibility(option, options):
 	return true
 
 
-func get_import_order():
+func _get_import_order():
 	return 200
 
 func import(source_file, save_path, options, r_platform_variants, r_gen_files):
@@ -98,7 +98,7 @@ func import(source_file, save_path, options, r_platform_variants, r_gen_files):
 	r_gen_files.push_back(fileName)
 	ResourceSaver.save(fileName, tileSet)
 
-	return ResourceSaver.save("%s.%s" % [save_path, get_save_extension()], Resource.new())
+	return ResourceSaver.save("%s.%s" % [save_path, _get_save_extension()], Resource.new())
 
 func prune_tileset(tileSet, usedIds):
 	usedIds.sort()
@@ -108,7 +108,7 @@ func prune_tileset(tileSet, usedIds):
 
 
 func create_folder(folder):
-	var dir = Directory.new()
+	var dir = DirAccess.new()
 	if !dir.dir_exists(folder):
 		if dir.make_dir_recursive(folder) != OK:
 			printerr("Failed to create folder: " + folder)
@@ -149,7 +149,9 @@ func read_sprite_sheet(fileName):
 	if file.open(fileName, file.READ) != OK:
 		printerr("Failed to load "+fileName)
 	var text = file.get_as_text()
-	var dict = JSON.parse(text).result
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(text).result
+	var dict = test_json_conv.get_data()
 	if !dict:
 		printerr("Invalid json data in "+fileName)
 	file.close()

@@ -1,1009 +1,740 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=33 format=3 uid="uid://dawvj2hxparn8"]
 
-[ext_resource path="res://Node2D.gd" type="Script" id=1]
-[ext_resource path="res://B.gd" type="Script" id=2]
-[ext_resource path="res://ObjectsInst/Ground.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Graphs/sketch-1588125516283.png" type="Texture" id=4]
-[ext_resource path="res://Graphs/sketch-1587801317230.png" type="Texture" id=5]
-[ext_resource path="res://Graphs/1.png" type="Texture" id=6]
-[ext_resource path="res://Graphs/2.png" type="Texture" id=7]
-[ext_resource path="res://Graphs/sketch-1591138571720.png" type="Texture" id=8]
-[ext_resource path="res://Graphs/sketch-1597800549218.png" type="Texture" id=9]
-[ext_resource path="res://Fonts/Billy.tres" type="DynamicFont" id=10]
-[ext_resource path="res://Box.gd" type="Script" id=11]
-[ext_resource path="res://Fonts/BillyDrag.tres" type="DynamicFont" id=12]
-[ext_resource path="res://Area2D.gd" type="Script" id=13]
-[ext_resource path="res://Graphs/sketch-1587966256351.png" type="Texture" id=14]
-[ext_resource path="res://Fonts/Billy2.tres" type="DynamicFont" id=15]
-[ext_resource path="res://Graphs/Cancel.png" type="Texture" id=16]
-[ext_resource path="res://Clients.gd" type="Script" id=17]
-[ext_resource path="res://Fonts/Billy3.tres" type="DynamicFont" id=18]
-[ext_resource path="res://Graphs/sketch-1600721871072.png" type="Texture" id=19]
-[ext_resource path="res://Client.tscn" type="PackedScene" id=20]
-[ext_resource path="res://UpperCanvas.gd" type="Script" id=22]
-[ext_resource path="res://MoneyLabel.gd" type="Script" id=23]
-[ext_resource path="res://Shop.gd" type="Script" id=24]
-[ext_resource path="res://ObjectsInst/Trees/OrangeTree.tscn" type="PackedScene" id=25]
-[ext_resource path="res://icon.png" type="Texture" id=27]
-[ext_resource path="res://CustomButton.gd" type="Script" id=30]
+[ext_resource type="Script" path="res://Node2D.cs" id="1_4j4sj"]
+[ext_resource type="PackedScene" path="res://ObjectsInst/Ground.tscn" id="3"]
+[ext_resource type="Texture2D" uid="uid://cm360jl2jwgkn" path="res://Graphs/sketch-1588125516283.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://lnoao1shd68o" path="res://Graphs/sketch-1587801317230.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://bega3x0gicio1" path="res://Graphs/1.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://bdjmrelem7blh" path="res://Graphs/2.png" id="7"]
+[ext_resource type="Script" path="res://Box.cs" id="7_cr1g2"]
+[ext_resource type="Texture2D" uid="uid://yi7lyb28sesw" path="res://Graphs/sketch-1591138571720.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://p5uvphxcxdu0" path="res://Graphs/sketch-1597800549218.png" id="9"]
+[ext_resource type="FontFile" path="res://Fonts/Billy.tres" id="10"]
+[ext_resource type="FontFile" uid="uid://cu3q51tsifv1i" path="res://Fonts/billy.ttf" id="12_elt5d"]
+[ext_resource type="Texture2D" uid="uid://78t74dpso5rg" path="res://Graphs/sketch-1587966256351.png" id="14"]
+[ext_resource type="FontVariation" uid="uid://be7gahadt3yvc" path="res://Fonts/Billy2.tres" id="15"]
+[ext_resource type="Texture2D" uid="uid://brdhsycel4un1" path="res://Graphs/Cancel.png" id="16"]
+[ext_resource type="FontFile" path="res://Fonts/Billy3.tres" id="18"]
+[ext_resource type="Texture2D" uid="uid://dv1awnup523u5" path="res://Graphs/sketch-1600721871072.png" id="19"]
+[ext_resource type="PackedScene" path="res://Client.tscn" id="20"]
+[ext_resource type="Script" path="res://UpperCanvas.gd" id="22"]
+[ext_resource type="Script" path="res://MoneyLabel.gd" id="23"]
+[ext_resource type="PackedScene" uid="uid://b0ig8scg6evwe" path="res://ObjectsInst/Trees/OrangeTree.tscn" id="25"]
+[ext_resource type="Texture2D" uid="uid://f5c7u6jd5fee" path="res://icon.png" id="27"]
+[ext_resource type="Script" path="res://CustomButton.gd" id="30"]
 
-[sub_resource type="CanvasItemMaterial" id=1]
+[sub_resource type="FontVariation" id="FontVariation_cp3kw"]
+base_font = ExtResource("10")
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id="2"]
 length = 0.9
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("Info:polygon")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("../../CanvasLayer3/CenterContainer/Polygon2D2:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.25 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ PoolVector2Array( 792.632, 419.984, 793.969, 541.206, 854.987, 539.163, 917.117, 539.681, 931.402, 540.475, 953.07, 541.196, 953.625, 522.221, 952.831, 508.729, 949.656, 417.459 ), PoolVector2Array( 796.59, 405.341, 788.436, 553.079, 851.532, 546.266, 917.117, 539.681, 931.402, 540.475, 953.625, 542.062, 953.625, 522.221, 952.831, 508.729, 949.656, 417.459 ), PoolVector2Array( 796.59, 405.341, 791.866, 549.707, 848.456, 549.694, 909.513, 549.736, 928.85, 551.39, 952.683, 550.975, 953.625, 522.221, 952.831, 508.729, 950.952, 404.332 ), PoolVector2Array( 795.44, 400.971, 790.203, 561.578, 850.516, 557.415, 909.857, 552.799, 928.85, 551.39, 952.683, 550.975, 953.625, 522.221, 952.831, 508.729, 950.952, 404.332 ), PoolVector2Array( 802, 407.685, 802, 548.257, 850.639, 548.85, 908.47, 548.923, 929.538, 548.726, 953.531, 549.448, 953.625, 522.221, 952.831, 508.729, 950.22, 404.224 ) ]
+"values": [-42.3927, -80.2699]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Polygon2D2:rotation_degrees")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
+tracks/1/path = NodePath("Info:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.15 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0, 0.15, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [ -42.3927, -80.2699 ]
+"values": [Vector2(0.950312, 1.15353), Vector2(2.04151, 2.26074), Vector2(2.04151, 2.26074)]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Info:scale")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
+tracks/2/path = NodePath("Info:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.15, 0.25 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Vector2( 0.950312, 1.15353 ), Vector2( 2.04151, 2.26074 ), Vector2( 2.04151, 2.26074 ) ]
+"values": [-0.740219]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Info:position")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
+tracks/3/path = NodePath("../../CanvasLayer3/CenterContainer/Polygon2D2/TextureButton:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.25 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Vector2( -66.9196, -68.1721 ), Vector2( -100.765, -48.2282 ), Vector2( -128.765, -2.22821 ), Vector2( -152.765, 17.7718 ), Vector2( -152.765, 17.7718 ) ]
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Info:rotation_degrees")
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0.25 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ -0.740219 ]
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("TextureButton:visible")
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../CanvasLayer3/CenterContainer/Polygon2D2:position")
 tracks/5/interp = 2
 tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0.2 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("TextureButton:rect_scale")
-tracks/6/interp = 2
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0.2, 0.25 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("Info/ScrollContainer:visible")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0.2 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("CanvasLayer:scale")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0, 0.15 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("Info/Open:visible")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 0.35 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/10/type = "value"
-tracks/10/path = NodePath("Polygon2D2:position")
-tracks/10/interp = 2
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
-"times": PoolRealArray( 0.25 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -48.634, -97.7332 ) ]
+"values": [Vector2(-48.634, -97.7332)]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id="3"]
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("Info:polygon")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("../../CanvasLayer3/CenterContainer/Polygon2D2:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ PoolVector2Array( 802, 407.685, 802, 548.257, 850.639, 548.85, 908.47, 548.923, 929.538, 548.726, 953.531, 549.448, 953.625, 522.221, 952.831, 508.729, 950.22, 404.224 ), PoolVector2Array( 796.59, 405.341, 791.866, 549.707, 848.456, 549.694, 909.513, 549.736, 928.85, 551.39, 952.683, 550.975, 953.625, 522.221, 952.831, 508.729, 950.952, 404.332 ), PoolVector2Array( 796.59, 405.341, 788.436, 553.079, 851.532, 546.266, 917.117, 539.681, 931.402, 540.475, 953.625, 542.062, 953.625, 522.221, 952.831, 508.729, 949.656, 417.459 ), PoolVector2Array( 792.632, 419.984, 793.969, 541.206, 854.987, 539.163, 917.117, 539.681, 931.402, 540.475, 953.07, 541.196, 953.625, 522.221, 952.831, 508.729, 949.656, 417.459 ) ]
+"values": [-80.2699, -42.3927]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Polygon2D2:rotation_degrees")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
+tracks/1/path = NodePath("Info:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.15 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ -80.2699, -42.3927 ]
+"values": [Vector2(2.04151, 2.26074), Vector2(0.950312, 1.15353)]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Info:scale")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
+tracks/2/path = NodePath("../../CanvasLayer3/CenterContainer/Polygon2D2/TextureButton:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.15 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Vector2( 2.04151, 2.26074 ), Vector2( 0.950312, 1.15353 ) ]
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Info:position")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Vector2( -152.765, 17.7718 ), Vector2( -128.765, -2.22821 ), Vector2( -100.765, -48.2282 ), Vector2( -66.9196, -68.1721 ) ]
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("TextureButton:rect_scale")
-tracks/4/interp = 2
-tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
+tracks/4/path = NodePath("Polygon2D5/Open:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("TextureButton:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0.1 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ false ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("Info/ScrollContainer:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0.15 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("CanvasLayer:scale")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0, 0.15 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("Info/Open:visible")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0.25 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("Polygon2D2:position")
-tracks/9/interp = 2
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 0.3 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -18.43, -88.2945 ) ]
+"values": [true]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=4]
-animation = "Expand"
+[sub_resource type="Animation" id="Animation_ne0sh"]
+length = 0.001
 
-[sub_resource type="AnimationNodeAnimation" id=5]
-animation = "Minimize"
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2nqpl"]
+_data = {
+"Expand": SubResource("2"),
+"Minimize": SubResource("3"),
+"RESET": SubResource("Animation_ne0sh")
+}
 
-[sub_resource type="AnimationNodeStateMachine" id=6]
-states/Expand/node = SubResource( 4 )
-states/Expand/position = Vector2( 244, 56 )
-states/Minimize/node = SubResource( 5 )
-states/Minimize/position = Vector2( 193, 166 )
+[sub_resource type="AnimationNodeAnimation" id="4"]
+animation = &"Expand"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=7]
+[sub_resource type="AnimationNodeAnimation" id="5"]
+animation = &"Minimize"
+
+[sub_resource type="AnimationNodeStateMachine" id="6"]
+states/Expand/node = SubResource("4")
+states/Expand/position = Vector2(244, 56)
+states/Minimize/node = SubResource("5")
+states/Minimize/position = Vector2(193, 166)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0auh4"]
+
+[sub_resource type="FontVariation" id="FontVariation_g2qec"]
+base_font = ExtResource("12_elt5d")
 
 [node name="Node2D" type="Node2D"]
-position = Vector2( -1, 0 )
-script = ExtResource( 1 )
+position = Vector2(-1, 0)
+script = ExtResource("1_4j4sj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-current = true
-smoothing_enabled = true
+position = Vector2(1, -1)
+zoom = Vector2(0.45, 0.45)
+position_smoothing_enabled = true
 
 [node name="Background" type="Node2D" parent="."]
 z_index = -22
 
 [node name="TextureRect2" type="TextureRect" parent="Background"]
+anchors_preset = -1
 anchor_left = 0.493
 anchor_top = 0.498
 anchor_right = 0.493
 anchor_bottom = 0.498
-margin_left = -770.327
-margin_top = -1790.37
-margin_right = 753.673
-margin_bottom = 1782.63
+offset_left = -909.0
+offset_top = -1662.0
+offset_right = 761.0
+offset_bottom = 1730.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 mouse_filter = 2
-texture = ExtResource( 5 )
-expand = true
-stretch_mode = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture = ExtResource("5")
+expand_mode = 5
+stretch_mode = 1
 
 [node name="Background" type="CanvasLayer" parent="Background"]
-follow_viewport_enable = true
+follow_viewport_enabled = true
 
 [node name="Label" type="Label" parent="Background/Background"]
-margin_left = -512.785
-margin_top = -939.966
-margin_right = -137.785
-margin_bottom = -826.968
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 18 )
+offset_left = -512.785
+offset_top = -939.966
+offset_right = -137.785
+offset_bottom = -826.968
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("18")
 text = "ojjookkpo"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Body" type="Node2D" parent="."]
 
-[node name="Polygon2D" parent="Body" instance=ExtResource( 3 )]
+[node name="Polygon2D" parent="Body" instance=ExtResource("3")]
 visible = false
-position = Vector2( -470, -1390.31 )
 z_index = 1
+position = Vector2(-470, -1390.31)
 
 [node name="Market" type="Node2D" parent="Body"]
-position = Vector2( -561.023, -978.339 )
+position = Vector2(-561.023, -978.339)
 
-[node name="Market" type="Sprite" parent="Body/Market"]
-position = Vector2( 833.97, 382.898 )
-scale = Vector2( 0.5, 0.5 )
+[node name="Market" type="Sprite2D" parent="Body/Market"]
 z_index = 1
-texture = ExtResource( 6 )
+position = Vector2(833.97, 382.898)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6")
 region_enabled = true
-region_rect = Rect2( 200, 470, 760, 710 )
+region_rect = Rect2(200, 470, 760, 710)
 
-[node name="Boxes" type="Sprite" parent="Body/Market"]
-position = Vector2( 658.286, 464.422 )
+[node name="Boxes" type="Sprite2D" parent="Body/Market"]
 z_index = 1
-texture = ExtResource( 7 )
+position = Vector2(658.286, 464.422)
+texture = ExtResource("7")
 region_enabled = true
-region_rect = Rect2( 550, 600, 230, 150 )
-script = ExtResource( 11 )
+region_rect = Rect2(550, 600, 230, 150)
+script = ExtResource("7_cr1g2")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Body/Market/Boxes"]
-visible = false
-margin_top = -129.0
-margin_right = 36.0
-margin_bottom = -116.0
-rect_scale = Vector2( 9, 9 )
-bbcode_text = "999/999"
+offset_left = -48.0
+offset_top = -77.0
+offset_right = 286.0
+offset_bottom = 9.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 9.72
+theme_override_fonts/normal_font = SubResource("FontVariation_cp3kw")
+theme_override_font_sizes/normal_font_size = 156
+bbcode_enabled = true
 text = "999/999"
 scroll_active = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Info" type="Polygon2D" parent="Body/Market/Boxes"]
-position = Vector2( -66.9196, -68.1721 )
-rotation = -0.0129193
-scale = Vector2( 0.950312, 1.15353 )
-offset = Vector2( -876.264, -541.895 )
-texture = ExtResource( 7 )
-polygon = PoolVector2Array( 792.632, 419.984, 793.969, 541.206, 854.987, 539.163, 917.117, 539.681, 931.402, 540.475, 953.07, 541.196, 953.625, 522.221, 952.831, 508.729, 949.656, 417.459 )
-uv = PoolVector2Array( 800.45, 421.427, 798.069, 538.094, 852.831, 540.475, 917.117, 539.681, 931.402, 540.475, 953.625, 542.062, 951.244, 522.221, 952.831, 508.729, 949.656, 417.459 )
-
-[node name="Open" type="Button" parent="Body/Market/Boxes/Info"]
-show_behind_parent = true
-light_mask = 0
-material = SubResource( 1 )
-margin_left = -65.0
-margin_top = -114.0
-margin_right = 63.0
-margin_bottom = -4.0
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Close" type="Button" parent="Body/Market/Boxes/Info"]
-visible = false
-show_behind_parent = true
-margin_left = -69.0
-margin_top = -24.0
-margin_right = 364.0
-margin_bottom = 427.0
-icon = ExtResource( 16 )
-flat = true
-expand_icon = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Body/Market/Boxes/Info"]
-visible = false
-margin_left = -66.0
-margin_top = -116.0
-margin_right = 67.0
-margin_bottom = -3.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Body/Market/Boxes/Info/ScrollContainer"]
-size_flags_horizontal = 2
-size_flags_vertical = 2
-
-[node name="Item" type="Label" parent="Body/Market/Boxes/Info"]
-visible = false
-modulate = Color( 0, 0, 0, 1 )
-margin_right = 130.0
-margin_bottom = 100.0
-custom_fonts/font = ExtResource( 12 )
-text = "Fruit
-"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+tab_size = 0
+threaded = true
 
 [node name="CanvasLayer" type="Node2D" parent="Body/Market/Boxes"]
-position = Vector2( -67.7403, -135.793 )
+position = Vector2(-67.7403, -135.793)
+scale = Vector2(1e-05, 1e-05)
 
 [node name="Label" type="Label" parent="Body/Market/Boxes/CanvasLayer"]
-margin_left = -71.8385
-margin_top = -50.2354
-margin_right = 0.161499
-margin_bottom = -32.2354
-rect_scale = Vector2( 2, 2 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 15 )
+offset_left = -71.8385
+offset_top = -50.2354
+offset_right = 0.161499
+offset_bottom = -32.2354
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("15")
 text = "999/999"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Sprite" type="Sprite" parent="Body/Market/Boxes/CanvasLayer"]
-position = Vector2( 0.170532, 16.6245 )
-scale = Vector2( 1.18077, 1.04363 )
-texture = ExtResource( 7 )
+[node name="Sprite2D" type="Sprite2D" parent="Body/Market/Boxes/CanvasLayer"]
+position = Vector2(0.170532, 16.6245)
+scale = Vector2(1.18077, 1.04363)
+texture = ExtResource("7")
 region_enabled = true
-region_rect = Rect2( 630, 459.836, 80, 79 )
-
-[node name="TextureButton" type="TextureButton" parent="Body/Market/Boxes"]
-margin_left = -62.1272
-margin_top = -293.363
-margin_right = -10.1272
-margin_bottom = -238.363
-rect_scale = Vector2( 1e-05, 1e-05 )
-texture_normal = ExtResource( 16 )
-expand = true
-stretch_mode = 4
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Polygon2D5" type="Polygon2D" parent="Body/Market/Boxes"]
-visible = false
-position = Vector2( -93.2566, -76.0295 )
-rotation = -0.0129193
-scale = Vector2( 1.26772, 0.995965 )
-offset = Vector2( -876.264, -541.895 )
-texture = ExtResource( 7 )
-polygon = PoolVector2Array( 800.45, 421.427, 798.069, 539.681, 852.831, 540.475, 917.117, 539.681, 931.402, 540.475, 953.625, 542.062, 953.625, 522.221, 952.831, 508.729, 949.656, 417.459 )
-uv = PoolVector2Array( 800.45, 421.427, 798.069, 538.094, 852.831, 540.475, 917.117, 539.681, 931.402, 540.475, 953.625, 542.062, 951.244, 522.221, 952.831, 508.729, 949.656, 417.459 )
-
-[node name="Button" type="Button" parent="Body/Market/Boxes/Polygon2D5"]
-margin_left = -43.0
-margin_top = -135.0
-margin_right = 76.0
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Polygon2D" type="Polygon2D" parent="Body/Market/Boxes"]
-visible = false
-position = Vector2( -69.841, -145.935 )
-scale = Vector2( 1.27135, 1.17673 )
-offset = Vector2( -868.227, -481.34 )
-texture = ExtResource( 7 )
-polygon = PoolVector2Array( 710.578, 353.726, 691.412, 525.692, 803.625, 542.062, 847.275, 543.649, 944.894, 543.649, 958.913, 515.788, 948.08, 322.214 )
-uv = PoolVector2Array( 802.037, 423.808, 799.656, 534.125, 803.625, 542.062, 847.275, 543.649, 944.894, 543.649, 958.386, 517.459, 943.307, 416.665 )
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Body/Market/Boxes/Polygon2D"]
-margin_left = -124.0
-margin_top = -95.0
-margin_right = 128.0
-margin_bottom = 52.0
-mouse_filter = 1
-size_flags_horizontal = 2
-size_flags_vertical = 2
-scroll_horizontal_enabled = false
-scroll_vertical = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Body/Market/Boxes/Polygon2D/ScrollContainer"]
-margin_right = 252.0
-margin_bottom = 147.0
-rect_pivot_offset = Vector2( 125.919, 74.226 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Body/Market/Boxes/Polygon2D/ScrollContainer/VBoxContainer"]
-margin_right = 252.0
-margin_bottom = 69.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-alignment = 1
-
-[node name="Label3" type="Label" parent="Body/Market/Boxes/Polygon2D/ScrollContainer/VBoxContainer/HBoxContainer"]
-margin_right = 252.0
-margin_bottom = 69.0
-mouse_filter = 1
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.31
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 10 )
-text = "okpokpok"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="Body/Market/Boxes/Polygon2D/ScrollContainer/VBoxContainer"]
-margin_top = 77.0
-margin_right = 252.0
-margin_bottom = 147.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Label3" type="Label" parent="Body/Market/Boxes/Polygon2D/ScrollContainer/VBoxContainer/HBoxContainer2"]
-margin_right = 252.0
-margin_bottom = 70.0
-mouse_filter = 1
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.31
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 10 )
-text = "okpokpok"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Polygon2D2" type="Polygon2D" parent="Body/Market/Boxes"]
-visible = false
-position = Vector2( -48.634, -97.7332 )
-rotation = -0.739892
-scale = Vector2( 0.859644, 0.790893 )
-offset = Vector2( -876.264, -541.895 )
-texture = ExtResource( 7 )
-polygon = PoolVector2Array( 848.863, 543.649, 901.244, 544.443, 899.656, 586.506, 852.831, 585.713 )
-uv = PoolVector2Array( 850.45, 540.475, 901.244, 542.062, 899.656, 586.506, 852.831, 585.713 )
+region_rect = Rect2(630, 459.836, 80, 79)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Body/Market/Boxes"]
-anims/Expand = SubResource( 2 )
-anims/Minimize = SubResource( 3 )
+libraries = {
+"": SubResource("AnimationLibrary_2nqpl")
+}
 
 [node name="AnimationTree" type="AnimationTree" parent="Body/Market/Boxes"]
-tree_root = SubResource( 6 )
+tree_root = SubResource("6")
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 7 )
 
-[node name="Bush" type="Sprite" parent="Body/Market"]
-position = Vector2( 698.155, 424.559 )
-scale = Vector2( 1.05055, 1.09457 )
+[node name="Sprite2D" type="Sprite2D" parent="Body/Market/Boxes"]
+position = Vector2(-2.79263, -101.083)
+scale = Vector2(0.524213, 0.558824)
+texture = ExtResource("7")
+region_enabled = true
+region_rect = Rect2(801, 415.307, 147, 170)
+
+[node name="Button" type="Button" parent="Body/Market/Boxes/Sprite2D"]
+offset_left = -68.0
+offset_top = -75.0
+offset_right = 68.0
+offset_bottom = 41.0
+keep_pressed_outside = true
+flat = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Body/Market/Boxes/Sprite2D"]
+position = Vector2(1.01031, -17.8947)
+scale = Vector2(1.36259, 1.22707)
+texture = ExtResource("7")
+region_enabled = true
+region_rect = Rect2(633.636, 466.164, 70, 70)
+
+[node name="CanvasGroup" type="CanvasGroup" parent="Body/Market"]
+
+[node name="Bush" type="Sprite2D" parent="Body/Market/CanvasGroup"]
 z_index = -1
-texture = ExtResource( 8 )
+position = Vector2(698.155, 424.559)
+scale = Vector2(1.05055, 1.09457)
+texture = ExtResource("8")
 region_enabled = true
-region_rect = Rect2( 60, 1540, 280, 170 )
+region_rect = Rect2(60, 1540, 280, 170)
 
-[node name="Bush1" type="Sprite" parent="Body/Market"]
-position = Vector2( 911.737, 423.195 )
-scale = Vector2( 1.3, 1.3 )
-texture = ExtResource( 8 )
+[node name="Bush1" type="Sprite2D" parent="Body/Market/CanvasGroup"]
+position = Vector2(911.737, 423.195)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("8")
 region_enabled = true
-region_rect = Rect2( 770, 1740, 240, 130 )
+region_rect = Rect2(770, 1740, 240, 130)
 
-[node name="Grass" type="Sprite" parent="Body/Market"]
-position = Vector2( 877.655, 484.614 )
-scale = Vector2( 0.7, 0.7 )
+[node name="Grass" type="Sprite2D" parent="Body/Market/CanvasGroup"]
 z_index = 1
-texture = ExtResource( 8 )
+position = Vector2(877.655, 484.614)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("8")
 region_enabled = true
-region_rect = Rect2( 700, 170, 410, 110 )
+region_rect = Rect2(700, 170, 410, 110)
 
-[node name="Ground" type="Sprite" parent="Body/Market"]
-position = Vector2( 864.768, 536.49 )
-scale = Vector2( 1.3, 1.3 )
+[node name="Ground" type="Sprite2D" parent="Body/Market/CanvasGroup"]
 z_index = -1
-texture = ExtResource( 8 )
+position = Vector2(864.768, 536.49)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("8")
 region_enabled = true
-region_rect = Rect2( 590, 431.781, 530, 188.219 )
-
-[node name="Node2D" type="Node2D" parent="Body/Market"]
+region_rect = Rect2(590, 431.781, 530, 188.219)
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="Body"]
-follow_viewport_enable = true
+follow_viewport_enabled = true
 
 [node name="Polygon2D" type="Polygon2D" parent="Body/CanvasLayer3"]
 visible = false
-position = Vector2( 0, 0.159 )
-scale = Vector2( 0.855, 1 )
-texture = ExtResource( 14 )
-texture_scale = Vector2( 0.992, 1.005 )
-polygon = PoolVector2Array( 708.8, 707.947, 724.486, 860.888, 879.173, 862.824, 902.383, 694.486, 855.627, 708.099 )
-uv = PoolVector2Array( 708.8, 707.947, 724.486, 858.927, 863.702, 853.045, 863.702, 764.81, 791.153, 776.575, 861.741, 745.202, 853.898, 694.222 )
+position = Vector2(0, 0.159)
+scale = Vector2(0.855, 1)
+texture = ExtResource("14")
+texture_scale = Vector2(0.992, 1.005)
+polygon = PackedVector2Array(708.8, 707.947, 724.486, 860.888, 879.173, 862.824, 902.383, 694.486, 855.627, 708.099)
+uv = PackedVector2Array(708.8, 707.947, 724.486, 858.927, 863.702, 853.045, 863.702, 764.81, 791.153, 776.575, 861.741, 745.202, 853.898, 694.222)
 
 [node name="ProgressBar" type="ProgressBar" parent="Body/CanvasLayer3"]
 visible = false
-margin_right = 95.0
-margin_bottom = 14.0
+offset_right = 95.0
+offset_bottom = 14.0
 step = 0.0
 value = 90.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
+[node name="CenterContainer" type="MarginContainer" parent="Body/CanvasLayer3"]
+visible = false
+offset_left = -281.0
+offset_top = -522.0
+offset_right = 346.0
+offset_bottom = 50.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="Polygon2D2" type="NinePatchRect" parent="Body/CanvasLayer3/CenterContainer"]
+layout_mode = 2
+texture = ExtResource("9")
+region_rect = Rect2(1383.37, 1123.95, 219.615, 216.953)
+patch_margin_left = 112
+patch_margin_top = 100
+patch_margin_right = 105
+patch_margin_bottom = 103
+
+[node name="TextureButton" type="TextureButton" parent="Body/CanvasLayer3/CenterContainer/Polygon2D2"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -101.0
+offset_top = -16.0
+offset_right = 1.21999e+07
+offset_bottom = 1.25e+07
+grow_horizontal = 0
+scale = Vector2(1e-05, 1e-05)
+texture_normal = ExtResource("16")
+stretch_mode = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Body/CanvasLayer3/CenterContainer/Polygon2D2"]
+layout_mode = 2
+offset_left = 63.0
+offset_top = 65.0
+offset_right = 406.0
+offset_bottom = 364.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_0auh4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Body/CanvasLayer3/CenterContainer/Polygon2D2/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Body/CanvasLayer3/CenterContainer/Polygon2D2/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Label3" type="Label" parent="Body/CanvasLayer3/CenterContainer/Polygon2D2/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.31
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_g2qec")
+theme_override_font_sizes/font_size = 20
+text = "okpokpok"
 
 [node name="Clients" type="Node2D" parent="Body"]
-position = Vector2( -472.378, -1453.63 )
-script = ExtResource( 17 )
-time = 20
+position = Vector2(-472.378, -1453.63)
 
-[node name="Sprite" parent="Body/Clients" instance=ExtResource( 20 )]
-position = Vector2( 1072.95, 976.806 )
+[node name="Sprite2D" parent="Body/Clients" instance=ExtResource("20")]
+position = Vector2(1072.95, 976.806)
 
 [node name="Timer" type="Timer" parent="Body/Clients"]
 
 [node name="CanvasUp" type="CanvasLayer" parent="Body"]
-scale = Vector2( 0.7, 0.7 )
-transform = Transform2D( 0.7, 0, 0, 0.7, 0, 0 )
-follow_viewport_enable = true
+scale = Vector2(0.7, 0.7)
+transform = Transform2D(0.7, 0, 0, 0.7, 0, 0)
+follow_viewport_enabled = true
 
 [node name="TextureRect" type="TextureRect" parent="Body/CanvasUp"]
 visible = false
-margin_right = 2343.0
-margin_bottom = 2343.0
-texture = ExtResource( 4 )
+offset_right = 2343.0
+offset_bottom = 2343.0
+texture = ExtResource("4")
 stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Deco" type="Node2D" parent="Body"]
-position = Vector2( 143.606, -57.0419 )
+position = Vector2(143.606, -57.0419)
 
-[node name="Deco" type="Sprite" parent="Body/Deco"]
-modulate = Color( 0.827451, 1, 0.858824, 1 )
-position = Vector2( -266.341, -482.019 )
-scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 19 )
+[node name="Deco" type="Sprite2D" parent="Body/Deco"]
+modulate = Color(0.827451, 1, 0.858824, 1)
+position = Vector2(-266.341, -482.019)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("19")
 region_enabled = true
-region_rect = Rect2( 150, 267.212, 770, 655.098 )
+region_rect = Rect2(150, 267.212, 770, 655.098)
 
-[node name="Deco2" type="Sprite" parent="Body/Deco"]
-modulate = Color( 0.827451, 1, 0.858824, 1 )
-position = Vector2( -360.984, -673.237 )
-scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 19 )
+[node name="Deco2" type="Sprite2D" parent="Body/Deco"]
+modulate = Color(0.827451, 1, 0.858824, 1)
+position = Vector2(-360.984, -673.237)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("19")
 region_enabled = true
-region_rect = Rect2( 150, 263.217, 810, 675.071 )
+region_rect = Rect2(150, 263.217, 810, 675.071)
 
-[node name="Deco3" type="Sprite" parent="Body/Deco"]
-modulate = Color( 0.827451, 1, 0.858824, 1 )
-position = Vector2( -154.397, -704.519 )
-scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 19 )
+[node name="Deco3" type="Sprite2D" parent="Body/Deco"]
+modulate = Color(0.827451, 1, 0.858824, 1)
+position = Vector2(-154.397, -704.519)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("19")
 region_enabled = true
-region_rect = Rect2( 860, 1024.21, 1290, 990.637 )
+region_rect = Rect2(860, 1024.21, 1290, 990.637)
 
-[node name="Deco4" type="Sprite" parent="Body/Deco"]
-modulate = Color( 0.827451, 1, 0.858824, 1 )
-position = Vector2( -336.878, -497.667 )
-scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 19 )
+[node name="Deco4" type="Sprite2D" parent="Body/Deco"]
+modulate = Color(0.827451, 1, 0.858824, 1)
+position = Vector2(-336.878, -497.667)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("19")
 region_enabled = true
-region_rect = Rect2( 690, 1064.16, 1560, 1130.44 )
+region_rect = Rect2(690, 1064.16, 1560, 1130.44)
 
-[node name="Deco5" type="Sprite" parent="Body/Deco"]
-modulate = Color( 0.827451, 1, 0.858824, 1 )
-position = Vector2( -516.624, -750.126 )
-scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 19 )
+[node name="Deco5" type="Sprite2D" parent="Body/Deco"]
+modulate = Color(0.827451, 1, 0.858824, 1)
+position = Vector2(-516.624, -750.126)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("19")
 region_enabled = true
-region_rect = Rect2( 1180, 1105.92, 630, 423.417 )
+region_rect = Rect2(1180, 1105.92, 630, 423.417)
 
-[node name="Deco6" type="Sprite" parent="Body/Deco"]
-modulate = Color( 0.827451, 1, 0.858824, 1 )
-position = Vector2( -114.62, -501.87 )
-scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 19 )
+[node name="Deco6" type="Sprite2D" parent="Body/Deco"]
+modulate = Color(0.827451, 1, 0.858824, 1)
+position = Vector2(-114.62, -501.87)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("19")
 region_enabled = true
-region_rect = Rect2( 1180, 1133.88, 620, 383.472 )
+region_rect = Rect2(1180, 1133.88, 620, 383.472)
 
-[node name="Deco7" type="Sprite" parent="Body/Deco"]
-modulate = Color( 0.827451, 1, 0.858824, 1 )
-position = Vector2( -466.031, -599.914 )
-scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 19 )
+[node name="Deco7" type="Sprite2D" parent="Body/Deco"]
+modulate = Color(0.827451, 1, 0.858824, 1)
+position = Vector2(-466.031, -599.914)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("19")
 region_enabled = true
-region_rect = Rect2( 1010, 1449.45, 450, 411.434 )
+region_rect = Rect2(1010, 1449.45, 450, 411.434)
 
-[node name="sketch-1591138571720" type="Sprite" parent="Body/Deco"]
-position = Vector2( -463.617, -644.906 )
-texture = ExtResource( 8 )
+[node name="sketch-1591138571720" type="Sprite2D" parent="Body/Deco"]
+position = Vector2(-463.617, -644.906)
+texture = ExtResource("8")
 region_enabled = true
-region_rect = Rect2( 60, 1780.09, 290, 178.745 )
+region_rect = Rect2(60, 1780.09, 290, 178.745)
 
-[node name="sketch-1591138571721" type="Sprite" parent="Body/Deco"]
-position = Vector2( -456.066, -603.376 )
-scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 19 )
+[node name="sketch-1591138571721" type="Sprite2D" parent="Body/Deco"]
+position = Vector2(-456.066, -603.376)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("19")
 region_enabled = true
-region_rect = Rect2( 170, 306.4, 760, 623.142 )
+region_rect = Rect2(170, 306.4, 760, 623.142)
 
-[node name="OrangeTree" parent="Body" instance=ExtResource( 25 )]
+[node name="OrangeTree" parent="Body" instance=ExtResource("25")]
 visible = false
-position = Vector2( 22.6274, -421.436 )
+position = Vector2(22.6274, -421.436)
 
 [node name="UpperCanvas" type="Node2D" parent="."]
-scale = Vector2( 0.9, 0.782 )
-script = ExtResource( 22 )
+scale = Vector2(0.9, 0.782)
+script = ExtResource("22")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="UpperCanvas"]
-margin_left = 169.537
-margin_top = -1220.0
-margin_right = 774.537
-margin_bottom = -997.0
-rect_scale = Vector2( 0.7, 0.7 )
-texture = ExtResource( 9 )
-region_rect = Rect2( 1370, 1110.05, 240, 239.67 )
+offset_left = 169.537
+offset_top = -1220.0
+offset_right = 774.537
+offset_bottom = -997.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("9")
+region_rect = Rect2(1370, 1110.05, 240, 239.67)
 patch_margin_left = 114
 patch_margin_top = 115
 patch_margin_right = 107
 patch_margin_bottom = 108
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label" type="Label" parent="UpperCanvas/NinePatchRect"]
-margin_left = 94.4061
-margin_top = 46.1672
-margin_right = 470.406
-margin_bottom = 175.167
-rect_scale = Vector2( 1.2, 1.2 )
-custom_fonts/font = ExtResource( 18 )
+layout_mode = 0
+offset_left = 94.4061
+offset_top = 46.1672
+offset_right = 470.406
+offset_bottom = 175.167
+scale = Vector2(1.2, 1.2)
+theme_override_fonts/font = ExtResource("18")
 text = "999M"
-align = 2
-valign = 1
-script = ExtResource( 23 )
+script = ExtResource("23")
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="UpperCanvas"]
-margin_left = -600.806
-margin_top = -1220.0
-margin_right = 20.19
-margin_bottom = -997.0
-rect_scale = Vector2( 0.7, 0.7 )
-texture = ExtResource( 9 )
-region_rect = Rect2( 1370, 1110.05, 240, 239.67 )
+offset_left = -600.806
+offset_top = -1220.0
+offset_right = 20.19
+offset_bottom = -997.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("9")
+region_rect = Rect2(1370, 1110.05, 240, 239.67)
 patch_margin_left = 114
 patch_margin_top = 115
 patch_margin_right = 107
 patch_margin_bottom = 108
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2( 542.925, -581.362 )
-script = ExtResource( 13 )
-screenSize = Vector2( 1080, 2560 )
+position = Vector2(542.925, -581.362)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-position = Vector2( -285.905, -1261.34 )
-polygon = PoolVector2Array( 266.622, 1258.81, 282.668, 1281.46, 304.377, 1265.42, 290.219, 1242.76 )
+position = Vector2(-285.905, -1261.34)
+polygon = PackedVector2Array(266.622, 1258.81, 282.668, 1281.46, 304.377, 1265.42, 290.219, 1242.76)
 
 [node name="DownCanvas" type="Node2D" parent="."]
 z_index = 5
 
 [node name="NinePatchRect3" type="NinePatchRect" parent="DownCanvas"]
-margin_left = 326.201
-margin_top = 751.992
-margin_right = 535.201
-margin_bottom = 955.992
-rect_scale = Vector2( 0.9, 0.9 )
-texture = ExtResource( 9 )
-region_rect = Rect2( 1380, 1120.58, 230, 222.75 )
+offset_left = 326.201
+offset_top = 751.992
+offset_right = 535.201
+offset_bottom = 955.992
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("9")
+region_rect = Rect2(1380, 1120.58, 230, 222.75)
 patch_margin_left = 102
 patch_margin_top = 99
 patch_margin_right = 107
 patch_margin_bottom = 97
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Shop" type="Node2D" parent="DownCanvas"]
-position = Vector2( 415.779, 842.871 )
-script = ExtResource( 24 )
+position = Vector2(415.779, 842.871)
 
 [node name="Area2D" type="Area2D" parent="DownCanvas/Shop"]
-script = ExtResource( 2 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DownCanvas/Shop/Area2D"]
-polygon = PoolVector2Array( -88.2154, 3.56812, -74.0733, 43.1661, -48.6174, 74.2788, -11.8478, 91.2494, 24.9218, 85.5925, 64.5198, 68.6219, 84.3188, 43.1661, 92.8041, -2.08875, 73.0051, -55.829, 16.4365, -84.1133, -37.3036, -75.6279, -71.2448, -53.0005, -88.2154, -21.8878 )
+[node name="TextureButton" type="TextureButton" parent="DownCanvas/Shop"]
+offset_left = -79.779
+offset_top = -78.871
+offset_right = 91.221
+offset_bottom = 77.129
 
 [node name="MidCanvas" type="Node2D" parent="."]
 z_index = 5
 
 [node name="Button" type="Button" parent="MidCanvas"]
 visible = false
-margin_left = 355.0
-margin_top = -714.0
-margin_right = 500.0
-margin_bottom = -580.0
-icon = ExtResource( 16 )
+offset_left = 355.0
+offset_top = -714.0
+offset_right = 500.0
+offset_bottom = -580.0
+icon = ExtResource("16")
 flat = true
 expand_icon = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="TextureButton" type="TextureButton" parent="MidCanvas"]
 visible = false
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 373.363
-margin_top = -707.377
-margin_right = 492.363
-margin_bottom = -591.377
-texture_normal = ExtResource( 16 )
-expand = true
+offset_left = 373.363
+offset_top = -707.377
+offset_right = 492.363
+offset_bottom = -591.377
+texture_normal = ExtResource("16")
 stretch_mode = 4
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ShopMenu" type="Node2D" parent="MidCanvas"]
 visible = false
 
 [node name="NinePatchRect3" type="NinePatchRect" parent="MidCanvas/ShopMenu"]
-margin_left = -661.334
-margin_top = -986.574
-margin_right = 662.666
-margin_bottom = 973.426
-rect_scale = Vector2( 0.7, 0.7 )
-rect_pivot_offset = Vector2( 662, 985.894 )
-texture = ExtResource( 9 )
-region_rect = Rect2( 1370, 1110.05, 240, 239.67 )
+offset_left = -661.334
+offset_top = -986.574
+offset_right = 662.666
+offset_bottom = 973.426
+scale = Vector2(0.7, 0.7)
+pivot_offset = Vector2(662, 985.894)
+texture = ExtResource("9")
+region_rect = Rect2(1370, 1110.05, 240, 239.67)
 patch_margin_left = 114
 patch_margin_top = 115
 patch_margin_right = 107
 patch_margin_bottom = 108
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ShopMenu" type="TabContainer" parent="MidCanvas/ShopMenu"]
-margin_left = -430.0
-margin_top = -653.0
-margin_right = 429.0
-margin_bottom = 650.0
-rect_pivot_offset = Vector2( 619, 960 )
-rect_clip_content = true
-tab_align = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+clip_contents = true
+offset_left = -430.0
+offset_top = -653.0
+offset_right = 429.0
+offset_bottom = 650.0
+pivot_offset = Vector2(619, 960)
 
-[node name="Upgrades" type="Tabs" parent="MidCanvas/ShopMenu/ShopMenu"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 61.0
-margin_right = -8.0
-margin_bottom = -8.0
+[node name="Upgrades" type="TabBar" parent="MidCanvas/ShopMenu/ShopMenu"]
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="2" type="VBoxContainer" parent="MidCanvas/ShopMenu/ShopMenu/Upgrades"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -3.0
-margin_top = -14.0
-margin_right = 12.0
-margin_bottom = -31.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_left = -3.0
+offset_top = -14.0
+offset_right = 12.0
+offset_bottom = -31.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MidCanvas/ShopMenu/ShopMenu/Upgrades/2"]
-margin_right = 858.0
-margin_bottom = 93.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.43
 
 [node name="Label" type="Label" parent="MidCanvas/ShopMenu/ShopMenu/Upgrades/2/HBoxContainer"]
-margin_right = 251.0
-margin_bottom = 93.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 7
 size_flags_stretch_ratio = 0.42
-custom_fonts/font = ExtResource( 18 )
+theme_override_fonts/font = ExtResource("18")
 text = "Trees"
 clip_text = true
 
 [node name="Button" type="Button" parent="MidCanvas/ShopMenu/ShopMenu/Upgrades/2/HBoxContainer"]
-margin_left = 259.0
-margin_right = 858.0
-margin_bottom = 93.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Tabs3" type="Tabs" parent="MidCanvas/ShopMenu/ShopMenu"]
+[node name="Tabs3" type="TabBar" parent="MidCanvas/ShopMenu/ShopMenu"]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 61.0
-margin_right = -8.0
-margin_bottom = -8.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="2" type="VBoxContainer" parent="MidCanvas/ShopMenu/ShopMenu/Tabs3"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 66.0
-margin_bottom = -20.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_right = 66.0
+offset_bottom = -20.0
 
 [node name="Label" type="Label" parent="MidCanvas/ShopMenu/ShopMenu/Tabs3/2"]
-margin_right = 909.0
-margin_bottom = 56.0
+layout_mode = 2
 text = "iunolk
 "
 
 [node name="Node2D" type="Node2D" parent="."]
 visible = false
-position = Vector2( -388, -552 )
+position = Vector2(-388, -552)
 
 [node name="Button" type="Area2D" parent="Node2D"]
-script = ExtResource( 30 )
+script = ExtResource("30")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Button"]
-polygon = PoolVector2Array( -89.7423, -91.2619, -143.482, 102.485, 133.703, 102.485, 136.532, -84.1909 )
+polygon = PackedVector2Array(-89.7423, -91.2619, -143.482, 102.485, 133.703, 102.485, 136.532, -84.1909)
 
-[node name="icon" type="Sprite" parent="Node2D/Button"]
-position = Vector2( 24.1019, 7.02589 )
-scale = Vector2( 3.05503, 2.87825 )
-texture = ExtResource( 27 )
+[node name="icon" type="Sprite2D" parent="Node2D/Button"]
+position = Vector2(24.1019, 7.02589)
+scale = Vector2(3.05503, 2.87825)
+texture = ExtResource("27")
 
-[connection signal="pressed" from="Body/Market/Boxes/Info/Open" to="Body/Market/Boxes" method="_on_Button_pressed"]
-[connection signal="pressed" from="Body/Market/Boxes/Info/Close" to="Body/Market/Boxes" method="_on_Button_pressed"]
-[connection signal="pressed" from="Body/Market/Boxes/TextureButton" to="Body/Market/Boxes" method="_on_TextureButton_pressed"]
-[connection signal="pressed" from="Body/Market/Boxes/Polygon2D5/Button" to="Body/Market/Boxes" method="_on_Button_pressed"]
-[connection signal="collect" from="Body/Clients" to="Body/Market/Boxes" method="_on_Clients_collect"]
+[connection signal="pressed" from="Body/CanvasLayer3/CenterContainer/Polygon2D2/TextureButton" to="Body/Market/Boxes" method="_on_TextureButton_pressed"]
 [connection signal="timeout" from="Body/Clients/Timer" to="Body/Clients" method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
 [connection signal="input_event" from="Area2D" to="Area2D" method="_on_Area2D_input_event"]
-[connection signal="click" from="DownCanvas/Shop/Area2D" to="DownCanvas/Shop" method="_on_Area2D_click"]
 [connection signal="input_event" from="DownCanvas/Shop/Area2D" to="DownCanvas/Shop/Area2D" method="_on_Area2D_input_event"]
 [connection signal="input_event" from="Node2D/Button" to="Node2D/Button" method="_on_Button_input_event"]

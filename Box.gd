@@ -1,12 +1,12 @@
-extends Sprite
+extends Sprite2D
 
-onready var data = load("res://Data.tres")
-onready var res = load("res://Storage.tres")
-onready var text = $CanvasLayer/Label
-onready var anim = $AnimationTree.get("parameters/playback")
-onready var label = load("res://ObjectsInst/Label.tscn")
-onready var infoMenu = $Info/Item
-onready var scroll = $Info/ScrollContainer/VBoxContainer
+@onready var data = load("res://Data.tres")
+@onready var res = load("res://Storage.tres")
+@onready var text = $CanvasLayer/Label
+@onready var anim = $AnimationTree.get("parameters/playback")
+@onready var label = load("res://ObjectsInst/Label.tscn")
+@onready var infoMenu = $Info/Item
+@onready var scroll = $Info/ScrollContainer/VBoxContainer
 var fruits: float
 var limit: float
 var on : bool = false
@@ -31,7 +31,7 @@ func _process(delta):
 		fruits = 0
 	
 func Instance(x: int, ft : String):
-	var temp = label.instance()
+	var temp = label.instantiate()
 	var box = data.MainDict.Box
 	temp.fruitName = ft
 	temp.name = ft
@@ -44,8 +44,7 @@ func Delete(ft: String):
 	pass
 
 func _on_Button_pressed():
-	anim.start("Expand")
-	on = true
+	c
 
 func _on_TextureButton_pressed():
 	anim.start("Minimize")
@@ -63,3 +62,7 @@ func _on_Clients_collect():
 	pass
 	
 	
+
+
+func _on_button_pressed():
+	pass # Replace with function body.

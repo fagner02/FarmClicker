@@ -1,9 +1,9 @@
-tool
+@tool
 extends Control
 
 
-export(Texture) var pattern setget update_image
-export(String, "Horizontal", "Vertical") var scrollbar_design = null setget change_design
+@export var pattern: Texture2D: set = update_image
+@export var scrollbar_design = null: set = change_design
 
 var pattern_rects = {
 	"background_normal"			: Rect2(Vector2(0, 0), Vector2(28, 31)),
@@ -50,8 +50,8 @@ signal scroll(offset)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if !is_connected("item_rect_changed", self, "_on_item_rect_changed"):
-		connect("item_rect_changed", self, "_on_item_rect_changed")
+	if !is_connected("item_rect_changed", Callable(self, "_on_item_rect_changed")):
+		connect("item_rect_changed", Callable(self, "_on_item_rect_changed"))
 	set_initial_variables()
 	create_input_maps()
 	set_min_size()
@@ -62,13 +62,13 @@ func _ready() -> void:
 func create_input_maps():
 	var action_name = "MouseLeft"
 	if !InputMap.has_action(action_name):
-		create_input(action_name, [BUTTON_LEFT], false, false, false)
+		create_input(action_name, [MOUSE_BUTTON_LEFT], false, false, false)
 	action_name = "MouseWheelUp"
 	if !InputMap.has_action(action_name):
-		create_input(action_name, [BUTTON_WHEEL_UP], false, false, false)
+		create_input(action_name, [MOUSE_BUTTON_WHEEL_UP], false, false, false)
 	action_name = "MouseWheelDown"
 	if !InputMap.has_action(action_name):
-		create_input(action_name, [BUTTON_WHEEL_DOWN], false, false, false)
+		create_input(action_name, [MOUSE_BUTTON_WHEEL_DOWN], false, false, false)
 		
 func create_input(action_name, keys, _shift = false, _control = false, _alt = false):
 	InputMap.add_action(action_name)
@@ -79,7 +79,7 @@ func create_input(action_name, keys, _shift = false, _control = false, _alt = fa
 			event.button_index = key
 		else:
 			event = InputEventKey.new()
-			event.scancode = key
+			event.keycode = key
 			event.shift = _shift
 			event.control = _control
 			event.alt = _alt
@@ -88,9 +88,9 @@ func create_input(action_name, keys, _shift = false, _control = false, _alt = fa
 
 func set_min_size():
 	if scrollbar_design == "Horizontal":
-		rect_min_size = Vector2(100, 30)
+		custom_minimum_size = Vector2(100, 30)
 	else:
-		rect_min_size = Vector2(30, 100)
+		custom_minimum_size = Vector2(30, 100)
 		
 func set_initial_variables():
 	if !has_node("background"): return
@@ -104,7 +104,7 @@ func set_initial_variables():
 	
 func set_target(value):
 	data.target_rect_size = value
-	var s = rect_size - Vector2(4, 4)
+	var s = size - Vector2(4, 4)
 	data.target_max_scroll = Vector2()
 	data.target_max_scroll.x = max(0, value.x - s.x)
 	data.target_max_scroll.y = max(0, value.y - s.y)
@@ -120,7 +120,7 @@ func set_images(set_initial_position = false):
 	set_background()
 	set_top(set_initial_position)
 	# Save max scroll
-	data.max_scroll = rect_size - top.rect_size - Vector2(2, 2)
+	data.max_scroll = size - top.size - Vector2(2, 2)
 	
 func set_background():
 	if !background_shadow: return
@@ -158,22 +158,22 @@ func set_top(set_initial_position):
 	# Set shadow and top position
 	var x; var y; var s;
 	if scrollbar_design == "Horizontal":
-		top.rect_size.x = get_horizontal_top_width()
-		top.rect_size.y = rect_size.y - 4
-		top_shadow.rect_size = top.rect_size
+		top.size.x = get_horizontal_top_width()
+		top.size.y = size.y - 4
+		top_shadow.size = top.size
 		if set_initial_position:
 			x = 2
-			y = rect_size.y * 0.5 - top.rect_size.y * 0.5
-			top.rect_position = Vector2(x, y)
+			y = size.y * 0.5 - top.size.y * 0.5
+			top.position = Vector2(x, y)
 	else:
-		top.rect_size.x = rect_size.x - 4
-		top.rect_size.y = get_vertical_top_height()
-		top_shadow.rect_size = top.rect_size
+		top.size.x = size.x - 4
+		top.size.y = get_vertical_top_height()
+		top_shadow.size = top.size
 		if set_initial_position:
-			x = rect_size.x * 0.5 - top.rect_size.x * 0.5
+			x = size.x * 0.5 - top.size.x * 0.5
 			y = 2
-			top.rect_position = Vector2(x, y)
-	top_shadow.rect_position = Vector2(2, 5)
+			top.position = Vector2(x, y)
+	top_shadow.position = Vector2(2, 5)
 	# top decoration texture
 	top_decoration.texture = pattern
 	if scrollbar_design == "Horizontal":
@@ -181,14 +181,14 @@ func set_top(set_initial_position):
 	else:
 		top_decoration.region_rect = pattern_rects.decoration_hor_normal
 	# set top decoration position
-	x = top.rect_size.x * 0.5 - top_decoration.region_rect.size.x * 0.5
-	y = top.rect_size.y * 0.5 - top_decoration.region_rect.size.y * 0.5
+	x = top.size.x * 0.5 - top_decoration.region_rect.size.x * 0.5
+	y = top.size.y * 0.5 - top_decoration.region_rect.size.y * 0.5
 	top_decoration.position = Vector2(x, y)
 	
 func get_horizontal_top_width() -> float:
 	if data.target_max_scroll.x <= 0:
-		return rect_size.x - 4
-	var s = rect_size.x - 2
+		return size.x - 4
+	var s = size.x - 2
 	var ratio = data.target_max_scroll.x / s
 	var value = max(16, s - s * ratio)
 	data.max_scroll.x = s - value
@@ -196,8 +196,8 @@ func get_horizontal_top_width() -> float:
 	
 func get_vertical_top_height() -> float:
 	if data.target_max_scroll.y <= 0:
-		return rect_size.y - 4
-	var s = rect_size.y - 2
+		return size.y - 4
+	var s = size.y - 2
 	var ratio = data.target_max_scroll.y / s
 	var value = max(16, s - s * ratio)
 	data.max_scroll.y = s - value
@@ -218,7 +218,7 @@ func change_design(value):
 	
 
 func _on_item_rect_changed() -> void:
-	if pattern and Engine.editor_hint:
+	if pattern and Engine.is_editor_hint():
 		set_images(true)
 
 
@@ -245,7 +245,7 @@ func set_displacement(value):
 			return
 		var x = map(value.x, data.target_min_scroll.x, data.target_max_scroll.x,
 			data.min_scroll.x, data.max_scroll.x)
-		top.rect_position.x = x
+		top.position.x = x
 		value = -x
 	else:
 		if data.target_max_scroll.y <= 0:
@@ -253,7 +253,7 @@ func set_displacement(value):
 			return
 		var y = map(value.y, data.target_min_scroll.y, data.target_max_scroll.y,
 			data.min_scroll.y, data.max_scroll.y)
-		top.rect_position.y = y
+		top.position.y = y
 	fix_top_position()
 	emit_signal("scroll", get_displacement())
 
@@ -263,26 +263,26 @@ func get_displacement():
 		if data.target_max_scroll.x <= 0:
 			fix_top_position()
 			return 0
-		value = map(top.rect_position.x, data.min_scroll.x, data.max_scroll.x,
+		value = map(top.position.x, data.min_scroll.x, data.max_scroll.x,
 			data.target_min_scroll.x, data.target_max_scroll.x)
 	else:
 		if data.target_max_scroll.y <= 0:
 			fix_top_position()
 			return 0
-		value = map(top.rect_position.y, data.min_scroll.y, data.max_scroll.y,
+		value = map(top.position.y, data.min_scroll.y, data.max_scroll.y,
 			data.target_min_scroll.y, data.target_max_scroll.y)
 	return value
 
 func _on_top_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and drag:
 		var movement = event.relative
-		var _rect_position = top.rect_position
+		var _rect_position = top.position
 		if scrollbar_design == "Horizontal":
-			top.rect_position.x += movement.x
+			top.position.x += movement.x
 		else:
-			top.rect_position.y += movement.y
+			top.position.y += movement.y
 		fix_top_position()
-		if _rect_position != top.rect_position:
+		if _rect_position != top.position:
 			emit_signal("scroll", get_displacement())	
 	elif event is InputEventMouseButton and event.button_index == 1:
 		if can_move():
@@ -310,15 +310,15 @@ func fix_top_position():
 #		top.rect_position.y = data.min_scroll.y
 #	else:
 	if scrollbar_design == "Horizontal":
-		if top.rect_position.x < data.min_scroll.x:
-			top.rect_position.x = data.min_scroll.x
-		if top.rect_position.x + top.rect_size.x > rect_size.x - 4:
-			top.rect_position.x = rect_size.x - 4 - top.rect_size.x
+		if top.position.x < data.min_scroll.x:
+			top.position.x = data.min_scroll.x
+		if top.position.x + top.size.x > size.x - 4:
+			top.position.x = size.x - 4 - top.size.x
 	else:
-		if top.rect_position.y < data.min_scroll.y:
-			top.rect_position.y = data.min_scroll.y
-		if top.rect_position.y + top.rect_size.y > rect_size.y - 4:
-			top.rect_position.y = rect_size.y - 4 - top.rect_size.y
+		if top.position.y < data.min_scroll.y:
+			top.position.y = data.min_scroll.y
+		if top.position.y + top.size.y > size.y - 4:
+			top.position.y = size.y - 4 - top.size.y
 
 
 func _on_background_gui_input(event: InputEvent) -> void:
@@ -339,39 +339,39 @@ func _physics_process(delta: float) -> void:
 func move_top_by_step():
 	var pos = get_global_mouse_position()
 	var displacement = 5
-	var _rect_position = top.rect_position
+	var _rect_position = top.position
 	if scrollbar_design == "Horizontal":
-		var left2right = pos.x > top.rect_global_position.x
+		var left2right = pos.x > top.global_position.x
 		if left2right:
-			var x = top.rect_global_position.x + top.rect_size.x
+			var x = top.global_position.x + top.size.x
 			if  x < pos.x:
-				top.rect_global_position.x += displacement
+				top.global_position.x += displacement
 		else:
-			var x = top.rect_global_position.x
+			var x = top.global_position.x
 			if  x > pos.x:
-				top.rect_global_position.x -= displacement
+				top.global_position.x -= displacement
 	else:
-		var top2bottom = pos.y > top.rect_global_position.y
+		var top2bottom = pos.y > top.global_position.y
 		if top2bottom:
-			var y = top.rect_global_position.y + top.rect_size.y
+			var y = top.global_position.y + top.size.y
 			if  y < pos.y:
-				top.rect_global_position.y += displacement
+				top.global_position.y += displacement
 		else:
-			var y = top.rect_global_position.y
+			var y = top.global_position.y
 			if  y > pos.y:
-				top.rect_global_position.y -= displacement
+				top.global_position.y -= displacement
 	fix_top_position()
-	if _rect_position != top.rect_global_position:
+	if _rect_position != top.global_position:
 		emit_signal("scroll", get_displacement())
 		
 func move_top_by(displacement):
-	var _pos = top.rect_global_position
+	var _pos = top.global_position
 	if scrollbar_design == "Horizontal":
-		top.rect_global_position.x += displacement
+		top.global_position.x += displacement
 	else:
-		top.rect_global_position.y += displacement
+		top.global_position.y += displacement
 	fix_top_position()
-	if _pos != top.rect_global_position:
+	if _pos != top.global_position:
 		emit_signal("scroll", get_displacement())
 				
 			
@@ -383,12 +383,12 @@ func map(value : float, istart : float, istop : float,
 func _process(delta: float) -> void:
 	if top:
 		if (scrollbar_design == "Horizontal" and
-			top.rect_position.x < data.min_scroll.x):
-				top.rect_position.x = data.min_scroll.x
+			top.position.x < data.min_scroll.x):
+				top.position.x = data.min_scroll.x
 		if (scrollbar_design == "Vertical" and
-			top.rect_position.y < data.min_scroll.y):
-				top.rect_position.y = data.min_scroll.y
-	if Engine.editor_hint:
+			top.position.y < data.min_scroll.y):
+				top.position.y = data.min_scroll.y
+	if Engine.is_editor_hint():
 		if initializing:
 			can_auto_change_position = true
 			need_refresh = false
@@ -397,6 +397,6 @@ func _process(delta: float) -> void:
 			_ready()
 			need_refresh = false
 			if need_change_position and can_auto_change_position:
-				rect_size = Vector2(rect_size.y, rect_size.x)
+				size = Vector2(size.y, size.x)
 				need_change_position = false
 		set_process(false)

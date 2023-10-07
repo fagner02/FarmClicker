@@ -1,53 +1,53 @@
 extends Control
 
-onready var tileset						= $SelectedImage/TilesetContainer/Tileset
-onready var tileset_container			= $SelectedImage/TilesetContainer/Tileset/Container
-onready var image_real					= $SelectedImage/TilesetContainer/Tileset/Container/Image
-onready var horizontal_bar				= $SelectedImage/TilesetContainer/HorizontalBar
-onready var vertical_bar				= $SelectedImage/TilesetContainer/VerticalBar
-onready var cursor_mouse_over			= $SelectedImage/TilesetContainer/Tileset/Container/Image/CursorMouseOver
-onready var cursor_selected				= $SelectedImage/TilesetContainer/Tileset/Container/Image/CursorSelected
-onready var cursor_drag					= $SelectedImage/TilesetContainer/Tileset/Container/Image/CursorDrag
-onready var hide_behind					= $hide_behind_controls
-onready var file_dialog					= $CustomFileDialog
-onready var image_list					= $ImageList/list
-onready var autotile_list				= $AutoTileList/list
-onready var autotiles_lineEdit			= $Panel3/autotiles_folder
-onready var tileset_lineEdit			= $Panel3/tileset_folder
-onready var preview_selection			= $Panel/preview_selection_selected
-onready var create_tile_button			= $Panel/Button
-onready var preview_autotile			= $Panel2/preview_autotile_selected
-onready var preview_autotile_config		= $AutoTileConfig/preview_texture
-onready var preset_button				= $AutoTileConfig/OptionButton
-onready var config_rows_button			= $AutoTileConfig/rows/SpinBox
-onready var config_columns_button		= $AutoTileConfig/columns/SpinBox
-onready var config_tile_width_button	= $AutoTileConfig/tile_width/SpinBox
-onready var config_tile_height_button	= $AutoTileConfig/tile_height/SpinBox
-onready var config_layout_button		= $AutoTileConfig/tile_layout/OptionButton
-onready var config_layout2_button		= $AutoTileConfig/tile_layout/OptionButton2
-onready var config_layout_label			= $AutoTileConfig/tile_layout
-onready var create_autotile_dialog		= $create_autotile_dialog
-onready var create_autotile_dialog_t	= $create_autotile_dialog/LineEdit
-onready var edit_autotile_button		= $AutoTileList/edit_autotile_button
-onready var move_autotiles_up_button	= $AutoTileList/move_autotile_up_button
-onready var move_autotiles_down_button	= $AutoTileList/move_autotile_down_button
-onready var merge_autotiles_button		= $AutoTileList/create_merged_autotile_button
-onready var create_a_animation_button	= $AutoTileList/create_animated_autotile_button
-onready var remove_autotile_button		= $AutoTileList/Button
-onready var error1_dialog				= $error1_dialog
-onready var error2_dialog				= $error2_dialog
-onready var error2_dialog_label			= $error2_dialog/Label
-onready var save_dialog					= $SaveDialog
-onready var save_dialog_container		= $SaveDialog/BackgroundContainer/Container
-onready var save_dialog_container_vbox	= $SaveDialog/BackgroundContainer/Container/VBox
-onready var save_dialog_tilemap_path	= $SaveDialog/LineEdit
-onready var save_all_button				= $Panel3/save_all_Button
-onready var edit_autotile_dialog		= $edit_autotile_dialog
-onready var name_autotile_dialog_b		= $edit_autotile_dialog/LineEdit
-onready var speed_autotile_dialog_b		= $edit_autotile_dialog/SpinBox
-onready var fast_export_button			= $Panel/fast_export_button
-onready var saving_animation			= $saving_all_animation
-onready var timer						= $Timer
+@onready var tileset						= $SelectedImage/TilesetContainer/Tileset
+@onready var tileset_container			= $SelectedImage/TilesetContainer/Tileset/Container
+@onready var image_real					= $SelectedImage/TilesetContainer/Tileset/Container/Image
+@onready var horizontal_bar				= $SelectedImage/TilesetContainer/HorizontalBar
+@onready var vertical_bar				= $SelectedImage/TilesetContainer/VerticalBar
+@onready var cursor_mouse_over			= $SelectedImage/TilesetContainer/Tileset/Container/Image/CursorMouseOver
+@onready var cursor_selected				= $SelectedImage/TilesetContainer/Tileset/Container/Image/CursorSelected
+@onready var cursor_drag					= $SelectedImage/TilesetContainer/Tileset/Container/Image/CursorDrag
+@onready var hide_behind					= $hide_behind_controls
+@onready var file_dialog					= $CustomFileDialog
+@onready var image_list					= $ImageList/list
+@onready var autotile_list				= $AutoTileList/list
+@onready var autotiles_lineEdit			= $Panel3/autotiles_folder
+@onready var tileset_lineEdit			= $Panel3/tileset_folder
+@onready var preview_selection			= $Panel/preview_selection_selected
+@onready var create_tile_button			= $Panel/Button
+@onready var preview_autotile			= $Panel2/preview_autotile_selected
+@onready var preview_autotile_config		= $AutoTileConfig/preview_texture
+@onready var preset_button				= $AutoTileConfig/OptionButton
+@onready var config_rows_button			= $AutoTileConfig/rows/SpinBox
+@onready var config_columns_button		= $AutoTileConfig/columns/SpinBox
+@onready var config_tile_width_button	= $AutoTileConfig/tile_width/SpinBox
+@onready var config_tile_height_button	= $AutoTileConfig/tile_height/SpinBox
+@onready var config_layout_button		= $AutoTileConfig/tile_layout/OptionButton
+@onready var config_layout2_button		= $AutoTileConfig/tile_layout/OptionButton2
+@onready var config_layout_label			= $AutoTileConfig/tile_layout
+@onready var create_autotile_dialog		= $create_autotile_dialog
+@onready var create_autotile_dialog_t	= $create_autotile_dialog/LineEdit
+@onready var edit_autotile_button		= $AutoTileList/edit_autotile_button
+@onready var move_autotiles_up_button	= $AutoTileList/move_autotile_up_button
+@onready var move_autotiles_down_button	= $AutoTileList/move_autotile_down_button
+@onready var merge_autotiles_button		= $AutoTileList/create_merged_autotile_button
+@onready var create_a_animation_button	= $AutoTileList/create_animated_autotile_button
+@onready var remove_autotile_button		= $AutoTileList/Button
+@onready var error1_dialog				= $error1_dialog
+@onready var error2_dialog				= $error2_dialog
+@onready var error2_dialog_label			= $error2_dialog/Label
+@onready var save_dialog					= $SaveDialog
+@onready var save_dialog_container		= $SaveDialog/BackgroundContainer/Container
+@onready var save_dialog_container_vbox	= $SaveDialog/BackgroundContainer/Container/VBox
+@onready var save_dialog_tilemap_path	= $SaveDialog/LineEdit
+@onready var save_all_button				= $Panel3/save_all_Button
+@onready var edit_autotile_dialog		= $edit_autotile_dialog
+@onready var name_autotile_dialog_b		= $edit_autotile_dialog/LineEdit
+@onready var speed_autotile_dialog_b		= $edit_autotile_dialog/SpinBox
+@onready var fast_export_button			= $Panel/fast_export_button
+@onready var saving_animation			= $saving_all_animation
+@onready var timer						= $Timer
 
 
 var save_panel_scene = preload("save_panel.tscn")
@@ -126,13 +126,13 @@ var thread
 signal save_completed()
 
 func _ready() -> void:
-	rect_size = Vector2(1024, 768)
-	var screen_size = OS.get_screen_size()
-	var window_size = rect_size
+	size = Vector2(1024, 768)
+	var screen_size = DisplayServer.screen_get_size()
+	var window_size = size
 	get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_2D, SceneTree.STRETCH_ASPECT_IGNORE, window_size)
-	OS.set_window_size(window_size)
-	OS.set_window_position(screen_size*0.5 - window_size*0.5)
-	OS.set_window_always_on_top(true)
+	get_window().set_size(window_size)
+	get_window().set_position(screen_size*0.5 - window_size*0.5)
+	get_window().always_on_top = (true)
 	
 	load_initial_config()
 	
@@ -147,11 +147,11 @@ func _ready() -> void:
 	set_max_scroll_in_scroll_bars()
 	change_autotile_preset(0)
 	set_cursor_sizes()
-	horizontal_bar.connect("scroll", self, "set_offset_x")
-	vertical_bar.connect("scroll", self, "set_offset_y")
+	horizontal_bar.connect("scroll", Callable(self, "set_offset_x"))
+	vertical_bar.connect("scroll", Callable(self, "set_offset_y"))
 	fill_image_list()
 	
-	tooltip = customToolTip.instance()
+	tooltip = customToolTip.instantiate()
 	add_child(tooltip)
 	tooltip.visible = false
 	
@@ -159,7 +159,7 @@ func _ready() -> void:
 	
 	speed_autotile_dialog_b.get_line_edit().connect("focus_exited", self,
 		"select_speed_autotile_dialog_b")
-	connect("save_completed", self, "hide_all_dialogs")
+	connect("save_completed", Callable(self, "hide_all_dialogs"))
 	
 func load_initial_config():
 	var file = File.new()
@@ -173,7 +173,9 @@ func load_initial_config():
 		config.tilemaps_path = save_dialog_tilemap_path.text
 	else:
 		file.open(path, file.READ)
-		config = parse_json(file.get_as_text())
+		var test_json_conv = JSON.new()
+		test_json_conv.parse(file.get_as_text())
+		config = test_json_conv.get_data()
 		file.close()
 	preset_button.select(config.preset)
 	preset_button.emit_signal("item_selected", config.preset)
@@ -184,7 +186,7 @@ func load_initial_config():
 	
 func select_speed_autotile_dialog_b():
 	if name_autotile_dialog_b.visible:
-		yield(get_tree(), "idle_frame")
+		await get_tree().idle_frame
 		name_autotile_dialog_b.grab_focus()
 	
 func load_file_text(path : String) -> String:
@@ -200,9 +202,9 @@ func update_style_for_input_and_text_boxes(obj):
 	for child in children:
 		var line_edit = null
 		if child.has_method("_get_tooltip"):
-			if child.hint_tooltip.length() > 0:
-				if !child.is_connected("mouse_entered", self, "show_tooltip"):
-					var text = child.hint_tooltip
+			if child.tooltip_text.length() > 0:
+				if !child.is_connected("mouse_entered", Callable(self, "show_tooltip")):
+					var text = child.tooltip_text
 					if child.has_method("is_shortcut_in_tooltip_enabled"):
 						if child.is_shortcut_in_tooltip_enabled():
 							child.set_shortcut_in_tooltip(false)
@@ -210,7 +212,7 @@ func update_style_for_input_and_text_boxes(obj):
 							if shortcut != null:
 								shortcut = shortcut.shortcut
 							if shortcut is InputEventKey:
-								var s = OS.get_scancode_string(shortcut.scancode)
+								var s = OS.get_keycode_string(shortcut.keycode)
 								
 								if shortcut.shift:
 									s = "Shift + " + s
@@ -232,8 +234,8 @@ func update_style_for_input_and_text_boxes(obj):
 						[child])
 					child.connect("gui_input", self, "update_tooltip_position",
 						[child])
-					child.editor_description = child.hint_tooltip
-					child.hint_tooltip = ""
+					child.editor_description = child.tooltip_text
+					child.tooltip_text = ""
 		if child.get_child_count() != 0:
 			update_style_for_input_and_text_boxes(child)
 		if child is LineEdit:
@@ -242,17 +244,17 @@ func update_style_for_input_and_text_boxes(obj):
 			line_edit = child.get_line_edit()
 		if line_edit != null:
 			line_edit.caret_blink = true
-			line_edit.set("custom_colors/cursor_color", Color("12a108"))
-			line_edit.set("custom_colors/font_color_selected", Color("ff9292"))
-			if !line_edit.is_connected("focus_entered", self, "select_all_text"):
-				line_edit.connect("focus_entered", self, "select_all_text", [line_edit])
-				line_edit.connect("focus_exited", self, "deselect_text", [line_edit])
+			line_edit.set("theme_override_colors/cursor_color", Color("12a108"))
+			line_edit.set("theme_override_colors/font_color_selected", Color("ff9292"))
+			if !line_edit.is_connected("focus_entered", Callable(self, "select_all_text")):
+				line_edit.connect("focus_entered", Callable(self, "select_all_text").bind(line_edit))
+				line_edit.connect("focus_exited", Callable(self, "deselect_text").bind(line_edit))
 				if child is SpinBox:
-					line_edit.connect("focus_exited", self, "validate_spinbox", [child])
+					line_edit.connect("focus_exited", Callable(self, "validate_spinbox").bind(child))
 				
 				
 func select_all_text(line_edit):
-	line_edit.caret_position = line_edit.text.length()
+	line_edit.caret_column = line_edit.text.length()
 	line_edit.select_all()
 	
 func deselect_text(line_edit):
@@ -268,9 +270,9 @@ func fill_image_list():
 		image_list.add_item(_img.name)
 	
 func set_cursor_sizes():
-	cursor_mouse_over.rect_size = selection.size
-	cursor_selected.rect_size = selection.size
-	cursor_drag.rect_size = selection.size
+	cursor_mouse_over.size = selection.size
+	cursor_selected.size = selection.size
+	cursor_drag.size = selection.size
 	
 func set_tiles():
 	var d = data_tileset
@@ -289,8 +291,8 @@ func set_max_scroll_in_scroll_bars():
 		horizontal_bar.set_target(Vector2.ZERO)
 		vertical_bar.set_target(Vector2.ZERO)
 		return
-	var sc = image_real.rect_scale
-	var s = tex.get_size() * sc #- tileset_container.rect_size
+	var sc = image_real.scale
+	var s = tex.get_size() * sc #- tileset_container.size
 	horizontal_bar.set_target(s)
 	vertical_bar.set_target(s)
 #	if s.x > 0:
@@ -308,28 +310,28 @@ func create_input_maps():
 	var action_name = "ZOOM-IN"
 	if !InputMap.has_action(action_name):
 		vertical_bar.create_input(action_name,
-			[BUTTON_WHEEL_UP], false, false, false)
+			[MOUSE_BUTTON_WHEEL_UP], false, false, false)
 	action_name = "ZOOM-OUT"
 	if !InputMap.has_action(action_name):
 		vertical_bar.create_input(action_name,
-			[BUTTON_WHEEL_DOWN], false, false, false)
+			[MOUSE_BUTTON_WHEEL_DOWN], false, false, false)
 	action_name = "CTRL"
 	if !InputMap.has_action(action_name):
 		vertical_bar.create_input(action_name,
-			[KEY_CONTROL], false, false, false)
+			[KEY_CTRL], false, false, false)
 	
 func set_offset_x(offset):
-	image_real.rect_position.x = -offset
+	image_real.position.x = -offset
 	
 func set_offset_y(offset):
-	image_real.rect_position.y = -offset
+	image_real.position.y = -offset
 	
-func set_cursor_position(cursor, pos = null):
+func set_caret_column(cursor, pos = null):
 	var d = data_tileset
 	if pos == null:
 		pos = d.current_selected
 	pos *= Vector2(d.tile_width, d.tile_height)
-	cursor.rect_position = pos
+	cursor.position = pos
 
 
 func _on_Tileset_gui_input(event: InputEvent) -> void:
@@ -340,33 +342,33 @@ func _on_Tileset_gui_input(event: InputEvent) -> void:
 			return
 		if drag and !event.is_pressed():
 			data_tileset.current_selected = data_tileset.current_selection
-			set_cursor_position(cursor_selected)
+			set_caret_column(cursor_selected)
 			update_preview_selected()
 		drag = event.is_pressed()
 		if drag:
-			var sc = image_real.rect_scale
-			var pos = (event.position - image_real.rect_position) / sc
+			var sc = image_real.scale
+			var pos = (event.position - image_real.position) / sc
 			set_selection_position(pos)
-			set_cursor_position(cursor_selected, data_tileset.current_selection)
+			set_caret_column(cursor_selected, data_tileset.current_selection)
 			cursor_selected.visible = true
 			update_preview_selected(data_tileset.current_selection)
 	elif event is InputEventMouseMotion:
-		var sc = image_real.rect_scale
-		var pos = (event.position - image_real.rect_position) / sc
+		var sc = image_real.scale
+		var pos = (event.position - image_real.position) / sc
 		set_selection_position(pos)
 		cursor_drag.visible = drag
 		cursor_mouse_over.visible = !drag
 		if drag:
-			set_cursor_position(cursor_drag, data_tileset.current_selection)
+			set_caret_column(cursor_drag, data_tileset.current_selection)
 			update_preview_selected(data_tileset.current_selection)
 		else:
-			set_cursor_position(cursor_mouse_over, data_tileset.current_selection)
+			set_caret_column(cursor_mouse_over, data_tileset.current_selection)
 	elif Input.is_action_pressed("CTRL"):
 		if event.is_action_pressed("ZOOM-IN"):
-			final_zoom = image_real.rect_scale + Vector2(0.25, 0.25)
+			final_zoom = image_real.scale + Vector2(0.25, 0.25)
 			#change_zoom(0.25)
 		elif event.is_action_pressed("ZOOM-OUT"):
-			final_zoom = image_real.rect_scale - Vector2(0.25, 0.25)
+			final_zoom = image_real.scale - Vector2(0.25, 0.25)
 			#change_zoom(-0.25)
 	elif event.is_action_pressed("MouseWheelUp"):
 		if horizontal_bar.can_move():
@@ -399,7 +401,7 @@ func update_preview_selected(selection = null):
 		
 func change_zoom(value):
 	var ir = image_real.texture.get_size()
-	var irs = image_real.rect_scale
+	var irs = image_real.scale
 	var tcrp = tileset_container.get_global_rect()
 	
 #	# Variation zoom #1
@@ -431,20 +433,20 @@ func change_zoom(value):
 	# ------------------------------------------------------------------
 	var scalechange = zoom - irs
 	var offset = image_real.get_local_mouse_position()
-	image_real.rect_scale = zoom
+	image_real.scale = zoom
 	set_max_scroll_in_scroll_bars()
 	offset = image_real.get_local_mouse_position() - offset
-	var dest = image_real.rect_position + offset * zoom
+	var dest = image_real.position + offset * zoom
 	var s = ir * zoom
 	if dest.x > 0:
 		dest.x = 0
-	elif dest.x + s.x < tileset_container.rect_size.x + tcrp.position.x:
-		dest.x = tileset_container.rect_size.x + tcrp.position.x - s.x
+	elif dest.x + s.x < tileset_container.size.x + tcrp.position.x:
+		dest.x = tileset_container.size.x + tcrp.position.x - s.x
 	if dest.y > 0:
 		dest.y = 0
-	elif dest.y + s.y < tileset_container.rect_size.y + tcrp.position.y:
-		dest.y = tileset_container.rect_size.y + tcrp.position.y - s.y
-	var displacement = -(dest + tileset_container.rect_position)
+	elif dest.y + s.y < tileset_container.size.y + tcrp.position.y:
+		dest.y = tileset_container.size.y + tcrp.position.y - s.y
+	var displacement = -(dest + tileset_container.position)
 	horizontal_bar.set_displacement(displacement)
 	vertical_bar.set_displacement(displacement)
 		
@@ -461,7 +463,7 @@ func set_selection_position(position):
 func get_selected_rect(position) -> Vector2:
 	if !data_tileset.has("vertical_tiles"): return Vector2(-1, -1)
 	var cs = data_tileset.current_selection
-	var ip = image_real.rect_position
+	var ip = image_real.position
 	cs.x = floor(position.x / data_tileset.selection_width) 
 	cs.y = floor(position.y / data_tileset.selection_height)
 	if (cs.x < ip.x or
@@ -561,9 +563,9 @@ func fit_image(fit_width = true, fit_height = true):
 	if !image_real.texture: return
 	var zoom_x; var zoom_y;
 	if fit_width:
-		zoom_x = tileset_container.rect_size.x / image_real.texture.get_width()
+		zoom_x = tileset_container.size.x / image_real.texture.get_width()
 	if fit_height:
-		zoom_y = tileset_container.rect_size.y / image_real.texture.get_height()
+		zoom_y = tileset_container.size.y / image_real.texture.get_height()
 	if !fit_width and !fit_height:
 		zoom_x = 1
 		zoom_y = 1
@@ -579,7 +581,7 @@ func fit_image(fit_width = true, fit_height = true):
 
 
 func _on_FitImageButton_button_up() -> void:
-	if Input.is_key_pressed(KEY_CONTROL):
+	if Input.is_key_pressed(KEY_CTRL):
 		fit_image(false, true)
 	elif Input.is_key_pressed(KEY_ALT):
 		fit_image(true, false)
@@ -598,12 +600,12 @@ func _on_list_item_selected(index: int) -> void:
 		image_real.texture = load(data_images[index].path)
 	else:
 		image_real.texture = load_external_texture(data_images[index].path)
-	image_real.rect_size = image_real.texture.get_size()
+	image_real.size = image_real.texture.get_size()
 	fit_image(true, false)
 	data_tileset.current_selection = Vector2.ZERO
 	data_tileset.current_selected = Vector2.ZERO
 	update_preview_selected()
-	set_cursor_position(cursor_selected)
+	set_caret_column(cursor_selected)
 	cursor_selected.visible = true
 	if create_tile_button.disabled:
 		create_tile_button.disabled = false
@@ -680,7 +682,7 @@ func update_data_tileset_values():
 	
 	set_tiles()
 	set_cursor_sizes()
-	set_cursor_position(cursor_selected)
+	set_caret_column(cursor_selected)
 	update_preview_selected()
 
 func _on_config_OptionButton_item_selected(index: int) -> void:
@@ -779,11 +781,11 @@ func _on_create_autotile_Button_button_up() -> void:
 	if data_tileset.current_selected != Vector2(-1, -1):
 		var d = create_autotile_dialog
 		var pos = get_global_mouse_position()
-		pos.x = pos.x - d.rect_size.x + 77
-		if pos.x + d.rect_size.x > get_viewport().size.x:
-			pos.x = get_viewport().size.x - d.rect_size.x - 10
+		pos.x = pos.x - d.size.x + 77
+		if pos.x + d.size.x > get_viewport().size.x:
+			pos.x = get_viewport().size.x - d.size.x - 10
 		pos.y += 27
-		d.rect_global_position = pos
+		d.global_position = pos
 		show_dialog(d)
 
 
@@ -839,7 +841,7 @@ func _on_LineEdit_visibility_changed() -> void:
 			8		: 	text = get_fix_name_for_paths("Single-Tile_1")
 				
 		create_autotile_dialog_t.text = text
-		create_autotile_dialog_t.caret_position = text.length()
+		create_autotile_dialog_t.caret_column = text.length()
 		create_autotile_dialog_t.select_all()
 		create_autotile_dialog_t.grab_focus()
 		
@@ -1116,7 +1118,7 @@ func _on_list_multi_selected(index: int, selected: bool) -> void:
 
 func _on_edit_autotile_button_button_up() -> void:
 	var ids = autotile_list.get_selected_items()
-	autotile_list.unselect_all()
+	autotile_list.deselect_all()
 	autotile_list.select(ids[-1])
 	autotile_list.emit_signal("item_selected", ids[-1])
 	var autotile_name 				= data_tileset.tiles[ids[-1]].name
@@ -1124,10 +1126,10 @@ func _on_edit_autotile_button_button_up() -> void:
 	name_autotile_dialog_b.text = autotile_name
 	speed_autotile_dialog_b.value = autotile_animation_delay
 	var pos = get_global_mouse_position() + Vector2(31, 26)
-	pos.x -= edit_autotile_dialog.rect_size.x
-	edit_autotile_dialog.rect_global_position = pos
+	pos.x -= edit_autotile_dialog.size.x
+	edit_autotile_dialog.global_position = pos
 	show_dialog(edit_autotile_dialog)
-	name_autotile_dialog_b.caret_position = name_autotile_dialog_b.text.length()
+	name_autotile_dialog_b.caret_column = name_autotile_dialog_b.text.length()
 	name_autotile_dialog_b.select_all()
 	name_autotile_dialog_b.grab_focus()
 	
@@ -1161,7 +1163,7 @@ func _on_autotiles_list_gui_input(event: InputEvent):
 		event.doubleclick):
 			var id = autotile_list.get_item_at_position(
 				autotile_list.get_local_mouse_position())
-			autotile_list.unselect_all()
+			autotile_list.deselect_all()
 			autotile_list.select(id)
 			autotile_list.emit_signal("item_selected", id)
 			var autotile_name 				= data_tileset.tiles[id].name
@@ -1169,10 +1171,10 @@ func _on_autotiles_list_gui_input(event: InputEvent):
 			name_autotile_dialog_b.text = autotile_name
 			speed_autotile_dialog_b.value = autotile_animation_delay
 			var pos = get_global_mouse_position() + Vector2(31, 26)
-			pos.x -= edit_autotile_dialog.rect_size.x
-			edit_autotile_dialog.rect_global_position = pos
+			pos.x -= edit_autotile_dialog.size.x
+			edit_autotile_dialog.global_position = pos
 			show_dialog(edit_autotile_dialog)
-			name_autotile_dialog_b.caret_position = name_autotile_dialog_b.text.length()
+			name_autotile_dialog_b.caret_column = name_autotile_dialog_b.text.length()
 			name_autotile_dialog_b.select_all()
 			name_autotile_dialog_b.grab_focus()
 
@@ -1214,9 +1216,9 @@ func _on_create_merged_autotile_button_button_up() -> void:
 			data_tileset.tiles[ids[i]].tile_height != h or
 			data_tileset.tiles[ids[i]].type != t):
 			var pos = get_global_mouse_position()
-			pos.x = pos.x - error1_dialog.rect_size.x + 72
+			pos.x = pos.x - error1_dialog.size.x + 72
 			pos.y = pos.y + 22
-			error1_dialog.rect_global_position = pos
+			error1_dialog.global_position = pos
 			show_dialog(error1_dialog)
 			return # error mixing tiles
 	# tiles are right, mixing it
@@ -1245,9 +1247,9 @@ func _on_create_animated_autotile_button_button_up() -> void:
 			data_tileset.tiles[ids[i]].tile_height != h or
 			data_tileset.tiles[ids[i]].type != t):
 			var pos = get_global_mouse_position()
-			pos.x = pos.x - error1_dialog.rect_size.x + 72
+			pos.x = pos.x - error1_dialog.size.x + 72
 			pos.y = pos.y + 22
-			error1_dialog.rect_global_position = pos
+			error1_dialog.global_position = pos
 			show_dialog(error1_dialog)
 			return # error, tiles wuth different size or type
 	# tiles are right, delete them and create a new autotile animated
@@ -1290,7 +1292,7 @@ func animate_autotile_selected() -> void:
 func _on_remove_autotile_button_up() -> void:
 	tooltip.hide_all()
 	var index = autotile_list.get_selected_items()[-1]
-	if get_focus_owner() != autotile_list: return
+	if get_viewport().gui_get_focus_owner() != autotile_list: return
 	var ids = autotile_list.get_selected_items()
 	ids.invert()
 	for i in ids:
@@ -1328,9 +1330,9 @@ func _on_save_all_Button_button_up() -> void:
 	var data = get_data_struct(data_tileset.tiles)
 	# Create save panel for each key
 	for key in data.keys():
-		var panel = save_panel_scene.instance()
+		var panel = save_panel_scene.instantiate()
 		panel.id = save_dialog_container_vbox.get_child_count()
-		panel.connect("deleted", self, "delete_tilemap_in_save_dialog")
+		panel.connect("deleted", Callable(self, "delete_tilemap_in_save_dialog"))
 		save_dialog_container_vbox.add_child(panel)
 		var lineedit = panel.columns_spinBox.get_line_edit()
 		lineedit.connect('focus_entered', self,
@@ -1383,15 +1385,15 @@ func get_data_struct(_data : Array) -> Dictionary:
 	return data
 	
 func save_dialog_on_focus_changed():
-	var focused = get_focus_owner()
-	var focus_size = focused.rect_size.y
+	var focused = get_viewport().gui_get_focus_owner()
+	var focus_size = focused.size.y
 	var parent
 	if focused.get_parent() is SpinBox:
 		parent = focused.get_parent().get_parent()
 	else:
 		parent = focused.get_parent()
-	var focus_top = focused.rect_position.y + parent.rect_position.y
-	var scroll_size = save_dialog_container.rect_size.y
+	var focus_top = focused.position.y + parent.position.y
+	var scroll_size = save_dialog_container.size.y
 	var scroll_top = save_dialog_container.get_v_scroll()
 	var scroll_bottom = scroll_top + scroll_size - focus_size - 60
 	if focus_top < scroll_top:
@@ -1400,14 +1402,14 @@ func save_dialog_on_focus_changed():
 		var scroll_offset = scroll_top + focus_top - scroll_bottom
 		save_dialog_container.set_v_scroll(scroll_offset)
 		
-	focused.caret_position = focused.text.length()
+	focused.caret_column = focused.text.length()
 	focused.select_all()
 		
 func save_dialog_on_focus_exited(last_focused):
 	last_focused.deselect()
 	if save_dialog.visible:
-		yield(get_tree(), "idle_frame")
-		var focused = get_focus_owner()
+		await get_tree().idle_frame
+		var focused = get_viewport().gui_get_focus_owner()
 		if !focused is LineEdit:
 			if save_dialog_container_vbox.get_child_count() != 0:
 				var child = save_dialog_container_vbox.get_child(0)
@@ -1434,7 +1436,7 @@ func _on_save_dialog_CloseButton_button_up() -> void:
 
 func _on_SaveDialog_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.is_mouse_button_pressed(1):
-		save_dialog.rect_position += event.relative
+		save_dialog.position += event.relative
 
 
 func _on_SaveDialog_visibility_changed() -> void:
@@ -1454,9 +1456,9 @@ func _on_save_dialog_tilemap_LineEdit_gui_input(event: InputEvent) -> void:
 		if event.is_pressed():
 			can_action = false
 			select_folder("tilemap")
-			yield(file_dialog, "hide")
+			await file_dialog.hide
 			show_dialog(save_dialog)
-			yield(get_tree(), "idle_frame")
+			await get_tree().idle_frame
 			can_action = true
 			refresh_info_in_save_panels()
 			
@@ -1467,9 +1469,9 @@ func refresh_info_in_save_panels():
 			child.set_tilemap_path(text)
 			
 func show_tooltip(child):
-	if child.hint_tooltip != "":
-		child.editor_description = child.hint_tooltip.lstrip(" ")
-		child.hint_tooltip = ""
+	if child.tooltip_text != "":
+		child.editor_description = child.tooltip_text.lstrip(" ")
+		child.tooltip_text = ""
 	tooltip.set_text(child.editor_description)
 	tooltip.show()
 	
@@ -1477,9 +1479,9 @@ func hide_tooltip(child, value = false):
 	tooltip.hide(value)
 	
 func update_tooltip_position(event : InputEvent, child = null):
-	if child.hint_tooltip != "":
-		child.editor_description = child.hint_tooltip.lstrip(" ")
-		child.hint_tooltip = ""
+	if child.tooltip_text != "":
+		child.editor_description = child.tooltip_text.lstrip(" ")
+		child.tooltip_text = ""
 	if event is InputEventMouseMotion:
 		tooltip.update_position()
 
@@ -1606,7 +1608,7 @@ func get_export_configuration(index):
 			
 	if error != "":
 		error = "[center]%s[/center]" % error
-		error2_dialog_label.bbcode_text = error
+		error2_dialog_label.text = error
 		show_dialog(error2_dialog)
 		return
 			
@@ -1642,9 +1644,9 @@ func get_export_configuration(index):
 		
 	var data = get_data_struct(result.tiles).values()[0]
 		
-	var panel = save_panel_scene.instance()
+	var panel = save_panel_scene.instantiate()
 	panel.id = 0
-	panel.connect("deleted", self, "delete_tilemap_in_save_dialog")
+	panel.connect("deleted", Callable(self, "delete_tilemap_in_save_dialog"))
 	save_dialog_container_vbox.add_child(panel)
 	var lineedit = panel.columns_spinBox.get_line_edit()
 	lineedit.connect('focus_entered', self,
@@ -1685,7 +1687,7 @@ func _on_save_dialog_save_Button_button_up() -> void:
 	# Show saving animation...
 	saving_animation.visible = true
 	for i in 6:
-		yield(get_tree(), "idle_frame")
+		await get_tree().idle_frame
 	save_all()
 	# vvvvvvvvvvvvvvvvvvvvvvv does not works :(
 	#thread = Thread.new()
@@ -1701,7 +1703,7 @@ func save_all(user_data = null) -> void:
 		save_panels = user_data
 	else:
 		save_panels = save_dialog_container_vbox.get_children()
-	var dir = Directory.new()
+	var dir = DirAccess.new()
 	var image_data = []
 	for panel in save_panels:
 		var panel_data = panel.get_values()
@@ -1781,7 +1783,7 @@ func save_all(user_data = null) -> void:
 			var path = get_final_file_name(panel_data.tileset_name, ".png",
 				autotile_path)
 			for arr in tile_images:
-				yield(get_tree(), "idle_frame")
+				await get_tree().idle_frame
 				for im_data in arr:
 					if !data_rects.has(im_data.id):
 						data_rects[im_data.id] = {}
@@ -1852,7 +1854,7 @@ func save_all(user_data = null) -> void:
 		else:
 			# Save individual images
 			for arr in tile_images:
-				yield(get_tree(), "idle_frame")
+				await get_tree().idle_frame
 				for img_data in arr:
 					if !data_rects.has(img_data.id):
 						data_rects[img_data.id] = {}
@@ -2069,14 +2071,14 @@ func get_final_file_name(file_name, ext, path):
 
 
 func _process(delta: float) -> void:
-	if final_zoom != image_real.rect_scale:
-		var zoom = image_real.rect_scale.move_toward(final_zoom,
-			zoom_timer * delta) - image_real.rect_scale
+	if final_zoom != image_real.scale:
+		var zoom = image_real.scale.move_toward(final_zoom,
+			zoom_timer * delta) - image_real.scale
 		change_zoom(zoom)
 #		image_real.rect_scale = image_real.rect_scale.move_toward(final_zoom,
 #			zoom_timer * delta)
 		zoom_timer += 1
-		if image_real.rect_scale.distance_to(final_zoom) < 0.001:
+		if image_real.scale.distance_to(final_zoom) < 0.001:
 			#image_real.rect_scale = final_zoom
 			zoom_timer = 10
 			
@@ -2094,17 +2096,17 @@ func _on_CreateAutoTile_tree_exiting() -> void:
 	config.autotiles_path = autotiles_lineEdit.text
 	config.tilesets_paths = tileset_lineEdit.text
 	config.tilemaps_path = save_dialog_tilemap_path.text
-	file.store_string(to_json(config))
+	file.store_string(JSON.new().stringify(config))
 	file.close()
 
 
 func _on_create_autotile_dialog_ok_button_focus_exited() -> void:
 	if create_autotile_dialog.visible:
-		yield(get_tree(), "idle_frame")
+		await get_tree().idle_frame
 		create_autotile_dialog_t.grab_focus()
 		
-func _unhandled_key_input(event: InputEventKey) -> void:
+func _unhandled_key_input(event: InputEvent) -> void:
 	if (hide_behind.visible and event is InputEventKey and
-		event.is_pressed() and event.scancode == KEY_ESCAPE):
+		event.is_pressed() and event.keycode == KEY_ESCAPE):
 			if !save_dialog.visible and !file_dialog.visible:
 				hide_all_dialogs()

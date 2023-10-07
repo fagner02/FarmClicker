@@ -1,4 +1,4 @@
-tool
+@tool
 class_name CustomButton
 extends Area2D
 

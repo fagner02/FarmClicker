@@ -1,4 +1,4 @@
-tool
+@tool
 extends EditorPlugin
 
 const WizardWindow = preload("ASWizardWindow.tscn")
@@ -7,7 +7,7 @@ const menu_item_name = "Aseprite Spritesheet Wizard"
 const CONFIG_FILE_PATH = 'user://aseprite_wizard.cfg'
 
 var config: ConfigFile = ConfigFile.new()
-var window: WindowDialog
+var window: Window
 var importPlugin : EditorImportPlugin
 
 var _importer_enabled = false
@@ -31,12 +31,12 @@ func _exit_tree():
 	config = null
 
 func _open_window(_ud):
-	window = WizardWindow.instance()
+	window = WizardWindow.instantiate()
 	window.init(config, get_editor_interface().get_resource_filesystem())
 	_add_to_editor(window)
 	window.popup_centered()
-	window.connect("popup_hide", self, "_on_window_closed")
-	window.connect("importer_state_changed", self, "_on_importer_state_changed")
+	window.connect("popup_hide", Callable(self, "_on_window_closed"))
+	window.connect("importer_state_changed", Callable(self, "_on_importer_state_changed"))
 
 func _on_window_closed():
 	if window:

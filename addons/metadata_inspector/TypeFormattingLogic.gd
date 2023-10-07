@@ -2,8 +2,8 @@ extends Object
 
 class_name TypeFormattingLogic
 
-var all_type_names = {null:"ERR", TYPE_NIL:"nil", TYPE_BOOL:"bool", TYPE_INT:"int", TYPE_REAL:"real", TYPE_STRING:"str", TYPE_VECTOR2:"v2", TYPE_RECT2:"rect2", TYPE_VECTOR3:"v3", TYPE_TRANSFORM2D:"trans2D", TYPE_PLANE:"plane", TYPE_QUAT:"quat", TYPE_AABB:"aabb", TYPE_BASIS:"basis", TYPE_TRANSFORM:"transform", TYPE_COLOR:"color", TYPE_NODE_PATH:"nodepath", TYPE_RID:"rid", TYPE_OBJECT:"obj", TYPE_DICTIONARY:"dict", TYPE_ARRAY:"arr", TYPE_RAW_ARRAY:"rawarr", TYPE_INT_ARRAY:"intarr", TYPE_REAL_ARRAY:"realarr", TYPE_STRING_ARRAY:"strarr", TYPE_VECTOR2_ARRAY:"v2arr", TYPE_VECTOR3_ARRAY:"v3ar", TYPE_COLOR_ARRAY:"colorarr", TYPE_MAX:"max"}
-var supported_type_names = {TYPE_NIL:"nil", TYPE_BOOL:"bool", TYPE_INT:"int", TYPE_REAL:"real", TYPE_STRING:"str", TYPE_VECTOR2:"v2", TYPE_RECT2:"rect2", TYPE_VECTOR3:"v3", TYPE_COLOR:"color", TYPE_DICTIONARY:"dict", TYPE_ARRAY:"arr"}
+var all_type_names = {null:"ERR", TYPE_NIL:"nil", TYPE_BOOL:"bool", TYPE_INT:"int", TYPE_FLOAT:"real", TYPE_STRING:"str", TYPE_VECTOR2:"v2", TYPE_RECT2:"rect2", TYPE_VECTOR3:"v3", TYPE_TRANSFORM2D:"trans2D", TYPE_PLANE:"plane", TYPE_QUATERNION:"quat", TYPE_AABB:"aabb", TYPE_BASIS:"basis", TYPE_TRANSFORM3D:"transform", TYPE_COLOR:"color", TYPE_NODE_PATH:"nodepath", TYPE_RID:"rid", TYPE_OBJECT:"obj", TYPE_DICTIONARY:"dict", TYPE_ARRAY:"arr", TYPE_PACKED_BYTE_ARRAY:"rawarr", TYPE_PACKED_INT32_ARRAY:"intarr", TYPE_PACKED_FLOAT32_ARRAY:"realarr", TYPE_PACKED_STRING_ARRAY:"strarr", TYPE_PACKED_VECTOR2_ARRAY:"v2arr", TYPE_PACKED_VECTOR3_ARRAY:"v3ar", TYPE_PACKED_COLOR_ARRAY:"colorarr", TYPE_MAX:"max"}
+var supported_type_names = {TYPE_NIL:"nil", TYPE_BOOL:"bool", TYPE_INT:"int", TYPE_FLOAT:"real", TYPE_STRING:"str", TYPE_VECTOR2:"v2", TYPE_RECT2:"rect2", TYPE_VECTOR3:"v3", TYPE_COLOR:"color", TYPE_DICTIONARY:"dict", TYPE_ARRAY:"arr"}
 
 
 # different colors for UI type labels
@@ -33,7 +33,7 @@ func guess_my_type(tval):
 		return TYPE_COLOR
 	elif is_number(tval):
 		if "." in tval:
-			return TYPE_REAL
+			return TYPE_FLOAT
 		else:
 			return TYPE_INT
 	elif tval.to_upper().replace(" ", "") in ["FALSE","TRUE"]:
@@ -69,7 +69,7 @@ func custom_convert(val, typ):
 			return [{}]
 		elif typ == TYPE_ARRAY:
 			return [[]]
-		elif typ == TYPE_REAL:
+		elif typ == TYPE_FLOAT:
 			return [float(val)]
 		elif typ == TYPE_INT:
 			return [int(val)]

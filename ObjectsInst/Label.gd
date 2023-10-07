@@ -1,9 +1,9 @@
 extends HBoxContainer
 
 
-export var text: String
-export var fruitName : String
-onready var res = load("res://Storage.tres")
+@export var text: String
+@export var fruitName : String
+@onready var res = load("res://Storage.tres")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
