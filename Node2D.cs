@@ -14,12 +14,12 @@ public partial class Node2D : Godot.Node2D
 	}
 	public override void _Ready()
 	{
+		SLManage.Load();
 		RuntimeData runtimeData = GetNode<RuntimeData>("/root/RuntimeData");
 		if (!runtimeData.loaded)
 		{
 			// SLManage.Load();
 		}
-		System.Threading.Thread.Sleep(1000);
 		Task.Run(async delegate
 		{
 			await Task.Delay(500);

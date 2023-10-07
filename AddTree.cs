@@ -29,13 +29,13 @@ namespace FarmClicker
 			tree.Set("box", box);
 			Node node = sceneTree.Root.GetNode("Node2D/Body");
 			node.CallDeferred(Node2D.MethodName.AddChild, tree);
-			Data data = ResourceLoader.Load<Data>("res://Data.tres");
 			Data.TreeDict temp = new()
 			{
 				treeType = type,
 				Id = id
 			};
-			data.Grounds[gid].trees.Add($"Tree{id}", temp);
+			SLManage.data.Grounds[gid].trees.Add($"Tree{id}", temp);
+			SLManage.Save();
 		}
 
 		public static bool AddGround(int id, string treeType, SceneTree sceneTree)
@@ -45,6 +45,8 @@ namespace FarmClicker
 			Node node = sceneTree.Root.GetNode("Node2D/Body");
 			node.CallDeferred("add_child", ground);
 
+			SLManage.data.Grounds.Add(id, new Data.Ground() { Id = id, TreeType = treeType });
+			SLManage.Save();
 			return false;
 		}
 	}

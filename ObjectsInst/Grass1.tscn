@@ -1,22 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://b30exnyoelm8a"]
 
-[ext_resource path="res://Graphs/Tiles/Grass1.png" type="Texture2D" id=1]
-[ext_resource path="res://Spot.gd" type="Script" id=2]
-[ext_resource path="res://Item.gd" type="Script" id=3]
+[ext_resource type="Texture2D" uid="uid://bgxltdsg02ig8" path="res://Graphs/Tiles/Grass1.png" id="1"]
+[ext_resource type="Script" path="res://Spot.gd" id="2"]
+[ext_resource type="Script" path="res://Item.gd" id="3"]
 
 [node name="Grass1" type="Node2D"]
-position = Vector2( 392, 556 )
-script = ExtResource( 2 )
+position = Vector2(392, 556)
+script = ExtResource("2")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-position = Vector2( -352, -536 )
-polygon = PackedVector2Array( 226, 505.5, 286, 565.5, 402, 561.5, 470, 521.5, 454, 493.5, 350, 461.5, 314, 469.5 )
+position = Vector2(-352, -536)
+polygon = PackedVector2Array(226, 505.5, 286, 565.5, 402, 561.5, 470, 521.5, 454, 493.5, 350, 461.5, 314, 469.5)
 
 [node name="Grass" type="Sprite2D" parent="Area2D"]
-scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 1 )
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1")
 
 [node name="CenterContainer" type="VBoxContainer" parent="."]
 offset_left = -388.0
@@ -25,11 +25,11 @@ offset_right = 112.0
 offset_bottom = 360.0
 
 [node name="Button" type="Button" parent="CenterContainer"]
-offset_right = 500.0
-offset_bottom = 37.0
+layout_mode = 2
 text = "Orange"
 expand_icon = true
-script = ExtResource( 3 )
+script = ExtResource("3")
+
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
 [connection signal="click" from="CenterContainer/Button" to="." method="_on_Button_click"]
 [connection signal="pressed" from="CenterContainer/Button" to="CenterContainer/Button" method="_on_Button_pressed"]

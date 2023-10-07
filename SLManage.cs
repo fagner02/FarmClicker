@@ -1,81 +1,54 @@
-using System.Diagnostics;
 using System;
+using System.Diagnostics;
+using System.Text.Json;
 using Godot;
 using StorageManagement;
 
 [GlobalClass]
 public static class SLManage
 {
-    public static bool Load()
+    public static Data data;
+    static bool loaded = false;
+    public static void Load()
     {
-        ResourceSaver.Save(new Storage(), "res://Storage.tres");
-        Storage res = ResourceLoader.Load<Storage>("res://Storage.tres");
-        Storage data = ResourceLoader.Load<Storage>("res://Data.tres");
         Godot.FileAccess file;
 
-        if (Godot.FileAccess.FileExists("res://Datak.json"))
+        if (Godot.FileAccess.FileExists("res://Data.json"))
         {
-            file = Godot.FileAccess.Open("res://Datak.json", Godot.FileAccess.ModeFlags.Read);
-            var jsn = file.GetAsText();
-            if (jsn != "")
+            try
             {
-                Debugger.Log(1, null, "load");
-
-                using Json test_json_conv = new();
-                if (test_json_conv.Parse(jsn) == Error.Ok)
-                {
-                    data = test_json_conv.Data.As<Storage>();
-                }
-            }
-            else
-            {
-                Debugger.Log(1, null, "correct");
-
+                file = Godot.FileAccess.Open("res://Data.json", Godot.FileAccess.ModeFlags.Read);
+                var json = file.GetAsText();
                 file.Close();
-                file = Godot.FileAccess.Open("res://DataBackup.json", Godot.FileAccess.ModeFlags.Read);
-
-                jsn = file.GetAsText();
-                using Json test_json_conv = new();
-                if (test_json_conv.Parse(jsn) == Error.Ok)
-                {
-                    data = test_json_conv.Data.As<Storage>();
-                }
+                var res = JsonSerializer.Deserialize<Data>(json) ?? throw new NullReferenceException();
+                data = (Data)res;
             }
-            file.Close();
+            catch
+            {
+                file = Godot.FileAccess.Open("res://DataBackup.json", Godot.FileAccess.ModeFlags.Read);
+                var json = file.GetAsText();
+                var res = JsonSerializer.Deserialize<Data>(json);
+                data = (Data)res;
+                file.Close();
+            }
         }
-
-        res.loaded = true;
-        return true;
+        else
+        {
+            data = new Data();
+            Save();
+        }
     }
 
-    static void Save()
+    public static void Save()
     {
-        var res = ResourceLoader.Load<Storage>("res://Storage.tres");
-
-        var data = ResourceLoader.Load<Storage>("res://Data.tres");
-
-        if (res.loaded == true)
-        {
-            if (res.loading == false)
-            {
-                res.loading = true;
-
-                Godot.FileAccess file = Godot.FileAccess.Open("res://Datak.json", Godot.FileAccess.ModeFlags.Write);
-
-                file.StoreLine(Json.Stringify(data));
-
-                file.Close();
-
-
-                file = Godot.FileAccess.Open("res://DataBackup.json", Godot.FileAccess.ModeFlags.Write);
-
-                file.StoreLine(Json.Stringify(data));
-
-                file.Close();
-
-                res.loading = false;
-            }
-        }
+        Godot.FileAccess file = Godot.FileAccess.Open("res://Data.json", Godot.FileAccess.ModeFlags.Write);
+        var text = JsonSerializer.Serialize(data);
+        Debugger.Log(0, null, text);
+        file.StoreLine(text);
+        file.Close();
+        file = Godot.FileAccess.Open("res://DataBackup.json", Godot.FileAccess.ModeFlags.Write);
+        file.StoreLine(JsonSerializer.Serialize(data));
+        file.Close();
     }
 
 

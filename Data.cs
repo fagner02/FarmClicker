@@ -6,7 +6,7 @@ using Godot.Collections;
 namespace StorageManagement
 {
 	[GlobalClass]
-	public partial class Data : Resource
+	public partial class Data
 	{
 		public Godot.Collections.Dictionary<string, int> MainDict = new(){
 			{"money", 0},
@@ -26,9 +26,9 @@ namespace StorageManagement
 
 		public partial class Ground : GodotObject
 		{
-			public int Id = 0;
+			public int Id;
 			public string TreeType;
-			public Godot.Collections.Dictionary<string, TreeDict> trees;
+			public Godot.Collections.Dictionary<string, TreeDict> trees = new();
 		};
 
 		public partial class TreeDict : GodotObject

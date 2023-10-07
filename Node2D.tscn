@@ -1,7 +1,7 @@
-[gd_scene load_steps=33 format=3 uid="uid://dawvj2hxparn8"]
+[gd_scene load_steps=25 format=3 uid="uid://dawvj2hxparn8"]
 
 [ext_resource type="Script" path="res://Node2D.cs" id="1_4j4sj"]
-[ext_resource type="PackedScene" path="res://ObjectsInst/Ground.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://c6e1uj7cbm05p" path="res://ObjectsInst/Ground.tscn" id="3"]
 [ext_resource type="Texture2D" uid="uid://cm360jl2jwgkn" path="res://Graphs/sketch-1588125516283.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://lnoao1shd68o" path="res://Graphs/sketch-1587801317230.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://bega3x0gicio1" path="res://Graphs/1.png" id="6"]
@@ -16,176 +16,14 @@
 [ext_resource type="Texture2D" uid="uid://brdhsycel4un1" path="res://Graphs/Cancel.png" id="16"]
 [ext_resource type="FontFile" path="res://Fonts/Billy3.tres" id="18"]
 [ext_resource type="Texture2D" uid="uid://dv1awnup523u5" path="res://Graphs/sketch-1600721871072.png" id="19"]
-[ext_resource type="PackedScene" path="res://Client.tscn" id="20"]
+[ext_resource type="PackedScene" uid="uid://73451vtxf4qs" path="res://Client.tscn" id="20"]
 [ext_resource type="Script" path="res://UpperCanvas.gd" id="22"]
-[ext_resource type="Script" path="res://MoneyLabel.gd" id="23"]
 [ext_resource type="PackedScene" uid="uid://b0ig8scg6evwe" path="res://ObjectsInst/Trees/OrangeTree.tscn" id="25"]
 [ext_resource type="Texture2D" uid="uid://f5c7u6jd5fee" path="res://icon.png" id="27"]
 [ext_resource type="Script" path="res://CustomButton.gd" id="30"]
 
 [sub_resource type="FontVariation" id="FontVariation_cp3kw"]
 base_font = ExtResource("10")
-
-[sub_resource type="Animation" id="2"]
-length = 0.9
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../../CanvasLayer3/CenterContainer/Polygon2D2:rotation_degrees")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-42.3927, -80.2699]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Info:scale")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0.950312, 1.15353), Vector2(2.04151, 2.26074), Vector2(2.04151, 2.26074)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Info:rotation_degrees")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.25),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.740219]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../../CanvasLayer3/CenterContainer/Polygon2D2/TextureButton:scale")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.2, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("CanvasLayer:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../../CanvasLayer3/CenterContainer/Polygon2D2:position")
-tracks/5/interp = 2
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.25),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-48.634, -97.7332)]
-}
-
-[sub_resource type="Animation" id="3"]
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../../CanvasLayer3/CenterContainer/Polygon2D2:rotation_degrees")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-80.2699, -42.3927]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Info:scale")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(2.04151, 2.26074), Vector2(0.950312, 1.15353)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../../CanvasLayer3/CenterContainer/Polygon2D2/TextureButton:scale")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Polygon2D5/Open:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.25),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_ne0sh"]
-length = 0.001
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2nqpl"]
-_data = {
-"Expand": SubResource("2"),
-"Minimize": SubResource("3"),
-"RESET": SubResource("Animation_ne0sh")
-}
-
-[sub_resource type="AnimationNodeAnimation" id="4"]
-animation = &"Expand"
-
-[sub_resource type="AnimationNodeAnimation" id="5"]
-animation = &"Minimize"
-
-[sub_resource type="AnimationNodeStateMachine" id="6"]
-states/Expand/node = SubResource("4")
-states/Expand/position = Vector2(244, 56)
-states/Minimize/node = SubResource("5")
-states/Minimize/position = Vector2(193, 166)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0auh4"]
 
@@ -295,16 +133,6 @@ scale = Vector2(1.18077, 1.04363)
 texture = ExtResource("7")
 region_enabled = true
 region_rect = Rect2(630, 459.836, 80, 79)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Body/Market/Boxes"]
-libraries = {
-"": SubResource("AnimationLibrary_2nqpl")
-}
-
-[node name="AnimationTree" type="AnimationTree" parent="Body/Market/Boxes"]
-tree_root = SubResource("6")
-anim_player = NodePath("../AnimationPlayer")
-active = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Body/Market/Boxes"]
 position = Vector2(-2.79263, -101.083)
@@ -567,7 +395,6 @@ offset_bottom = 175.167
 scale = Vector2(1.2, 1.2)
 theme_override_fonts/font = ExtResource("18")
 text = "999M"
-script = ExtResource("23")
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="UpperCanvas"]
 offset_left = -600.806
@@ -607,8 +434,6 @@ patch_margin_bottom = 97
 
 [node name="Shop" type="Node2D" parent="DownCanvas"]
 position = Vector2(415.779, 842.871)
-
-[node name="Area2D" type="Area2D" parent="DownCanvas/Shop"]
 
 [node name="TextureButton" type="TextureButton" parent="DownCanvas/Shop"]
 offset_left = -79.779
@@ -736,5 +561,4 @@ texture = ExtResource("27")
 [connection signal="timeout" from="Body/Clients/Timer" to="Body/Clients" method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
 [connection signal="input_event" from="Area2D" to="Area2D" method="_on_Area2D_input_event"]
-[connection signal="input_event" from="DownCanvas/Shop/Area2D" to="DownCanvas/Shop/Area2D" method="_on_Area2D_input_event"]
 [connection signal="input_event" from="Node2D/Button" to="Node2D/Button" method="_on_Button_input_event"]

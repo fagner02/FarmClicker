@@ -138,34 +138,22 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Info:rotation_degrees")
+tracks/5/path = NodePath("Info/Close:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Info/Close:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "times": PackedFloat32Array(0.2),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Info:visible")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Info:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0.35),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -355,6 +343,7 @@ texture = ExtResource("1")
 uv = PackedVector2Array(800.45, 421.427, 798.069, 538.094, 852.831, 540.475, 917.117, 539.681, 931.402, 540.475, 953.625, 542.062, 951.244, 522.221, 952.831, 508.729, 949.656, 417.459)
 
 [node name="Open" type="Button" parent="Info"]
+visible = false
 show_behind_parent = true
 light_mask = 0
 material = SubResource("1")
@@ -365,7 +354,6 @@ offset_bottom = -4.0
 flat = true
 
 [node name="Close" type="Button" parent="Info"]
-visible = false
 offset_left = 37.5896
 offset_top = -144.805
 offset_right = 92.5896
@@ -375,7 +363,6 @@ flat = true
 expand_icon = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Info"]
-visible = false
 clip_contents = false
 offset_left = -66.0
 offset_top = -116.0
@@ -454,7 +441,6 @@ region_enabled = true
 region_rect = Rect2(128.961, 122.379, 231.681, 131.819)
 
 [node name="Fruits" type="Sprite2D" parent="Node2D"]
-visible = false
 position = Vector2(-1.45602, -27.589)
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("1")
@@ -509,6 +495,4 @@ position = Vector2(147.462, 180.76)
 scale = Vector2(0.4, 0.4)
 
 [connection signal="pressed" from="Info/Close" to="." method="_on_Close_pressed"]
-[connection signal="input_event" from="CharacterBody2D" to="." method="_on_KinematicBody2D_input_event"]
-[connection signal="mouse_exited" from="CharacterBody2D" to="." method="_on_KinematicBody2D_mouse_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

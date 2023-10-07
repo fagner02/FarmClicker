@@ -6,8 +6,6 @@ namespace FarmClicker
 {
 	public partial class Box : Sprite2D
 	{
-		Data data = ResourceLoader.Load<Data>("res://Data.tres");
-		Storage res = ResourceLoader.Load<Storage>("res://Storage.tres");
 		Label text;
 		AnimationNodeStateMachinePlayback anim;
 		Label label;
@@ -29,7 +27,6 @@ namespace FarmClicker
 
 		public override void _Process(double delta)
 		{
-			if (res.loaded)
 			{
 				// SLManage.Delete(data..Box, res.labels)
 
